@@ -12,29 +12,29 @@
                 extend: {
                     colors: {
                         brand: {
-                            50: '#f0f9f8',
-                            100: '#d7f0ec',
-                            200: '#afe0d8',
-                            300: '#7bc9bd',
-                            400: '#4faea2',
-                            500: '#349287',
-                            600: '#27756d',
-                            700: '#235e58',
-                            800: '#204c47',
-                            900: '#1e403d',
-                            950: '#0c2523',
+                            50: '#fff1f2',   // Softest light pink background
+                            100: '#ffe4e6',  // Light pink tint
+                            200: '#fecdd3',  // Pastels pink
+                            300: '#fda4af',  
+                            400: '#fb7185',  
+                            500: '#f43f5e',  // Elegant vibrant Rose (Primary)
+                            600: '#e11d48',  // Rose accent
+                            700: '#be123c',  
+                            800: '#9f1239',  
+                            900: '#881337',  // Deep crimson rose
+                            950: '#4c0519',  // Deepest dark maroon-pink
                         },
                         wellness: {
-                            50: '#f5f7fb',
-                            100: '#ebeff7',
-                            200: '#d1dcfa',
-                            300: '#a7bdf5',
-                            400: '#7494ee',
-                            500: '#4f6ee3',
-                            600: '#384fd4',
-                            700: '#2d3ebb',
-                            800: '#2a3598',
-                            900: '#26317b',
+                            50: '#fff0f6',   // Ultra light magenta-pink
+                            100: '#ffdeeb',  
+                            200: '#fbcfe8',  
+                            300: '#f9a8d4',  
+                            400: '#f472b6',  
+                            500: '#ec4899',  // Calm Pink
+                            600: '#db2777',  
+                            700: '#be185d',  
+                            800: '#9d174d',  
+                            900: '#831843',  
                         }
                     },
                     fontFamily: {
@@ -65,12 +65,12 @@
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <style>
         .glass {
-            background: rgba(255, 255, 255, 0.85);
+            background: rgba(255, 255, 255, 0.88);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
         }
         .glass-dark {
-            background: rgba(12, 37, 35, 0.9);
+            background: rgba(76, 5, 25, 0.92);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
         }
@@ -82,14 +82,14 @@
             scrollbar-width: none;
         }
         .step-active {
-            color: #349287;
+            color: #f43f5e;
             font-weight: 600;
         }
         @keyframes pulse-border {
-            0%, 100% { border-color: rgba(52, 146, 135, 0.4); }
-            50% { border-color: rgba(52, 146, 135, 1); }
+            0%, 100% { border-color: rgba(244, 63, 94, 0.4); }
+            50% { border-color: rgba(244, 63, 94, 1); }
         }
-        .pulse-border-teal {
+        .pulse-border-pink {
             animation: pulse-border 2s infinite;
         }
     </style>
@@ -97,11 +97,11 @@
 <body class="font-sans bg-slate-50 text-slate-800 antialiased overflow-x-hidden selection:bg-brand-500 selection:text-white">
 
     <!-- TOP EMERGENCY ALERT BAR -->
-    <div class="bg-gradient-to-r from-red-600 via-brand-700 to-brand-800 text-white text-xs sm:text-sm py-2 px-4 shadow-md sticky top-0 z-50 transition-all duration-300" id="emergency-banner">
+    <div class="bg-gradient-to-r from-brand-600 via-brand-700 to-brand-800 text-white text-xs sm:text-sm py-2 px-4 shadow-md sticky top-0 z-50 transition-all duration-300" id="emergency-banner">
         <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
-            <div class="flex items-center gap-2 font-medium">
-                <span class="inline-flex h-2.5 w-2.5 items-center justify-center rounded-full bg-red-400 animate-ping absolute"></span>
-                <span class="inline-flex h-2.5 w-2.5 items-center justify-center rounded-full bg-red-500 relative"></span>
+            <div class="flex items-center gap-2 font-medium font-sans">
+                <span class="inline-flex h-2.5 w-2.5 items-center justify-center rounded-full bg-rose-300 animate-ping absolute"></span>
+                <span class="inline-flex h-2.5 w-2.5 items-center justify-center rounded-full bg-white relative"></span>
                 <span><strong>24/7 Psychiatric Emergency Support &amp; Critical Ambulance:</strong> +91 9495 867 342</span>
             </div>
             <div class="flex items-center gap-4 text-xs font-semibold">
@@ -115,11 +115,11 @@
 
     <!-- MAIN STICKY HEADER -->
     <header class="sticky top-[38px] sm:top-[40px] z-40 w-full transition-all duration-300" id="main-nav">
-        <div class="glass border-b border-brand-100/50 shadow-sm mx-auto max-w-7xl sm:rounded-2xl sm:mt-2 transition-all duration-300">
+        <div class="glass border-b border-brand-100 shadow-sm mx-auto max-w-7xl sm:rounded-2xl sm:mt-2 transition-all duration-300">
             <div class="px-4 sm:px-6 lg:px-8 py-3.5 flex items-center justify-between">
                 <!-- LOGO -->
                 <a href="#" class="flex items-center gap-2.5 group">
-                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-emerald-500 flex items-center justify-center shadow-md shadow-brand-200 group-hover:scale-105 transition-all duration-300">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-500 to-wellness-400 flex items-center justify-center shadow-md shadow-brand-100 group-hover:scale-105 transition-all duration-300">
                         <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M12 3c1.5 3 4.5 4 6 7.5s-1.5 6.5-6 6.5-7.5-3-6-6.5 4.5-4.5 6-7.5z" />
                             <circle cx="12" cy="12" r="2.5" fill="currentColor"/>
@@ -146,17 +146,17 @@
 
                 <!-- DESKTOP CTA -->
                 <div class="hidden md:flex items-center gap-3">
-                    <a href="tel:+919495867342" class="flex items-center gap-1.5 text-slate-700 hover:text-brand-600 transition font-semibold text-xs lg:text-sm mr-1">
-                        <i data-lucide="phone-call" class="w-4 h-4 text-brand-500"></i>
+                    <a href="tel:+919495867342" class="flex items-center gap-1.5 text-slate-700 hover:text-brand-500 transition font-semibold text-xs lg:text-sm mr-1">
+                        <i data-lucide="phone-call" class="w-4 h-4 text-brand-500 animate-pulse"></i>
                         <span>+91 9495 867 342</span>
                     </a>
-                    <a href="#booking" class="bg-gradient-to-r from-brand-600 to-emerald-600 hover:from-brand-700 hover:to-emerald-700 text-white font-semibold text-xs lg:text-sm px-4 lg:px-5 py-2.5 rounded-xl shadow-md hover:shadow-lg transition-all">
+                    <a href="#booking" class="bg-gradient-to-r from-brand-500 to-wellness-500 hover:from-brand-600 hover:to-wellness-600 text-white font-semibold text-xs lg:text-sm px-4 lg:px-5 py-2.5 rounded-xl shadow-md transition-all">
                         Register Online
                     </a>
                 </div>
 
                 <!-- MOBILE MENU TOGGLE -->
-                <button onclick="toggleMobileMenu()" class="md:hidden p-2 text-slate-600 hover:text-brand-600 hover:bg-slate-100 rounded-lg transition" id="mobile-menu-btn" aria-label="Toggle menu">
+                <button onclick="toggleMobileMenu()" class="md:hidden p-2 text-slate-600 hover:text-brand-500 hover:bg-rose-50 rounded-lg transition" id="mobile-menu-btn" aria-label="Toggle menu">
                     <i data-lucide="menu" class="w-6 h-6" id="menu-icon"></i>
                 </button>
             </div>
@@ -177,7 +177,7 @@
                 <a href="#patient-portal" onclick="toggleMobileMenu()" class="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 text-slate-700 font-semibold transition">
                     <i data-lucide="user-check" class="w-5 h-5 text-brand-500"></i> Patient Desk
                 </a>
-                <a href="#practitioner-console" onclick="toggleMobileMenu()" class="flex items-center justify-between p-3 rounded-xl hover:bg-slate-50 text-slate-900 font-bold transition border border-brand-200 bg-brand-50/50">
+                <a href="#practitioner-console" onclick="toggleMobileMenu()" class="flex items-center justify-between p-3 rounded-xl hover:bg-slate-50 text-slate-900 font-bold transition border border-brand-200 bg-brand-50">
                     <span class="flex items-center gap-3"><i data-lucide="shield" class="w-5 h-5 text-brand-500"></i> Practitioner Desk</span>
                     <span class="bg-brand-600 text-white text-[9px] px-1.5 py-0.5 rounded font-black uppercase">Secure</span>
                 </a>
@@ -185,11 +185,11 @@
                     <i data-lucide="map-pin" class="w-5 h-5 text-brand-500"></i> Our Campuses
                 </a>
                 <hr class="border-slate-100 my-1">
-                <div class="flex flex-col gap-2 pt-1">
+                <div class="flex flex-col gap-2 pt-1 font-display">
                     <a href="tel:+919495867342" class="flex items-center justify-center gap-2 text-brand-600 bg-brand-50 hover:bg-brand-100 py-3 rounded-xl font-bold transition">
                         <i data-lucide="phone" class="w-5 h-5"></i> Call +91 9495 867 342
                     </a>
-                    <a href="#booking" onclick="toggleMobileMenu()" class="flex items-center justify-center gap-2 bg-gradient-to-r from-brand-600 to-emerald-600 text-white py-3 rounded-xl font-bold transition shadow-md">
+                    <a href="#booking" onclick="toggleMobileMenu()" class="flex items-center justify-center gap-2 bg-gradient-to-r from-brand-500 to-wellness-500 text-white py-3 rounded-xl font-bold transition shadow-md">
                         <i data-lucide="calendar" class="w-5 h-5"></i> Register Online Now
                     </a>
                 </div>
@@ -200,50 +200,50 @@
     <!-- HERO SECTION -->
     <section class="relative overflow-hidden pt-12 pb-24 lg:pt-16 lg:pb-32 bg-gradient-to-b from-brand-50/70 via-white to-slate-50">
         <!-- Abstract blur shapes -->
-        <div class="absolute top-1/4 -left-48 w-96 h-96 bg-brand-200/50 rounded-full blur-3xl -z-10 animate-pulse-slow"></div>
-        <div class="absolute top-1/3 -right-48 w-96 h-96 bg-wellness-200/40 rounded-full blur-3xl -z-10"></div>
+        <div class="absolute top-1/4 -left-48 w-96 h-96 bg-brand-100/40 rounded-full blur-3xl -z-10 animate-pulse-slow"></div>
+        <div class="absolute top-1/3 -right-48 w-96 h-96 bg-wellness-100/30 rounded-full blur-3xl -z-10"></div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
                 <!-- HERO LEFT -->
                 <div class="lg:col-span-7 text-center lg:text-left space-y-6">
-                    <div class="inline-flex items-center gap-2 bg-brand-100/70 border border-brand-200 text-brand-800 text-xs sm:text-sm font-semibold px-4 py-1.5 rounded-full shadow-sm animate-float">
-                        <span class="flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                    <div class="inline-flex items-center gap-2 bg-brand-50 border border-brand-100 text-brand-800 text-xs sm:text-sm font-semibold px-4 py-1.5 rounded-full shadow-sm animate-float">
+                        <span class="flex h-2 w-2 rounded-full bg-brand-400 animate-pulse"></span>
                         <span>Palakkad's Pioneer Clinical Care &amp; Private Health System</span>
                     </div>
                     
                     <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-950 leading-tight tracking-tight">
-                        Strengthening <span class="bg-gradient-to-r from-brand-600 to-emerald-600 bg-clip-text text-transparent">Minds</span>,<br>
-                        Transforming <span class="bg-gradient-to-r from-emerald-500 to-wellness-600 bg-clip-text text-transparent">Lives</span>.
+                        Strengthening <span class="bg-gradient-to-r from-brand-500 to-brand-700 bg-clip-text text-transparent">Minds</span>,<br>
+                        Transforming <span class="bg-gradient-to-r from-brand-400 to-wellness-500 bg-clip-text text-transparent">Lives</span>.
                     </h1>
 
                     <p class="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-                        Since 2008, <strong>Manomithra Institute of Medical Sciences (MIMS)</strong> has paved the way as the pioneer of mental healthcare in Palakkad, Kerala. We empower individuals to break free from addiction and reclaim their life through clinical excellence, holistic inpatient programs, and compassionate guidance.
+                        Since 2008, <strong>Manomithra Institute of Medical Sciences (MIMS)</strong> has paved the way as the pioneer of mental healthcare in Palakkad, Kerala. We empower individuals to break free from addiction, restore inner balance, and reclaim their life through specialized clinical therapies and traditional <strong>Manas</strong> holistic mind rejuvenations.
                     </p>
 
                     <!-- Interactive Quick Stats Widget -->
                     <div class="grid grid-cols-3 gap-3 max-w-md mx-auto lg:mx-0 py-2">
-                        <div class="bg-white border border-slate-100 p-3 rounded-2xl shadow-sm hover:shadow-md hover:border-brand-300 transition-all duration-300 group">
-                            <p class="text-xl sm:text-2xl font-black text-brand-600 group-hover:scale-105 transition-all">30+</p>
+                        <div class="bg-white border border-slate-100 p-3 rounded-2xl shadow-sm hover:shadow-md hover:border-brand-200 transition-all duration-300 group">
+                            <p class="text-xl sm:text-2xl font-black text-brand-500 group-hover:scale-105 transition-all">30+</p>
                             <p class="text-[10px] sm:text-xs font-semibold text-slate-500">Yrs Expert Led Care</p>
                         </div>
-                        <div class="bg-white border border-slate-100 p-3 rounded-2xl shadow-sm hover:shadow-md hover:border-brand-300 transition-all duration-300 group">
-                            <p class="text-xl sm:text-2xl font-black text-brand-600 group-hover:scale-105 transition-all">10k+</p>
+                        <div class="bg-white border border-slate-100 p-3 rounded-2xl shadow-sm hover:shadow-md hover:border-brand-200 transition-all duration-300 group">
+                            <p class="text-xl sm:text-2xl font-black text-brand-500 group-hover:scale-105 transition-all">10k+</p>
                             <p class="text-[10px] sm:text-xs font-semibold text-slate-500">Healed Families</p>
                         </div>
-                        <div class="bg-white border border-slate-100 p-3 rounded-2xl shadow-sm hover:shadow-md hover:border-brand-300 transition-all duration-300 group">
-                            <p class="text-xl sm:text-2xl font-black text-brand-600 group-hover:scale-105 transition-all">24/7</p>
+                        <div class="bg-white border border-slate-100 p-3 rounded-2xl shadow-sm hover:shadow-md hover:border-brand-200 transition-all duration-300 group">
+                            <p class="text-xl sm:text-2xl font-black text-brand-500 group-hover:scale-105 transition-all font-mono">24/7</p>
                             <p class="text-[10px] sm:text-xs font-semibold text-slate-500">Medical Support</p>
                         </div>
                     </div>
 
                     <!-- HERO CTAs -->
-                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
-                        <a href="#booking" class="w-full sm:w-auto text-center bg-gradient-to-r from-brand-600 to-emerald-600 text-white font-bold px-8 py-4 rounded-2xl shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all font-display">
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2 font-display">
+                        <a href="#booking" class="w-full sm:w-auto text-center bg-gradient-to-r from-brand-500 to-wellness-500 text-white font-bold px-8 py-4 rounded-2xl shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all">
                             Register Online Consultation
                         </a>
-                        <a href="#practitioner-console" class="w-full sm:w-auto text-center bg-brand-50 border-2 border-brand-200 hover:border-brand-500 text-brand-700 font-bold px-8 py-4 rounded-2xl shadow-sm hover:shadow-md transition-all flex items-center justify-center gap-2 font-display">
-                            <i data-lucide="shield" class="w-5 h-5 text-brand-600"></i>
+                        <a href="#practitioner-console" class="w-full sm:w-auto text-center bg-brand-50 border-2 border-brand-100 hover:border-brand-400 text-brand-700 font-bold px-8 py-4 rounded-2xl shadow-sm hover:shadow-md transition-all flex items-center justify-center gap-2">
+                            <i data-lucide="shield" class="w-5 h-5 text-brand-500"></i>
                             <span>Access Practitioner Desk</span>
                         </a>
                     </div>
@@ -259,28 +259,28 @@
                             <!-- Header status -->
                             <div class="flex items-center justify-between border-b border-brand-800 pb-4 mb-5 relative z-10">
                                 <div class="flex items-center gap-3">
-                                    <div class="w-3 h-3 rounded-full bg-red-500 animate-ping"></div>
+                                    <div class="w-3 h-3 rounded-full bg-rose-400 animate-ping"></div>
                                     <div>
-                                        <h3 class="text-xs font-bold uppercase tracking-wider text-brand-400 font-display">Palakkad Head Office</h3>
+                                        <h3 class="text-xs font-bold uppercase tracking-wider text-brand-300 font-display">Palakkad Head Office</h3>
                                         <p class="text-xs text-brand-200 font-medium">Inpatient &amp; Outpatient Active</p>
                                     </div>
                                 </div>
-                                <div class="bg-brand-800 text-brand-300 text-[10px] font-bold px-2 py-1 rounded-md border border-brand-700 font-mono">
+                                <div class="bg-brand-800 text-brand-200 text-[10px] font-bold px-2 py-1 rounded-md border border-brand-700 font-mono">
                                     SECURE LEDGER ACTIVE
                                 </div>
                             </div>
 
                             <!-- Diagnostic Interface -->
-                            <div class="space-y-4 relative z-10">
-                                <div class="bg-brand-950/80 rounded-2xl p-4 border border-brand-800 hover:border-brand-600 transition">
+                            <div class="space-y-4 relative z-10 font-sans">
+                                <div class="bg-brand-950/85 rounded-2xl p-4 border border-brand-800 hover:border-brand-600 transition">
                                     <div class="flex items-center justify-between mb-2">
-                                        <span class="text-xs text-brand-300 font-medium">Active Treatment Capacity</span>
-                                        <span class="text-xs text-emerald-400 font-bold">Stable Care</span>
+                                        <span class="text-xs text-brand-200 font-medium">Active Treatment Capacity</span>
+                                        <span class="text-xs text-brand-300 font-bold">Stable Care</span>
                                     </div>
                                     <div class="w-full bg-brand-900 h-2 rounded-full overflow-hidden">
-                                        <div class="bg-gradient-to-r from-brand-400 to-emerald-400 h-2 rounded-full" style="width: 78%"></div>
+                                        <div class="bg-gradient-to-r from-brand-300 to-brand-400 h-2 rounded-full" style="width: 78%"></div>
                                     </div>
-                                    <div class="flex items-center justify-between mt-2 text-[10px] text-slate-400 font-medium">
+                                    <div class="flex items-center justify-between mt-2 text-[10px] text-brand-200 font-medium">
                                         <span>78% Operational Occupancy</span>
                                         <span>24/7 Med Staff Active</span>
                                     </div>
@@ -289,22 +289,22 @@
                                 <!-- Doctor Card -->
                                 <div class="bg-gradient-to-r from-brand-800 to-brand-900 rounded-2xl p-4 border border-brand-700 flex items-center justify-between">
                                     <div class="flex items-center gap-3">
-                                        <div class="w-11 h-11 rounded-xl bg-slate-100 flex items-center justify-center font-bold text-brand-800 border-2 border-brand-500 shrink-0">
+                                        <div class="w-11 h-11 rounded-xl bg-white flex items-center justify-center font-bold text-brand-800 border-2 border-brand-400 shrink-0">
                                             <span class="font-display">CDP</span>
                                         </div>
-                                        <div class="text-left">
+                                        <div class="text-left font-sans">
                                             <p class="text-xs font-bold text-white">Dr. C.D. Premadasan</p>
-                                            <p class="text-[10px] text-brand-300 font-semibold">Chief Medical Director (30+ Yrs)</p>
+                                            <p class="text-[10px] text-brand-200 font-semibold">Chief Medical Director (30+ Yrs)</p>
                                         </div>
                                     </div>
-                                    <span class="bg-emerald-500/20 text-emerald-400 text-[10px] font-bold px-2 py-1 rounded-md border border-emerald-500/30 font-display">
+                                    <span class="bg-white/10 text-brand-200 text-[10px] font-bold px-2 py-1 rounded-md border border-brand-700 font-display">
                                         On-Duty Today
                                     </span>
                                 </div>
                             </div>
 
-                            <div class="mt-4 pt-4 border-t border-brand-800/60 flex items-center justify-between text-[11px] text-slate-400 font-medium">
-                                <span class="flex items-center gap-1 text-emerald-400"><span class="h-2 w-2 rounded-full bg-emerald-500 inline-block animate-pulse"></span> Telehealth Active</span>
+                            <div class="mt-4 pt-4 border-t border-brand-800/60 flex items-center justify-between text-[11px] text-brand-300 font-medium font-sans">
+                                <span class="flex items-center gap-1 text-brand-300"><span class="h-2 w-2 rounded-full bg-brand-300 inline-block animate-pulse"></span> Telehealth Active</span>
                                 <span>Pioneer Clinic Since 2008</span>
                             </div>
                         </div>
@@ -312,15 +312,15 @@
                         <!-- Secondary floating card -->
                         <div class="absolute -bottom-8 -right-4 sm:-right-8 bg-white text-slate-800 p-4 rounded-2xl shadow-xl border border-slate-100 max-w-[210px] animate-float z-20">
                             <div class="flex items-center gap-2.5 mb-2">
-                                <div class="w-8 h-8 rounded-lg bg-emerald-100 flex items-center justify-center text-emerald-600 font-bold">
+                                <div class="w-8 h-8 rounded-lg bg-rose-100 flex items-center justify-center text-brand-500">
                                     <i data-lucide="heart" class="w-5 h-5"></i>
                                 </div>
                                 <div>
-                                    <h4 class="text-xs font-black text-slate-900">Protected Registry</h4>
+                                    <h4 class="text-xs font-black text-slate-900 font-display">Protected Registry</h4>
                                     <p class="text-[10px] text-slate-500 font-medium">Safe Local Records Shield</p>
                                 </div>
                             </div>
-                            <p class="text-xs font-bold text-emerald-600 bg-emerald-50 px-2 py-1 rounded font-display">✓ Vercel &amp; Cloud Ready</p>
+                            <p class="text-xs font-bold text-brand-600 bg-brand-50 px-2 py-1 rounded font-display">✓ Vercel &amp; Cloud Ready</p>
                         </div>
                     </div>
                 </div>
@@ -329,7 +329,7 @@
     </section>
 
     <!-- CORE ABOUT US -->
-    <section id="about" class="py-20 sm:py-28 bg-white border-y border-slate-100">
+    <section id="about" class="py-20 sm:py-28 bg-white border-y border-brand-100/50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
                 <h2 class="text-brand-600 text-xs sm:text-sm font-bold uppercase tracking-widest font-mono">Strengthening Minds, Transforming Lives</h2>
@@ -342,8 +342,8 @@
             <!-- Pillars Grid -->
             <div class="grid md:grid-cols-3 gap-8 mb-16">
                 <!-- Card 1 -->
-                <div class="bg-slate-50 border border-slate-100 p-8 rounded-3xl hover:bg-white hover:border-brand-200 hover:shadow-xl transition-all duration-300 space-y-4 group">
-                    <div class="w-12 h-12 rounded-2xl bg-brand-100 text-brand-600 flex items-center justify-center group-hover:bg-brand-600 group-hover:text-white transition-all duration-300">
+                <div class="bg-brand-50/50 border border-brand-100 p-8 rounded-3xl hover:bg-white hover:border-brand-300 hover:shadow-xl transition-all duration-300 space-y-4 group">
+                    <div class="w-12 h-12 rounded-2xl bg-brand-100 text-brand-600 flex items-center justify-center group-hover:bg-brand-500 group-hover:text-white transition-all duration-300">
                         <i data-lucide="eye" class="w-6 h-6"></i>
                     </div>
                     <h4 class="font-display text-xl font-bold text-slate-900">Our Vision</h4>
@@ -353,8 +353,8 @@
                 </div>
 
                 <!-- Card 2 -->
-                <div class="bg-slate-50 border border-slate-100 p-8 rounded-3xl hover:bg-white hover:border-brand-200 hover:shadow-xl transition-all duration-300 space-y-4 group">
-                    <div class="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center group-hover:bg-emerald-600 group-hover:text-white transition-all duration-300">
+                <div class="bg-brand-50/50 border border-brand-100 p-8 rounded-3xl hover:bg-white hover:border-brand-300 hover:shadow-xl transition-all duration-300 space-y-4 group">
+                    <div class="w-12 h-12 rounded-2xl bg-wellness-100 text-wellness-600 flex items-center justify-center group-hover:bg-wellness-500 group-hover:text-white transition-all duration-300">
                         <i data-lucide="compass" class="w-6 h-6"></i>
                     </div>
                     <h4 class="font-display text-xl font-bold text-slate-900">Our Mission</h4>
@@ -364,24 +364,24 @@
                 </div>
 
                 <!-- Card 3 -->
-                <div class="bg-slate-50 border border-slate-100 p-8 rounded-3xl hover:bg-white hover:border-brand-200 hover:shadow-xl transition-all duration-300 space-y-4 group">
-                    <div class="w-12 h-12 rounded-2xl bg-wellness-100 text-wellness-600 flex items-center justify-center group-hover:bg-wellness-600 group-hover:text-white transition-all duration-300">
+                <div class="bg-brand-50/50 border border-brand-100 p-8 rounded-3xl hover:bg-white hover:border-brand-300 hover:shadow-xl transition-all duration-300 space-y-4 group">
+                    <div class="w-12 h-12 rounded-2xl bg-rose-100 text-brand-600 flex items-center justify-center group-hover:bg-brand-500 group-hover:text-white transition-all duration-300">
                         <i data-lucide="users-2" class="w-6 h-6"></i>
                     </div>
                     <h4 class="font-display text-xl font-bold text-slate-900">Collaborative Healing</h4>
                     <p class="text-slate-600 text-sm leading-relaxed">
-                        We practice holistic, multi-disciplinary care. Our treatment designs are formed together by experienced psychiatrists, clinical psychologists, speech educators, occupational therapists, and dedicated nursing professionals in complete coordination with the patient's family.
+                        We practice holistic, multi-disciplinary care. Our treatment designs are formed together by experienced psychiatrists, Ayurvedic doctors, clinical psychologists, speech educators, occupational therapists, and dedicated nursing professionals in complete coordination with the patient's family.
                     </p>
                 </div>
             </div>
 
             <!-- DR CD PREMADASAN FOCUS -->
-            <div class="bg-gradient-to-tr from-slate-50 to-brand-50/50 rounded-3xl p-8 lg:p-12 border border-slate-100">
+            <div class="bg-gradient-to-tr from-slate-50 via-brand-50/20 to-wellness-50/20 rounded-3xl p-8 lg:p-12 border border-brand-100">
                 <div class="grid lg:grid-cols-12 gap-8 items-center">
                     <div class="lg:col-span-4 text-center">
-                        <div class="w-32 h-32 sm:w-40 sm:h-40 rounded-full bg-brand-100 border-4 border-brand-500 flex items-center justify-center mx-auto text-brand-800 text-4xl sm:text-5xl font-extrabold shadow-lg relative">
+                        <div class="w-32 h-32 sm:w-40 sm:h-40 rounded-full bg-brand-50 border-4 border-brand-500 flex items-center justify-center mx-auto text-brand-800 text-4xl sm:text-5xl font-extrabold shadow-lg relative">
                             <span class="font-display select-none">CDP</span>
-                            <span class="absolute bottom-1 right-1 bg-emerald-500 text-white text-xs px-2 py-0.5 rounded-full font-bold shadow-md">Founder</span>
+                            <span class="absolute bottom-1 right-1 bg-brand-500 text-white text-xs px-2 py-0.5 rounded-full font-bold shadow-md">Founder</span>
                         </div>
                         <h4 class="font-display text-xl font-bold text-slate-900 mt-4">Dr. C.D. Premadasan</h4>
                         <p class="text-xs text-brand-600 font-bold uppercase tracking-wider">Chief Medical Director</p>
@@ -393,7 +393,7 @@
                             "True healing is not just the management of psychiatric symptoms, but the complete restoration of a person's dignity, hope, and potential. At Manomithra, we treat every individual as a valued mind capable of extraordinary recovery, surrounding them with structured, non-judgmental expertise."
                         </p>
                         <hr class="border-slate-200">
-                        <div class="flex flex-col sm:flex-row items-center gap-4 text-xs sm:text-sm text-slate-600">
+                        <div class="flex flex-col sm:flex-row items-center gap-4 text-xs sm:text-sm text-slate-600 font-sans">
                             <div>
                                 <strong>Leadership:</strong> Founder, Manomithra Institute
                             </div>
@@ -412,38 +412,42 @@
     <section id="services" class="py-20 sm:py-28 bg-slate-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-12 space-y-4">
-                <h2 class="text-brand-600 text-xs sm:text-sm font-bold uppercase tracking-widest">Compassionate &amp; Specialized Care</h2>
-                <h3 class="font-display text-3xl sm:text-4xl font-extrabold text-slate-950">Explore Our Expert Services</h3>
+                <h2 class="text-brand-600 text-xs sm:text-sm font-bold uppercase tracking-widest font-mono">Compassionate &amp; Specialized Care</h2>
+                <h3 class="font-display text-3xl sm:text-4xl font-extrabold text-slate-950">Explore Our Expert Departments</h3>
                 <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
                     We offer tailored solutions spanning primary outpatient care, deep residential inpatient programs, de-addiction, and palliative family support. Click the tabs below to explore our medical departments.
                 </p>
             </div>
 
             <!-- Interactive Tab buttons -->
-            <div class="flex flex-wrap items-center justify-center gap-2 mb-10 max-w-4xl mx-auto bg-slate-100 p-2 rounded-2xl border border-slate-200">
-                <button onclick="switchServiceTab('outpatient')" id="tab-outpatient" class="service-tab-btn flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-semibold transition bg-brand-600 text-white shadow-md">
+            <div class="flex flex-wrap items-center justify-center gap-2 mb-10 max-w-5xl mx-auto bg-white p-2 rounded-2xl border border-brand-100">
+                <button onclick="switchServiceTab('outpatient')" id="tab-outpatient" class="service-tab-btn flex items-center gap-2 px-4 py-3 rounded-xl text-xs sm:text-sm font-semibold transition bg-brand-600 text-white shadow-md">
                     <i data-lucide="stethoscope" class="w-4 h-4"></i>
                     <span>Outpatient Clinic (OP)</span>
                 </button>
-                <button onclick="switchServiceTab('inpatient')" id="tab-inpatient" class="service-tab-btn flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-semibold transition hover:bg-slate-200 text-slate-700">
+                <button onclick="switchServiceTab('inpatient')" id="tab-inpatient" class="service-tab-btn flex items-center gap-2 px-4 py-3 rounded-xl text-xs sm:text-sm font-semibold transition hover:bg-brand-50 text-slate-700">
                     <i data-lucide="hotel" class="w-4 h-4"></i>
                     <span>Inpatient Hospitalization</span>
                 </button>
-                <button onclick="switchServiceTab('addiction')" id="tab-addiction" class="service-tab-btn flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-semibold transition hover:bg-slate-200 text-slate-700">
+                <button onclick="switchServiceTab('addiction')" id="tab-addiction" class="service-tab-btn flex items-center gap-2 px-4 py-3 rounded-xl text-xs sm:text-sm font-semibold transition hover:bg-brand-50 text-slate-700">
                     <i data-lucide="shield-off" class="w-4 h-4"></i>
                     <span>De-Addiction Programs</span>
                 </button>
-                <button onclick="switchServiceTab('family')" id="tab-family" class="service-tab-btn flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-semibold transition hover:bg-slate-200 text-slate-700">
+                <button onclick="switchServiceTab('manas')" id="tab-manas" class="service-tab-btn flex items-center gap-2 px-4 py-3 rounded-xl text-xs sm:text-sm font-semibold transition hover:bg-brand-50 text-slate-700">
+                    <i data-lucide="flower" class="w-4 h-4 text-brand-500"></i>
+                    <span class="font-bold">Manas Holistic Mind Clinic</span>
+                </button>
+                <button onclick="switchServiceTab('family')" id="tab-family" class="service-tab-btn flex items-center gap-2 px-4 py-3 rounded-xl text-xs sm:text-sm font-semibold transition hover:bg-brand-50 text-slate-700">
                     <i data-lucide="home" class="w-4 h-4"></i>
                     <span>Family &amp; Palliative Care</span>
                 </button>
             </div>
 
             <!-- Dynamic Tab Content Panels -->
-            <div class="bg-white border border-slate-100 rounded-3xl p-6 sm:p-10 shadow-xl transition-all duration-300">
+            <div class="bg-white border border-brand-100 rounded-3xl p-6 sm:p-10 shadow-xl transition-all duration-300">
                 <!-- OUTPATIENT TAB -->
                 <div id="panel-outpatient" class="service-panel grid lg:grid-cols-2 gap-10 items-center">
-                    <div class="space-y-6">
+                    <div class="space-y-6 animate-fade-in">
                         <span class="bg-brand-50 border border-brand-200 text-brand-700 text-xs font-bold px-3 py-1 rounded-md">Robinson Road, Palakkad</span>
                         <h4 class="font-display text-2xl sm:text-3xl font-extrabold text-slate-950">Psychiatric Outpatient &amp; Case Management</h4>
                         <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
@@ -451,37 +455,37 @@
                         </p>
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
                             <div class="flex items-start gap-2 text-sm text-slate-700 font-semibold">
-                                <i data-lucide="check-circle" class="w-4 h-4 text-emerald-500 mt-1"></i> Stress Management &amp; Burnout
+                                <i data-lucide="check-circle" class="w-4 h-4 text-brand-500 mt-1"></i> Stress Management &amp; Burnout
                             </div>
                             <div class="flex items-start gap-2 text-sm text-slate-700 font-semibold">
-                                <i data-lucide="check-circle" class="w-4 h-4 text-emerald-500 mt-1"></i> Pre-marital &amp; Marital Counseling
+                                <i data-lucide="check-circle" class="w-4 h-4 text-brand-500 mt-1"></i> Pre-marital &amp; Marital Counseling
                             </div>
                             <div class="flex items-start gap-2 text-sm text-slate-700 font-semibold">
-                                <i data-lucide="check-circle" class="w-4 h-4 text-emerald-500 mt-1"></i> Intelligence Testing (IQ Profile)
+                                <i data-lucide="check-circle" class="w-4 h-4 text-brand-500 mt-1"></i> Intelligence Testing (IQ Profile)
                             </div>
                             <div class="flex items-start gap-2 text-sm text-slate-700 font-semibold">
-                                <i data-lucide="check-circle" class="w-4 h-4 text-emerald-500 mt-1"></i> Couple &amp; Family Therapy
+                                <i data-lucide="check-circle" class="w-4 h-4 text-brand-500 mt-1"></i> Couple &amp; Family Therapy
                             </div>
                         </div>
                     </div>
-                    <div class="bg-gradient-to-tr from-brand-50 to-brand-100/50 p-6 rounded-2xl border border-brand-100 flex flex-col justify-between h-full">
-                        <h5 class="font-bold text-slate-900 text-lg mb-4">OP Operational Details</h5>
-                        <ul class="space-y-3.5 text-xs sm:text-sm text-slate-600">
-                            <li class="flex justify-between items-center py-2 border-b border-brand-200/50">
+                    <div class="bg-gradient-to-tr from-brand-50 to-brand-100/30 p-6 rounded-2xl border border-brand-100 flex flex-col justify-between h-full">
+                        <h5 class="font-bold text-slate-900 text-lg mb-4 font-display">OP Operational Details</h5>
+                        <ul class="space-y-3.5 text-xs sm:text-sm text-slate-600 font-sans">
+                            <li class="flex justify-between items-center py-2 border-b border-brand-100">
                                 <span class="font-medium text-slate-500">Days Active:</span>
                                 <span class="font-bold text-slate-800">Monday - Saturday</span>
                             </li>
-                            <li class="flex justify-between items-center py-2 border-b border-brand-200/50">
+                            <li class="flex justify-between items-center py-2 border-b border-brand-100">
                                 <span class="font-medium text-slate-500">Consultation Timings:</span>
                                 <span class="font-bold text-slate-800">9:30 AM - 4:30 PM</span>
                             </li>
-                            <li class="flex justify-between items-center py-2 border-b border-brand-200/50">
+                            <li class="flex justify-between items-center py-2 border-b border-brand-100">
                                 <span class="font-medium text-slate-500">Primary Provider:</span>
                                 <span class="font-bold text-slate-800">Dr. C.D. Premadasan</span>
                             </li>
-                            <li class="flex justify-between items-center py-2">
+                            <li class="flex justify-between items-center py-2 font-sans">
                                 <span class="font-medium text-slate-500">Emergency Walk-ins:</span>
-                                <span class="font-bold text-red-600 bg-red-50 border border-red-200 px-2 py-0.5 rounded">Accepted</span>
+                                <span class="font-bold text-brand-600 bg-brand-50 border border-brand-100 px-2 py-0.5 rounded">Accepted</span>
                             </li>
                         </ul>
                     </div>
@@ -490,7 +494,7 @@
                 <!-- INPATIENT TAB -->
                 <div id="panel-inpatient" class="service-panel hidden grid lg:grid-cols-2 gap-10 items-center">
                     <div class="space-y-6">
-                        <span class="bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-bold px-3 py-1 rounded-md">Kanjikode Road, Pannimada</span>
+                        <span class="bg-rose-50 border border-brand-100 text-brand-700 text-xs font-bold px-3 py-1 rounded-md">Kanjikode Road, Pannimada</span>
                         <h4 class="font-display text-2xl sm:text-3xl font-extrabold text-slate-950">Residential Inpatient Psychiatric Care</h4>
                         <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
                             For complex psychiatric illnesses that require close, continuous observation and clinical stabilization. Our facility in Pannimada provides a tranquil, compassionate setting with round-the-clock medical personnel, nurse assistance, and modern clinical amenities.
@@ -510,24 +514,24 @@
                             </div>
                         </div>
                     </div>
-                    <div class="bg-gradient-to-tr from-emerald-50 to-brand-50 p-6 rounded-2xl border border-emerald-100 flex flex-col justify-between h-full">
-                        <h5 class="font-bold text-slate-900 text-lg mb-4">Key Inpatient Features</h5>
+                    <div class="bg-gradient-to-tr from-brand-50 to-brand-100/30 p-6 rounded-2xl border border-brand-100 flex flex-col justify-between h-full">
+                        <h5 class="font-bold text-slate-900 text-lg mb-4 font-display">Key Inpatient Features</h5>
                         <ul class="space-y-3.5 text-xs sm:text-sm text-slate-600">
-                            <li class="flex justify-between items-center py-2 border-b border-emerald-200/50">
+                            <li class="flex justify-between items-center py-2 border-b border-brand-100">
                                 <span class="font-medium text-slate-500">Security &amp; Nursing:</span>
-                                <span class="font-bold text-slate-800">24 Hours / 365 Days</span>
+                                <span class="font-bold text-slate-800 font-mono">24 Hours / 365 Days</span>
                             </li>
-                            <li class="flex justify-between items-center py-2 border-b border-emerald-200/50">
+                            <li class="flex justify-between items-center py-2 border-b border-brand-100">
                                 <span class="font-medium text-slate-500">Structured Therapy:</span>
                                 <span class="font-bold text-slate-800">Individual + Group Daily</span>
                             </li>
-                            <li class="flex justify-between items-center py-2 border-b border-emerald-200/50">
+                            <li class="flex justify-between items-center py-2 border-b border-brand-100">
                                 <span class="font-medium text-slate-500">Environment:</span>
                                 <span class="font-bold text-slate-800">Peaceful Suburban Healing Garden</span>
                             </li>
                             <li class="flex justify-between items-center py-2">
                                 <span class="font-medium text-slate-500">Family visits:</span>
-                                <span class="font-bold text-slate-800">Regulated Scheduled Hours</span>
+                                <span class="font-bold text-slate-800 font-sans">Regulated Scheduled Hours</span>
                             </li>
                         </ul>
                     </div>
@@ -536,51 +540,97 @@
                 <!-- DE-ADDICTION TAB -->
                 <div id="panel-addiction" class="service-panel hidden grid lg:grid-cols-2 gap-10 items-center">
                     <div class="space-y-6">
-                        <span class="bg-amber-50 border border-amber-200 text-amber-700 text-xs font-bold px-3 py-1 rounded-md">Breaking the Chains</span>
+                        <span class="bg-rose-50 border border-brand-100 text-brand-700 text-xs font-bold px-3 py-1 rounded-md">Breaking the Chains</span>
                         <h4 class="font-display text-2xl sm:text-3xl font-extrabold text-slate-950">Substance Abuse &amp; Alcohol De-Addiction</h4>
                         <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
                             Our rehabilitation program is specifically customized for patients battling alcohol, narcotic, and electronic screen addiction. Grounded in both pharmacological detoxification and cognitive behavioral therapy (CBT), we ensure a safe environment for physical and chemical recovery.
                         </p>
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
                             <div class="flex items-start gap-2 text-sm text-slate-700 font-semibold">
-                                <i data-lucide="check-circle" class="w-4 h-4 text-amber-500 mt-1"></i> Medical Detoxification Protocol
+                                <i data-lucide="check-circle" class="w-4 h-4 text-brand-500 mt-1"></i> Medical Detoxification Protocol
                             </div>
                             <div class="flex items-start gap-2 text-sm text-slate-700 font-semibold">
-                                <i data-lucide="check-circle" class="w-4 h-4 text-amber-500 mt-1"></i> Relapse Prevention Strategies
+                                <i data-lucide="check-circle" class="w-4 h-4 text-brand-500 mt-1"></i> Relapse Prevention Strategies
                             </div>
                             <div class="flex items-start gap-2 text-sm text-slate-700 font-semibold">
-                                <i data-lucide="check-circle" class="w-4 h-4 text-amber-500 mt-1"></i> Peer Support Groups (AA style)
+                                <i data-lucide="check-circle" class="w-4 h-4 text-brand-500 mt-1"></i> Peer Support Groups (AA style)
                             </div>
                             <div class="flex items-start gap-2 text-sm text-slate-700 font-semibold">
-                                <i data-lucide="check-circle" class="w-4 h-4 text-amber-500 mt-1"></i> Family Healing Sessions
+                                <i data-lucide="check-circle" class="w-4 h-4 text-brand-500 mt-1"></i> Family Healing Sessions
                             </div>
                         </div>
                     </div>
-                    <div class="bg-gradient-to-tr from-amber-50 to-brand-50 p-6 rounded-2xl border border-amber-200 flex flex-col justify-between h-full">
-                        <h5 class="font-bold text-slate-900 text-lg mb-4">Rehabilitation Stages</h5>
+                    <div class="bg-gradient-to-tr from-brand-50 to-brand-100/30 p-6 rounded-2xl border border-brand-100 flex flex-col justify-between h-full font-sans">
+                        <h5 class="font-bold text-slate-900 text-lg mb-4 font-display">Rehabilitation Stages</h5>
                         <div class="space-y-4">
                             <div class="flex gap-3 text-xs sm:text-sm">
-                                <div class="font-black text-amber-500">01</div>
+                                <div class="font-black text-brand-500">01</div>
                                 <div>
                                     <h6 class="font-bold text-slate-900">Assisted Detox</h6>
                                     <p class="text-slate-500 text-xs mt-0.5">Safely manage withdrawal symptoms under medical care.</p>
                                 </div>
                             </div>
                             <div class="flex gap-3 text-xs sm:text-sm">
-                                <div class="font-black text-amber-500">02</div>
+                                <div class="font-black text-brand-500">02</div>
                                 <div>
                                     <h6 class="font-bold text-slate-900">Cognitive Restructuring</h6>
                                     <p class="text-slate-500 text-xs mt-0.5">Therapy to understand and overcome psychological triggers.</p>
                                 </div>
                             </div>
                             <div class="flex gap-3 text-xs sm:text-sm">
-                                <div class="font-black text-amber-500">03</div>
+                                <div class="font-black text-brand-500">03</div>
                                 <div>
                                     <h6 class="font-bold text-slate-900">Life-skills Re-integration</h6>
                                     <p class="text-slate-500 text-xs mt-0.5">Occupational training and preparation to face family and work.</p>
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+
+                <!-- MANAS CLINIC TAB (NEW HOLISTIC AYURVEDIC SECTION) -->
+                <div id="panel-manas" class="service-panel hidden grid lg:grid-cols-2 gap-10 items-center">
+                    <div class="space-y-6">
+                        <span class="bg-wellness-100 border border-wellness-200 text-wellness-800 text-xs font-bold px-3 py-1 rounded-md flex items-center gap-1 w-max"><i data-lucide="flower" class="w-3.5 h-3.5"></i> Traditional Ayurvedic Healing</span>
+                        <h4 class="font-display text-2xl sm:text-3xl font-extrabold text-slate-950">Manas Holistic Mind Rejuvenation</h4>
+                        <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+                            Derived from the epic word *Manas* (representing mind and soul), our traditional mental wellness division blends authentic Kerala Ayurveda with modern psychological diagnostics. Guided by specialized Ayurvedic psychiatry, we focus on restoring chemical equilibrium naturally.
+                        </p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+                            <div class="flex items-start gap-2 text-sm text-slate-700 font-semibold">
+                                <i data-lucide="check-circle" class="w-4 h-4 text-wellness-500 mt-1"></i> Manasamitra Vatakam Herbs Protocol
+                            </div>
+                            <div class="flex items-start gap-2 text-sm text-slate-700 font-semibold">
+                                <i data-lucide="check-circle" class="w-4 h-4 text-wellness-500 mt-1"></i> Shirodhara &amp; Sensory Calm Therapies
+                            </div>
+                            <div class="flex items-start gap-2 text-sm text-slate-700 font-semibold">
+                                <i data-lucide="check-circle" class="w-4 h-4 text-wellness-500 mt-1"></i> Ayurvedic Psychological Counseling
+                            </div>
+                            <div class="flex items-start gap-2 text-sm text-slate-700 font-semibold">
+                                <i data-lucide="check-circle" class="w-4 h-4 text-wellness-500 mt-1"></i> Sattvic Mind-Body Wellness Diets
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gradient-to-tr from-wellness-50 via-brand-50/20 to-white p-6 rounded-2xl border border-wellness-100 flex flex-col justify-between h-full font-sans">
+                        <h5 class="font-bold text-slate-900 text-lg mb-4 font-display">Manas Mind-Care Approach</h5>
+                        <ul class="space-y-3.5 text-xs sm:text-sm text-slate-600">
+                            <li class="flex justify-between items-center py-2 border-b border-wellness-100">
+                                <span class="font-medium text-slate-500">Holistic Consultant:</span>
+                                <span class="font-bold text-slate-800">Dr. Manas Dev, BAMS, MD</span>
+                            </li>
+                            <li class="flex justify-between items-center py-2 border-b border-wellness-100">
+                                <span class="font-medium text-slate-500">Primary Core Goal:</span>
+                                <span class="font-bold text-slate-800">Organic Chemical/Stress Reset</span>
+                            </li>
+                            <li class="flex justify-between items-center py-2 border-b border-wellness-100">
+                                <span class="font-medium text-slate-500">Pristine Therapy Rooms:</span>
+                                <span class="font-bold text-slate-800">Manas Healing Suites</span>
+                            </li>
+                            <li class="flex justify-between items-center py-2">
+                                <span class="font-medium text-slate-500">Herbal Formula:</span>
+                                <span class="font-bold text-wellness-600 bg-wellness-50 px-2 py-0.5 rounded font-mono">Manasamitra Vatakam</span>
+                            </li>
+                        </ul>
                     </div>
                 </div>
 
@@ -594,22 +644,22 @@
                         </p>
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
                             <div class="flex items-start gap-2 text-sm text-slate-700 font-semibold">
-                                <i data-lucide="check-circle" class="w-4 h-4 text-slate-500 mt-1"></i> Psychiatric Palliative Home Visit
+                                <i data-lucide="check-circle" class="w-4 h-4 text-brand-500 mt-1"></i> Psychiatric Palliative Home Visit
                             </div>
                             <div class="flex items-start gap-2 text-sm text-slate-700 font-semibold">
-                                <i data-lucide="check-circle" class="w-4 h-4 text-slate-500 mt-1"></i> Educational Caregiver Materials
+                                <i data-lucide="check-circle" class="w-4 h-4 text-brand-500 mt-1"></i> Educational Caregiver Materials
                             </div>
                             <div class="flex items-start gap-2 text-sm text-slate-700 font-semibold">
-                                <i data-lucide="check-circle" class="w-4 h-4 text-slate-500 mt-1"></i> At-Home Medication Management
+                                <i data-lucide="check-circle" class="w-4 h-4 text-brand-500 mt-1"></i> At-Home Medication Management
                             </div>
                         </div>
                     </div>
-                    <div class="bg-gradient-to-tr from-slate-100 to-slate-200/50 p-6 rounded-2xl border border-slate-200 flex flex-col justify-between h-full">
-                        <h5 class="font-bold text-slate-900 text-lg mb-4">Caregiver Assistance Pack</h5>
+                    <div class="bg-gradient-to-tr from-slate-100 to-slate-200/50 p-6 rounded-2xl border border-slate-200 flex flex-col justify-between h-full font-sans">
+                        <h5 class="font-bold text-slate-900 text-lg mb-4 font-display">Caregiver Assistance Pack</h5>
                         <p class="text-xs text-slate-600 leading-relaxed mb-4">
                             We offer complete medical coordination to empower parents, spouses, and children. Caregivers receive specialized access to our peer-support groups.
                         </p>
-                        <div class="border-t border-slate-300/50 pt-4 flex items-center justify-between">
+                        <div class="border-t border-slate-300/50 pt-4 flex items-center justify-between font-sans">
                             <span class="text-xs text-slate-500 font-semibold">Call Home-Visit Service:</span>
                             <a href="tel:+919446431342" class="text-sm font-black text-brand-600 hover:underline">+91 9446 431 342</a>
                         </div>
@@ -620,7 +670,7 @@
     </section>
 
     <!-- REAL-TIME PATIENT DESK -->
-    <section id="patient-portal" class="py-20 sm:py-28 bg-white border-b border-slate-100">
+    <section id="patient-portal" class="py-20 sm:py-28 bg-white border-b border-brand-100/50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
                 <span class="text-brand-600 text-xs sm:text-sm font-bold uppercase tracking-widest font-mono">Secure Cloud Network Synchronized</span>
@@ -631,75 +681,75 @@
             </div>
 
             <!-- DASHBOARD CONTAINER -->
-            <div class="bg-slate-900 text-white rounded-3xl p-6 sm:p-10 shadow-2xl border border-slate-800 max-w-5xl mx-auto overflow-hidden relative">
+            <div class="bg-brand-950 text-white rounded-3xl p-6 sm:p-10 shadow-2xl border border-brand-900 max-w-5xl mx-auto overflow-hidden relative">
                 <!-- Background ambient lights -->
                 <div class="absolute -top-32 -left-32 w-64 h-64 bg-brand-500/10 rounded-full blur-3xl"></div>
-                <div class="absolute -bottom-32 -right-32 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl"></div>
+                <div class="absolute -bottom-32 -right-32 w-64 h-64 bg-wellness-500/10 rounded-full blur-3xl"></div>
 
                 <div class="relative z-10 grid lg:grid-cols-12 gap-8 items-stretch">
                     <!-- PORTAL LEFT -->
                     <div class="lg:col-span-4 flex flex-col justify-between space-y-6">
                         <div>
-                            <div class="flex items-center gap-2 mb-3">
-                                <div class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></div>
-                                <span class="text-xs font-bold text-brand-400 uppercase tracking-widest">Protected File Retrieval</span>
+                            <div class="flex items-center gap-2 mb-3 font-sans">
+                                <div class="w-2.5 h-2.5 rounded-full bg-brand-400 animate-pulse"></div>
+                                <span class="text-xs font-bold text-brand-200 uppercase tracking-widest">Protected File Retrieval</span>
                             </div>
                             <h4 class="font-display text-xl font-bold text-slate-100">Patient Recovery Desk</h4>
-                            <p class="text-xs text-slate-400 mt-2 leading-relaxed">
+                            <p class="text-xs text-brand-100 mt-2 leading-relaxed font-sans">
                                 Enter your patient registration code to fetch official medical files. Preset clinical files: **MIMS-2025**, **MIMS-2026**, or **MIMS-2027**.
                             </p>
                         </div>
 
                         <!-- ID Input Form -->
-                        <div class="space-y-3">
-                            <label class="block text-[11px] font-bold text-slate-400 uppercase tracking-wider">Patient File Code</label>
+                        <div class="space-y-3 font-sans">
+                            <label class="block text-[11px] font-bold text-brand-200 uppercase tracking-wider">Patient File Code</label>
                             <div class="flex gap-2">
-                                <input type="text" id="patient-id-input" value="MIMS-2026" placeholder="e.g. MIMS-2026" class="w-full bg-slate-950/80 border border-slate-800 text-sm font-mono tracking-wider text-slate-100 px-4 py-3 rounded-xl focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 placeholder-slate-700">
+                                <input type="text" id="patient-id-input" value="MIMS-2026" placeholder="e.g. MIMS-2026" class="w-full bg-brand-900/60 border border-brand-800 text-sm font-mono tracking-wider text-slate-100 px-4 py-3 rounded-xl focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 placeholder-brand-700">
                                 <button onclick="loadPatientDashboard()" class="bg-brand-600 hover:bg-brand-500 text-white font-bold text-xs px-4 py-3 rounded-xl transition shrink-0 font-display">
                                     Search File
                                 </button>
                             </div>
-                            <p class="text-[10px] text-slate-500 font-semibold font-mono">Accessing Clinic Secure Ledger</p>
+                            <p class="text-[10px] text-brand-300 font-semibold font-mono">Accessing Clinic Secure Ledger</p>
                         </div>
 
-                        <div class="bg-slate-950/40 p-4 border border-slate-800/80 rounded-2xl">
-                            <h5 class="text-xs font-bold text-slate-300">✓ Inpatient &amp; Caregiver Synergy</h5>
-                            <p class="text-[10px] text-slate-500 mt-1 font-semibold">Updates are finalized in our secure clinic ledger instantly.</p>
+                        <div class="bg-brand-900/30 p-4 border border-brand-800/80 rounded-2xl">
+                            <h5 class="text-xs font-bold text-brand-200">✓ Inpatient &amp; Caregiver Synergy</h5>
+                            <p class="text-[10px] text-brand-300 mt-1 font-semibold font-sans">Updates are finalized in our secure clinic ledger instantly.</p>
                         </div>
                     </div>
 
                     <!-- PORTAL RIGHT -->
-                    <div class="lg:col-span-8 bg-slate-950/80 rounded-2xl p-6 border border-slate-800 flex flex-col justify-between min-h-[380px]" id="dashboard-content-area">
+                    <div class="lg:col-span-8 bg-brand-900/40 rounded-2xl p-6 border border-brand-800 flex flex-col justify-between min-h-[380px]" id="dashboard-content-area">
                         <!-- Default Blank Slate State / Loader -->
                         <div class="flex flex-col items-center justify-center text-center py-12 space-y-4" id="dashboard-blank-slate">
-                            <div class="w-16 h-16 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-600">
-                                <i data-lucide="shield" class="w-8 h-8 text-brand-500 animate-pulse"></i>
+                            <div class="w-16 h-16 rounded-full bg-brand-900 border border-brand-800 flex items-center justify-center text-brand-300">
+                                <i data-lucide="shield" class="w-8 h-8 text-brand-400 animate-pulse"></i>
                             </div>
                             <div>
-                                <h4 class="font-bold text-slate-200">Awaiting Registration Code</h4>
-                                <p class="text-xs text-slate-500 mt-1 max-w-sm">
+                                <h4 class="font-bold text-slate-200 font-display">Awaiting Registration Code</h4>
+                                <p class="text-xs text-brand-300 mt-1 max-w-sm font-sans">
                                     Click "Search File" or select an existing record below to review clinical charts.
                                 </p>
                             </div>
                             <div class="flex flex-wrap items-center justify-center gap-2">
-                                <button onclick="loadPresetPatient('MIMS-2025')" class="bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-300 font-mono text-xs px-3 py-2 rounded-xl transition">MIMS-2025</button>
-                                <button onclick="loadPresetPatient('MIMS-2026')" class="bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-300 font-mono text-xs px-3 py-2 rounded-xl transition">MIMS-2026</button>
-                                <button onclick="loadPresetPatient('MIMS-2027')" class="bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-300 font-mono text-xs px-3 py-2 rounded-xl transition">MIMS-2027</button>
+                                <button onclick="loadPresetPatient('MIMS-2025')" class="bg-brand-900 hover:bg-brand-800 border border-brand-800 text-brand-200 font-mono text-xs px-3 py-2 rounded-xl transition">MIMS-2025</button>
+                                <button onclick="loadPresetPatient('MIMS-2026')" class="bg-brand-900 hover:bg-brand-800 border border-brand-800 text-brand-200 font-mono text-xs px-3 py-2 rounded-xl transition">MIMS-2026</button>
+                                <button onclick="loadPresetPatient('MIMS-2027')" class="bg-brand-900 hover:bg-brand-800 border border-brand-800 text-brand-200 font-mono text-xs px-3 py-2 rounded-xl transition">MIMS-2027</button>
                             </div>
                         </div>
 
                         <!-- Graceful Error Fallback State -->
                         <div class="hidden flex flex-col items-center justify-center text-center py-12 space-y-4" id="dashboard-error-slate">
-                            <div class="w-16 h-16 rounded-full bg-red-500/10 border border-red-500/20 flex items-center justify-center text-red-400">
+                            <div class="w-16 h-16 rounded-full bg-rose-500/10 border border-rose-500/20 flex items-center justify-center text-brand-300">
                                 <i data-lucide="alert-triangle" class="w-8 h-8"></i>
                             </div>
                             <div>
-                                <h4 class="font-bold text-slate-200">Record Retrieval Delayed</h4>
-                                <p class="text-xs text-slate-400 mt-2 max-w-sm leading-relaxed" id="dashboard-error-text">
+                                <h4 class="font-bold text-slate-200 font-display">Record Retrieval Delayed</h4>
+                                <p class="text-xs text-brand-300 mt-2 max-w-sm leading-relaxed font-sans" id="dashboard-error-text">
                                     We could not match this registration file. Please verify your code or contact our front office.
                                 </p>
                             </div>
-                            <button onclick="resetDashboardView()" class="bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-300 font-bold text-xs px-5 py-2.5 rounded-xl transition">
+                            <button onclick="resetDashboardView()" class="bg-brand-900 hover:bg-brand-800 border border-brand-800 text-slate-300 font-bold text-xs px-5 py-2.5 rounded-xl transition font-display">
                                 Clear Search &amp; Try Again
                             </button>
                         </div>
@@ -707,73 +757,73 @@
                         <!-- Loaded State Structure -->
                         <div class="hidden space-y-6 animate-fade-in" id="dashboard-loaded-state">
                             <!-- Header Info -->
-                            <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-slate-800/80 pb-4">
-                                <div class="text-left">
+                            <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-brand-800/80 pb-4">
+                                <div class="text-left font-sans">
                                     <div class="flex items-center gap-2">
                                         <h4 class="font-bold text-base text-white" id="db-patient-name">-</h4>
                                         <span class="text-[9px] font-bold px-2 py-0.5 rounded-full border" id="db-patient-status">-</span>
                                     </div>
-                                    <p class="text-xs text-slate-400 mt-0.5" id="db-patient-program">-</p>
+                                    <p class="text-xs text-brand-200 mt-0.5" id="db-patient-program">-</p>
                                 </div>
                                 <div class="text-right shrink-0">
-                                    <p class="text-[10px] text-slate-500 uppercase tracking-wider font-bold font-mono">Primary Consultant</p>
-                                    <p class="text-xs font-bold text-brand-400" id="db-patient-doctor">-</p>
+                                    <p class="text-[10px] text-brand-300 uppercase tracking-wider font-bold font-mono">Primary Consultant</p>
+                                    <p class="text-xs font-bold text-brand-300" id="db-patient-doctor">-</p>
                                 </div>
                             </div>
 
                             <!-- ADVANCED RECOVERY TRAJECTORY GRAPH -->
-                            <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-800">
-                                <h5 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2 font-display">Patient Clinical Stability Trajectory</h5>
+                            <div class="bg-brand-950/40 p-4 rounded-xl border border-brand-900">
+                                <h5 class="text-xs font-bold uppercase tracking-wider text-brand-300 mb-2 font-display">Patient Clinical Stability Trajectory</h5>
                                 <div class="w-full">
                                     <svg viewBox="0 0 400 110" class="w-full h-28 text-brand-500">
-                                        <line x1="40" y1="10" x2="380" y2="10" stroke="#334155" stroke-dasharray="4 4" stroke-opacity="0.3"></line>
-                                        <line x1="40" y1="50" x2="380" y2="50" stroke="#334155" stroke-dasharray="4 4" stroke-opacity="0.3"></line>
-                                        <line x1="40" y1="90" x2="380" y2="90" stroke="#334155" stroke-dasharray="4 4" stroke-opacity="0.3"></line>
-                                        <path d="M 40 100 Q 120 70, 200 45 T 360 15" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round"></path>
-                                        <path d="M 40 15 Q 120 35, 200 65 T 360 95" fill="none" stroke="#ef4444" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="3 3"></path>
-                                        <circle cx="250" cy="35" r="4.5" fill="#10b981"></circle>
-                                        <text x="40" y="105" fill="#64748b" font-size="8">Intake</text>
-                                        <text x="180" y="105" fill="#64748b" font-size="8">Mid-Course</text>
-                                        <text x="330" y="105" fill="#64748b" font-size="8">Stabilization</text>
-                                        <text x="5" y="15" fill="#10b981" font-size="8" font-weight="bold">Wellness</text>
-                                        <text x="5" y="95" fill="#ef4444" font-size="8" font-weight="bold">Burnout</text>
+                                        <line x1="40" y1="10" x2="380" y2="10" stroke="#f43f5e" stroke-dasharray="4 4" stroke-opacity="0.15"></line>
+                                        <line x1="40" y1="50" x2="380" y2="50" stroke="#f43f5e" stroke-dasharray="4 4" stroke-opacity="0.15"></line>
+                                        <line x1="40" y1="90" x2="380" y2="90" stroke="#f43f5e" stroke-dasharray="4 4" stroke-opacity="0.15"></line>
+                                        <path d="M 40 100 Q 120 70, 200 45 T 360 15" fill="none" stroke="#fda4af" stroke-width="2.5" stroke-linecap="round"></path>
+                                        <path d="M 40 15 Q 120 35, 200 65 T 360 95" fill="none" stroke="#f43f5e" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="3 3"></path>
+                                        <circle cx="250" cy="35" r="4.5" fill="#fda4af"></circle>
+                                        <text x="40" y="105" fill="#fecdd3" font-size="8" font-family="monospace">Intake</text>
+                                        <text x="180" y="105" fill="#fecdd3" font-size="8" font-family="monospace">Mid-Course</text>
+                                        <text x="330" y="105" fill="#fecdd3" font-size="8" font-family="monospace">Stabilization</text>
+                                        <text x="5" y="15" fill="#fda4af" font-size="8" font-weight="bold">Wellness</text>
+                                        <text x="5" y="95" fill="#f43f5e" font-size="8" font-weight="bold">Stress</text>
                                     </svg>
                                 </div>
                             </div>
 
                             <!-- Progress Timeline Visual -->
                             <div>
-                                <h5 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3" id="db-timeline-title">Recovery Progression</h5>
-                                <div class="grid grid-cols-4 gap-2 text-center text-[10px] sm:text-xs" id="db-phases-timeline">
+                                <h5 class="text-xs font-bold uppercase tracking-wider text-brand-300 mb-3 font-display" id="db-timeline-title">Recovery Progression</h5>
+                                <div class="grid grid-cols-4 gap-2 text-center text-[10px] sm:text-xs font-sans" id="db-phases-timeline">
                                     <!-- Dynamic Phases -->
                                 </div>
                             </div>
 
                             <!-- Diagnostic Metrics Checklist -->
                             <div class="grid sm:grid-cols-2 gap-4">
-                                <div class="bg-slate-900 border border-slate-800 rounded-xl p-4 text-left">
-                                    <h6 class="text-xs font-bold text-slate-300 mb-2 flex items-center gap-1"><i data-lucide="check-square" class="w-4 h-4 text-brand-500"></i> Therapy Objectives</h6>
-                                    <div class="space-y-2 text-xs animate-fade-in" id="db-checklist-container">
+                                <div class="bg-brand-950/40 border border-brand-800 rounded-xl p-4 text-left">
+                                    <h6 class="text-xs font-bold text-brand-200 mb-2 flex items-center gap-1 font-display"><i data-lucide="check-square" class="w-4 h-4 text-brand-400"></i> Therapy Objectives</h6>
+                                    <div class="space-y-2 text-xs animate-fade-in font-sans" id="db-checklist-container">
                                         <!-- Checkboxes list -->
                                     </div>
                                 </div>
 
-                                <div class="bg-slate-900 border border-slate-800 rounded-xl p-4 text-left space-y-2 flex flex-col justify-between">
+                                <div class="bg-brand-950/40 border border-brand-800 rounded-xl p-4 text-left space-y-2 flex flex-col justify-between">
                                     <div>
-                                        <h6 class="text-xs font-bold text-slate-300 mb-1 flex items-center gap-1"><i data-lucide="clipboard" class="w-4 h-4 text-brand-500"></i> Clinical Practitioner Logs</h6>
-                                        <p class="text-xs text-slate-400 leading-relaxed italic" id="db-therapist-notes">-</p>
+                                        <h6 class="text-xs font-bold text-brand-200 mb-1 flex items-center gap-1 font-display"><i data-lucide="clipboard" class="w-4 h-4 text-brand-400"></i> Clinical Practitioner Logs</h6>
+                                        <p class="text-xs text-brand-200 leading-relaxed italic font-sans" id="db-therapist-notes">-</p>
                                     </div>
-                                    <p class="text-[10px] text-brand-400 font-semibold pt-1.5 border-t border-slate-800/80">
+                                    <p class="text-[10px] text-brand-300 font-semibold pt-1.5 border-t border-brand-800">
                                         Clinical ledger source verified.
                                     </p>
                                 </div>
                             </div>
 
                             <!-- Recovery Milestone Footer -->
-                            <div class="border-t border-slate-800/80 pt-4 flex items-center justify-between text-xs text-slate-500">
+                            <div class="border-t border-brand-800/80 pt-4 flex items-center justify-between text-xs text-brand-300 font-sans">
                                 <span id="db-duration-info">Active Treatment Course: <strong>Day -</strong></span>
-                                <span class="text-brand-400 font-bold flex items-center gap-1">
-                                    <i data-lucide="lock" class="w-3.5 h-3.5 text-brand-500"></i> Secure Health Record Lock
+                                <span class="text-brand-300 font-bold flex items-center gap-1">
+                                    <i data-lucide="lock" class="w-3.5 h-3.5 text-brand-400"></i> Secure Health Record Lock
                                 </span>
                             </div>
                         </div>
@@ -784,20 +834,20 @@
     </section>
 
     <!-- PRACTITIONER CLINICAL DESK -->
-    <section id="practitioner-console" class="py-20 sm:py-28 bg-slate-50 border-b border-slate-200">
+    <section id="practitioner-console" class="py-20 sm:py-28 bg-slate-50 border-b border-brand-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-12 space-y-4">
-                <span class="bg-brand-600 text-white text-[10px] font-black uppercase px-3 py-1.5 rounded-full font-mono tracking-wider shadow">Practitioner Operational Console</span>
+                <span class="bg-brand-500 text-white text-[10px] font-black uppercase px-3 py-1.5 rounded-full font-mono tracking-wider shadow">Practitioner Operational Console</span>
                 <h3 class="font-display text-3xl sm:text-4xl font-extrabold text-slate-950">Practitioner Desk &amp; Clinic Administration</h3>
-                <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+                <p class="text-slate-600 text-sm sm:text-base leading-relaxed font-sans">
                     This private console gives verified clinicians access to update therapy objectives, add patient profiles, and manage consultation calendars. Updates write directly to the hospital's secured information ledger.
                 </p>
             </div>
 
             <!-- ADMIN TABS -->
-            <div class="bg-white border border-slate-200 rounded-3xl p-6 sm:p-10 shadow-xl max-w-5xl mx-auto space-y-8">
-                <div class="flex border-b border-slate-200 gap-4 text-sm font-semibold overflow-x-auto no-scrollbar font-display">
-                    <button onclick="switchAdminTab('appointments')" id="admin-tab-appointments" class="admin-tab-btn pb-3 border-b-2 border-brand-600 text-brand-600 flex items-center gap-2 px-1 text-slate-900 font-bold shrink-0">
+            <div class="bg-white border border-brand-100 rounded-3xl p-6 sm:p-10 shadow-xl max-w-5xl mx-auto space-y-8">
+                <div class="flex border-b border-brand-100 gap-4 text-sm font-semibold overflow-x-auto no-scrollbar font-display">
+                    <button onclick="switchAdminTab('appointments')" id="admin-tab-appointments" class="admin-tab-btn pb-3 border-b-2 border-brand-500 text-brand-500 flex items-center gap-2 px-1 text-slate-900 font-bold shrink-0">
                         <i data-lucide="calendar-check" class="w-4.5 h-4.5"></i> Consultation Registry
                     </button>
                     <button onclick="switchAdminTab('patients')" id="admin-tab-patients" class="admin-tab-btn pb-3 border-b-2 border-transparent text-slate-400 hover:text-slate-600 flex items-center gap-2 px-1 shrink-0">
@@ -807,17 +857,17 @@
 
                 <!-- ADMIN AREA: APPOINTMENTS -->
                 <div id="admin-panel-appointments" class="admin-panel-content space-y-6">
-                    <div class="flex items-center justify-between border-b border-slate-100 pb-3">
-                        <h4 class="font-bold text-lg text-slate-900 flex items-center gap-1.5"><i data-lucide="list" class="w-5 h-5 text-brand-500"></i> Active Consultation Calendar</h4>
+                    <div class="flex items-center justify-between border-b border-brand-50 pb-3">
+                        <h4 class="font-bold text-lg text-slate-900 flex items-center gap-1.5 font-display"><i data-lucide="list" class="w-5 h-5 text-brand-500"></i> Active Consultation Calendar</h4>
                         <button onclick="loadAdminAppointments()" class="text-xs bg-slate-100 hover:bg-slate-200 text-slate-700 px-3 py-1.5 rounded-lg font-bold border border-slate-200 transition flex items-center gap-1 font-display">
                             <i data-lucide="refresh-cw" class="w-3.5 h-3.5"></i> Reload Registry Files
                         </button>
                     </div>
 
                     <!-- Appointments Table wrapper -->
-                    <div class="overflow-x-auto border border-slate-100 rounded-2xl shadow-sm bg-white">
+                    <div class="overflow-x-auto border border-brand-100 rounded-2xl shadow-sm bg-white font-sans">
                         <table class="w-full text-left text-xs sm:text-sm border-collapse">
-                            <thead class="bg-slate-50 text-slate-500 font-bold border-b border-slate-100">
+                            <thead class="bg-brand-50/50 text-slate-500 font-bold border-b border-brand-100">
                                 <tr>
                                     <th class="p-4">Registration ID</th>
                                     <th class="p-4">Patient Details</th>
@@ -837,11 +887,11 @@
                 </div>
 
                 <!-- ADMIN AREA: PATIENTS -->
-                <div id="admin-panel-patients" class="admin-panel-content hidden space-y-8 animate-fade-in">
+                <div id="admin-panel-patients" class="admin-panel-content hidden space-y-8 animate-fade-in font-sans">
                     <div class="grid lg:grid-cols-2 gap-8 items-start">
                         <!-- REGISTER NEW PATIENT -->
-                        <div class="bg-slate-50 border border-slate-200/60 p-6 rounded-2xl space-y-4">
-                            <h4 class="font-bold text-base text-slate-900 flex items-center gap-1.5 border-b border-slate-200 pb-3"><i data-lucide="user-plus" class="w-5 h-5 text-brand-500"></i> Open New Clinical Patient Profile</h4>
+                        <div class="bg-brand-50/50 border border-brand-100 p-6 rounded-2xl space-y-4">
+                            <h4 class="font-bold text-base text-slate-900 flex items-center gap-1.5 border-b border-brand-100 pb-3 font-display"><i data-lucide="user-plus" class="w-5 h-5 text-brand-500"></i> Open New Clinical Patient Profile</h4>
                             
                             <form id="create-patient-form" onsubmit="createNewPatientInDb(event)" class="space-y-4">
                                 <div class="grid sm:grid-cols-2 gap-4">
@@ -857,10 +907,11 @@
 
                                 <div class="space-y-1">
                                     <label class="text-[11px] font-bold text-slate-500 uppercase">Assigned Medical Treatment Program</label>
-                                    <select id="new-p-program" class="w-full bg-white border border-slate-200 p-2 text-sm rounded-lg text-slate-800 font-semibold focus:outline-none">
+                                    <select id="new-p-program" class="w-full bg-white border border-brand-100 p-2 text-sm rounded-lg text-slate-800 font-semibold focus:outline-none">
                                         <option value="45-Day Custom Rehab & De-addiction Plan">45-Day Custom Rehab &amp; De-addiction Plan</option>
                                         <option value="Outpatient Stress Management Program">Outpatient Stress Management Program</option>
                                         <option value="Residential Inpatient Psychiatric Care">Residential Inpatient Psychiatric Care</option>
+                                        <option value="Manas Holistic Mind & Ayurvedic Rejuvenation">Manas Holistic Mind &amp; Ayurvedic Rejuvenation</option>
                                         <option value="Caregiver Support & Palliative Care">Caregiver Support &amp; Palliative Care</option>
                                     </select>
                                 </div>
@@ -868,8 +919,9 @@
                                 <div class="grid sm:grid-cols-2 gap-4">
                                     <div class="space-y-1">
                                         <label class="text-[11px] font-bold text-slate-500 uppercase">Assigned Consultant</label>
-                                        <select id="new-p-doctor" class="w-full bg-white border border-slate-200 p-2 text-sm rounded-lg text-slate-800 font-semibold focus:outline-none">
+                                        <select id="new-p-doctor" class="w-full bg-white border border-brand-100 p-2 text-sm rounded-lg text-slate-800 font-semibold focus:outline-none">
                                             <option value="Dr. C.D. Premadasan">Dr. C.D. Premadasan</option>
+                                            <option value="Dr. Manas Dev, BAMS, MD (Ayurveda)">Dr. Manas Dev, BAMS, MD (Ayurveda)</option>
                                             <option value="Attending Clinical Psychologist">Attending Clinical Psychologist</option>
                                         </select>
                                     </div>
@@ -894,20 +946,20 @@
                                     </div>
                                 </div>
 
-                                <button type="submit" class="w-full bg-brand-600 hover:bg-brand-500 text-white font-bold py-3.5 rounded-xl text-xs transition shadow-md flex items-center justify-center gap-1.5 font-display">
+                                <button type="submit" class="w-full bg-brand-500 hover:bg-brand-600 text-white font-bold py-3.5 rounded-xl text-xs transition shadow-md flex items-center justify-center gap-1.5 font-display">
                                     <i data-lucide="check" class="w-4.5 h-4.5"></i> Register File to Central Ledger
                                 </button>
                             </form>
                         </div>
 
                         <!-- EDIT EXISTING PATIENT NOTES -->
-                        <div class="bg-slate-50 border border-slate-200/60 p-6 rounded-2xl space-y-4">
-                            <h4 class="font-bold text-base text-slate-900 flex items-center gap-1.5 border-b border-slate-200 pb-3"><i data-lucide="edit-3" class="w-5 h-5 text-brand-500"></i> Update Patient File &amp; Progress Notes</h4>
+                        <div class="bg-brand-50/20 border border-brand-100 p-6 rounded-2xl space-y-4">
+                            <h4 class="font-bold text-base text-slate-900 flex items-center gap-1.5 border-b border-brand-100 pb-3 font-display"><i data-lucide="edit-3" class="w-5 h-5 text-brand-500"></i> Update Patient File &amp; Progress Notes</h4>
                             
                             <div class="space-y-4">
                                 <div class="space-y-1">
                                     <label class="text-[11px] font-bold text-slate-500 uppercase">Select Active Patient Registration</label>
-                                    <select id="edit-patient-selector" onchange="loadPatientForEditing(this.value)" class="w-full bg-white border border-slate-200 p-2.5 rounded-lg text-sm text-slate-800 font-mono font-bold focus:outline-none">
+                                    <select id="edit-patient-selector" onchange="loadPatientForEditing(this.value)" class="w-full bg-white border border-brand-100 p-2.5 rounded-lg text-sm text-slate-800 font-mono font-bold focus:outline-none">
                                         <option value="">-- Choose Patient File --</option>
                                     </select>
                                 </div>
@@ -938,7 +990,7 @@
                                     <!-- CHECKLIST EDIT -->
                                     <div class="space-y-1">
                                         <label class="text-[11px] font-bold text-slate-500 uppercase block mb-1">Therapy Objectives (Edit Text &amp; Check State)</label>
-                                        <div id="edit-checklist-div" class="space-y-2 text-xs bg-white p-3 rounded-lg border border-slate-200">
+                                        <div id="edit-checklist-div" class="space-y-2 text-xs bg-white p-3 rounded-lg border border-brand-100">
                                             <!-- checklists will be populated -->
                                         </div>
                                     </div>
@@ -949,24 +1001,24 @@
                                     </div>
 
                                     <!-- PRACTITIONER DIGITAL SIGNATURE -->
-                                    <div class="bg-white border border-slate-200 rounded-xl p-4 space-y-3 bg-white">
+                                    <div class="bg-white border border-brand-100 rounded-xl p-4 space-y-3">
                                         <div class="flex items-center justify-between">
                                             <span class="text-[11px] font-bold text-slate-500 uppercase">Practitioner Security Lock</span>
                                             <span id="signature-verified-badge" class="hidden bg-emerald-50 border border-emerald-200 text-emerald-700 text-[9px] px-2 py-0.5 rounded font-bold animate-pulse">Authorized Seal Active</span>
                                         </div>
-                                        <button type="button" onclick="affixPractitionerSignature()" class="w-full bg-slate-100 hover:bg-brand-50 border border-slate-200 text-slate-700 hover:text-brand-600 py-2.5 rounded-lg text-xs font-bold transition flex items-center justify-center gap-1.5 font-display">
-                                            <i data-lucide="pen-tool" class="w-4 h-4"></i> Affix Dr. Premadasan's Calligraphy Seal
+                                        <button type="button" onclick="affixPractitionerSignature()" class="w-full bg-slate-100 hover:bg-brand-50 border border-slate-200 text-slate-700 hover:text-brand-500 py-2.5 rounded-lg text-xs font-bold transition flex items-center justify-center gap-1.5 font-display">
+                                            <i data-lucide="pen-tool" class="w-4 h-4"></i> Affix Calligraphy Seal
                                         </button>
                                         <div id="signature-display-div" class="hidden flex justify-center py-2 border-t border-slate-100 animate-float">
                                             <svg viewBox="0 0 150 45" class="w-40 h-12 text-slate-700 font-serif">
-                                                <path d="M 10 30 Q 30 10, 50 25 T 90 10 T 140 25" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round"></path>
-                                                <path d="M 25 20 L 125 20" fill="none" stroke="#2563eb" stroke-dasharray="2 2" stroke-opacity="0.5"></path>
-                                                <text x="25" y="40" fill="#2563eb" font-size="7" font-family="monospace">Dr. C.D. Premadasan, MD</text>
+                                                <path d="M 10 30 Q 30 10, 50 25 T 90 10 T 140 25" fill="none" stroke="#be123c" stroke-width="2" stroke-linecap="round"></path>
+                                                <path d="M 25 20 L 125 20" fill="none" stroke="#be123c" stroke-dasharray="2 2" stroke-opacity="0.5"></path>
+                                                <text x="25" y="40" fill="#be123c" font-size="7" font-family="monospace">Clinical Sign Locked</text>
                                             </svg>
                                         </div>
                                     </div>
 
-                                    <button onclick="savePatientEdits()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold py-3.5 rounded-xl text-xs transition shadow-md flex items-center justify-center gap-1.5 font-display">
+                                    <button onclick="savePatientEdits()" class="w-full bg-brand-500 hover:bg-brand-600 text-white font-extrabold py-3.5 rounded-xl text-xs transition shadow-md flex items-center justify-center gap-1.5 font-display">
                                         <i data-lucide="save" class="w-4.5 h-4.5"></i> Secure &amp; Finalize Clinical Record
                                     </button>
                                 </div>
@@ -983,7 +1035,7 @@
     </section>
 
     <!-- MENTAL WELLNESS ASSESSMENT QUIZ -->
-    <section id="wellness-quiz" class="py-20 sm:py-28 bg-gradient-to-b from-slate-50 to-brand-50/40 border-b border-slate-100">
+    <section id="wellness-quiz" class="py-20 sm:py-28 bg-gradient-to-b from-slate-50 to-brand-50/40 border-b border-brand-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
                 <span class="text-brand-600 text-xs sm:text-sm font-bold uppercase tracking-widest font-mono">Confidential Self-Reflection</span>
@@ -994,9 +1046,9 @@
             </div>
 
             <!-- QUIZ CARD -->
-            <div class="bg-white border border-slate-100 rounded-3xl p-6 sm:p-10 shadow-xl max-w-3xl mx-auto">
+            <div class="bg-white border border-brand-100 rounded-3xl p-6 sm:p-10 shadow-xl max-w-3xl mx-auto">
                 <div id="quiz-question-container">
-                    <div class="flex items-center justify-between mb-8">
+                    <div class="flex items-center justify-between mb-8 font-sans">
                         <span class="text-xs font-bold text-brand-600 uppercase tracking-widest" id="quiz-step-indicator">Question 1 of 5</span>
                         <div class="w-1/2 bg-slate-100 h-2 rounded-full overflow-hidden">
                             <div class="bg-brand-500 h-2 rounded-full transition-all duration-300" id="quiz-progress-bar" style="width: 20%"></div>
@@ -1049,7 +1101,7 @@
                         <p class="text-xl font-extrabold text-brand-600 font-display" id="quiz-result-classification">Mild Anxiety &amp; Stress Load</p>
                     </div>
 
-                    <div class="bg-slate-50 border border-slate-100 p-6 rounded-2xl text-slate-600 text-sm max-w-xl mx-auto leading-relaxed" id="quiz-result-guideline">
+                    <div class="bg-slate-50 border border-slate-100 p-6 rounded-2xl text-slate-600 text-sm max-w-xl mx-auto leading-relaxed" id="quiz-result-guideline font-sans">
                         Your answers indicate typical everyday stress levels. To maintain mental peace, we recommend scheduling standard stress case management counseling sessions at our Outpatient Clinic on Robinson Road, or implementing mindful lifestyle activities.
                     </div>
 
@@ -1057,12 +1109,12 @@
                         <button onclick="restartQuiz()" class="w-full sm:w-auto bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold px-6 py-3 rounded-xl transition">
                             Retake Assessment
                         </button>
-                        <a href="#booking" class="w-full sm:w-auto bg-gradient-to-r from-brand-600 to-emerald-600 text-white font-bold px-6 py-3 rounded-xl transition shadow-md">
+                        <a href="#booking" class="w-full sm:w-auto bg-gradient-to-r from-brand-500 to-wellness-500 text-white font-bold px-6 py-3 rounded-xl transition shadow-md">
                             Speak to a Consultant
                         </a>
                     </div>
 
-                    <p class="text-[10px] text-slate-400 italic max-w-md mx-auto pt-4 leading-relaxed">
+                    <p class="text-[10px] text-slate-400 italic max-w-md mx-auto pt-4 leading-relaxed font-sans">
                         Disclaimer: This assessment is an educational screening tool. It does not replace a clinical psychiatric consultation with Dr. C.D. Premadasan or other certified psychologists.
                     </p>
                 </div>
@@ -1076,13 +1128,13 @@
             <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
                 <span class="text-brand-600 text-xs sm:text-sm font-bold uppercase tracking-widest font-mono">Secure Online Registrar</span>
                 <h3 class="font-display text-3xl sm:text-4xl font-extrabold text-slate-950">Pre-Registration Booking</h3>
-                <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
-                    Reserve your session at our Robinson Road Outpatient or Pannimada Inpatient facility in advance. Your information is securely locked in our central clinic registry.
+                <p class="text-slate-600 text-sm sm:text-base leading-relaxed font-sans">
+                    Reserve your session at our Robinson Road Outpatient, Pannimada Inpatient, or Manas Holistic wellness facility in advance. Your information is securely locked in our central clinic registry.
                 </p>
             </div>
 
             <!-- BOOKING WIDGET -->
-            <div class="max-w-3xl mx-auto bg-slate-50 border border-slate-100 rounded-3xl p-6 sm:p-10 shadow-xl relative overflow-hidden">
+            <div class="max-w-3xl mx-auto bg-slate-50 border border-brand-100 rounded-3xl p-6 sm:p-10 shadow-xl relative overflow-hidden">
                 <!-- Step progress labels -->
                 <div class="flex justify-between items-center mb-8 text-xs sm:text-sm font-medium border-b border-slate-200 pb-5 font-display">
                     <span class="step-active" id="book-step-1-lbl">01 Department &amp; Practitioner</span>
@@ -1092,13 +1144,14 @@
                 </div>
 
                 <!-- STEP 1: SERVICE & DOCTOR -->
-                <div id="booking-step-1" class="space-y-6 animate-fade-in">
+                <div id="booking-step-1" class="space-y-6 animate-fade-in font-sans">
                     <div class="space-y-2">
                         <label class="block text-xs font-bold text-slate-500 uppercase">Select Clinic Department / Program</label>
                         <select id="booking-service" onchange="updateAttendingDoctorOptions()" class="w-full bg-white border border-slate-200 p-4 rounded-xl focus:outline-none focus:border-brand-500 font-semibold text-slate-800">
                             <option value="op">Outpatient Case Management (Stress, Family, Couple, IQ)</option>
                             <option value="inpatient">Inpatient Psychiatric Stabilization (Residential Clinic)</option>
                             <option value="deaddiction">Inpatient De-Addiction Rehabilitation (Substance Abuse)</option>
+                            <option value="manas">Manas Holistic Mind &amp; Ayurvedic Rejuvenation</option>
                             <option value="palliative">Psychiatric Home Visit &amp; Palliative Care</option>
                         </select>
                     </div>
@@ -1107,19 +1160,20 @@
                         <label class="block text-xs font-bold text-slate-500 uppercase">Available Practitioner</label>
                         <select id="booking-doctor" class="w-full bg-white border border-slate-200 p-4 rounded-xl focus:outline-none focus:border-brand-500 font-semibold text-slate-800">
                             <option value="Dr. C.D. Premadasan">Dr. C.D. Premadasan, Psychiatrist (30+ Yrs Exp)</option>
+                            <option value="Dr. Manas Dev, BAMS, MD (Ayurveda)">Dr. Manas Dev, BAMS, MD (Ayurveda)</option>
                             <option value="Attending Clinical Psychologist">Attending Clinical Psychologist, Psychologist (MIMS Team)</option>
                         </select>
                     </div>
 
                     <div class="flex justify-end pt-4 font-display">
-                        <button onclick="goToBookingStep(2)" class="bg-brand-600 hover:bg-brand-500 text-white font-bold px-6 py-3.5 rounded-xl transition flex items-center gap-2">
+                        <button onclick="goToBookingStep(2)" class="bg-brand-500 hover:bg-brand-600 text-white font-bold px-6 py-3.5 rounded-xl transition flex items-center gap-2">
                             <span>Proceed to Slots</span> <i data-lucide="arrow-right" class="w-4 h-4"></i>
                         </button>
                     </div>
                 </div>
 
                 <!-- STEP 2: SLOT SELECTION -->
-                <div id="booking-step-2" class="hidden space-y-6 animate-fade-in">
+                <div id="booking-step-2" class="hidden space-y-6 animate-fade-in font-sans">
                     <div class="grid sm:grid-cols-2 gap-6">
                         <div class="space-y-2">
                             <label class="block text-xs font-bold text-slate-500 uppercase">Preferred Consult Date</label>
@@ -1141,14 +1195,14 @@
                         <button onclick="goToBookingStep(1)" class="bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold px-6 py-3.5 rounded-xl transition">
                             Back
                         </button>
-                        <button onclick="goToBookingStep(3)" class="bg-brand-600 hover:bg-brand-500 text-white font-bold px-6 py-3.5 rounded-xl transition flex items-center gap-2">
+                        <button onclick="goToBookingStep(3)" class="bg-brand-500 hover:bg-brand-600 text-white font-bold px-6 py-3.5 rounded-xl transition flex items-center gap-2">
                             <span>Proceed to Contact Details</span> <i data-lucide="arrow-right" class="w-4 h-4"></i>
                         </button>
                     </div>
                 </div>
 
                 <!-- STEP 3: CONTACT DETAILS -->
-                <div id="booking-step-3" class="hidden space-y-6 animate-fade-in">
+                <div id="booking-step-3" class="hidden space-y-6 animate-fade-in font-sans">
                     <div class="grid sm:grid-cols-2 gap-6">
                         <div class="space-y-2">
                             <label class="block text-xs font-bold text-slate-500 uppercase">Patient Full Name</label>
@@ -1170,16 +1224,16 @@
                         <button onclick="goToBookingStep(2)" class="bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold px-6 py-3.5 rounded-xl transition">
                             Back
                         </button>
-                        <button onclick="submitBooking()" class="bg-gradient-to-r from-brand-600 to-emerald-600 hover:from-brand-700 hover:to-emerald-700 text-white font-extrabold px-8 py-3.5 rounded-xl transition shadow-md flex items-center gap-2">
+                        <button onclick="submitBooking()" class="bg-gradient-to-r from-brand-500 to-wellness-500 text-white font-extrabold px-8 py-3.5 rounded-xl transition shadow-md flex items-center gap-2">
                             <span>Register &amp; Lock Records</span> <i data-lucide="shield-check" class="w-4.5 h-4.5"></i>
                         </button>
                     </div>
                 </div>
 
                 <!-- STEP 4: SUCCESS CONFIRMATION SLIP -->
-                <div id="booking-step-4" class="hidden space-y-6 animate-fade-in">
+                <div id="booking-step-4" class="hidden space-y-6 animate-fade-in font-sans">
                     <div class="text-center space-y-2">
-                        <div class="w-16 h-16 bg-emerald-50 rounded-full flex items-center justify-center mx-auto text-emerald-600 animate-bounce">
+                        <div class="w-16 h-16 bg-brand-50 rounded-full flex items-center justify-center mx-auto text-brand-600 animate-bounce">
                             <i data-lucide="check-circle-2" class="w-10 h-10"></i>
                         </div>
                         <h4 class="font-display text-2xl font-extrabold text-slate-950">Registration Record Locked</h4>
@@ -1233,9 +1287,6 @@
                                     <div class="bg-slate-800 w-[1px]"></div>
                                     <div class="bg-slate-800 w-[3px]"></div>
                                     <div class="bg-slate-800 w-[2px]"></div>
-                                    <div class="bg-slate-800 w-[1px]"></div>
-                                    <div class="bg-slate-800 w-[4px]"></div>
-                                    <div class="bg-slate-800 w-[2px]"></div>
                                 </div>
                             </div>
                             <span class="text-[9px] font-mono tracking-widest text-slate-400 font-bold">SECURE-CLINIC-LEDGER-LOCK</span>
@@ -1246,7 +1297,7 @@
                         <button onclick="window.print()" class="w-full sm:w-auto bg-slate-200 hover:bg-slate-300 text-slate-800 font-semibold px-6 py-3 rounded-xl transition flex items-center justify-center gap-2">
                             <i data-lucide="printer" class="w-4 h-4"></i> Print Pass
                         </button>
-                        <button onclick="resetBookingForm()" class="w-full sm:w-auto bg-brand-600 hover:bg-brand-500 text-white font-bold px-6 py-3 rounded-xl transition">
+                        <button onclick="resetBookingForm()" class="w-full sm:w-auto bg-brand-500 hover:bg-brand-600 text-white font-bold px-6 py-3 rounded-xl transition">
                             Book Another Session
                         </button>
                     </div>
@@ -1267,21 +1318,21 @@
             </div>
 
             <!-- Locations Cards -->
-            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto font-sans">
                 <!-- Location 1: Robinson Road -->
-                <div class="bg-white border border-slate-100 rounded-3xl p-6 sm:p-8 shadow-lg hover:shadow-xl hover:border-brand-300 transition-all duration-300 flex flex-col justify-between group">
+                <div class="bg-white border border-slate-100 rounded-3xl p-6 sm:p-8 shadow-lg hover:shadow-xl hover:border-brand-200 transition-all duration-300 flex flex-col justify-between group">
                     <div class="space-y-4">
-                        <div class="w-12 h-12 rounded-2xl bg-brand-50 text-brand-600 flex items-center justify-center group-hover:bg-brand-600 group-hover:text-white transition-all">
+                        <div class="w-12 h-12 rounded-2xl bg-brand-50 text-brand-600 flex items-center justify-center group-hover:bg-brand-500 group-hover:text-white transition-all">
                             <i data-lucide="map-pin" class="w-6 h-6"></i>
                         </div>
                         <div>
-                            <span class="text-[10px] text-brand-600 font-bold uppercase tracking-widest">Outpatient (OP) &amp; Consultation Center</span>
+                            <span class="text-[10px] text-brand-500 font-bold uppercase tracking-widest font-mono">Outpatient (OP) &amp; Consultation Center</span>
                             <h4 class="font-display text-2xl font-bold text-slate-950 mt-1">Robinson Road Clinic</h4>
                         </div>
                         <p class="text-slate-600 text-sm leading-relaxed">
                             Conveniently located in the heart of Palakkad town, managing clinical consults, case assessments, pre-marital therapy, intelligence screening, and routine doctor checks.
                         </p>
-                        <div class="border-t border-slate-100 pt-4 space-y-2.5 text-xs sm:text-sm text-slate-700 font-medium font-sans">
+                        <div class="border-t border-slate-100 pt-4 space-y-2.5 text-xs sm:text-sm text-slate-700 font-medium">
                             <p class="flex items-center gap-2"><i data-lucide="map" class="w-4.5 h-4.5 text-brand-500 shrink-0"></i> Robinson Road, Palakkad - 678 014, Kerala</p>
                             <p class="flex items-center gap-2"><i data-lucide="phone" class="w-4.5 h-4.5 text-brand-500 shrink-0"></i> +91 0491 253 1342 / +91 9495 867 342</p>
                             <p class="flex items-center gap-2"><i data-lucide="mail" class="w-4.5 h-4.5 text-brand-500 shrink-0"></i> info@manomithra.com</p>
@@ -1290,22 +1341,22 @@
                 </div>
 
                 <!-- Location 2: Kanjikode Road -->
-                <div class="bg-white border border-slate-100 rounded-3xl p-6 sm:p-8 shadow-lg hover:shadow-xl hover:border-brand-300 transition-all duration-300 flex flex-col justify-between group">
+                <div class="bg-white border border-slate-100 rounded-3xl p-6 sm:p-8 shadow-lg hover:shadow-xl hover:border-brand-200 transition-all duration-300 flex flex-col justify-between group">
                     <div class="space-y-4">
-                        <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center group-hover:bg-emerald-600 group-hover:text-white transition-all">
+                        <div class="w-12 h-12 rounded-2xl bg-wellness-50 text-wellness-600 flex items-center justify-center group-hover:bg-wellness-500 group-hover:text-white transition-all">
                             <i data-lucide="hotel" class="w-6 h-6"></i>
                         </div>
                         <div>
-                            <span class="text-[10px] text-emerald-600 font-bold uppercase tracking-widest">Inpatient (IP) &amp; Rehabilitation Center</span>
+                            <span class="text-[10px] text-wellness-500 font-bold uppercase tracking-widest font-mono">Inpatient (IP) &amp; Rehabilitation Center</span>
                             <h4 class="font-display text-2xl font-bold text-slate-950 mt-1">Kanjikode Road Campus</h4>
                         </div>
                         <p class="text-slate-600 text-sm leading-relaxed">
                             A highly serene residential hospital dedicated to full inpatient services, drug and alcohol detoxification, comprehensive psychological rehabilitation, and caregiver residential courses.
                         </p>
-                        <div class="border-t border-slate-100 pt-4 space-y-2.5 text-xs sm:text-sm text-slate-700 font-medium font-sans">
-                            <p class="flex items-center gap-2"><i data-lucide="map" class="w-4.5 h-4.5 text-emerald-500 shrink-0"></i> Kanjikode Rd, Pannimada, Palakkad, Kerala</p>
-                            <p class="flex items-center gap-2"><i data-lucide="phone" class="w-4.5 h-4.5 text-emerald-500 shrink-0"></i> +91 9446 431 342</p>
-                            <p class="flex items-center gap-2"><i data-lucide="mail" class="w-4.5 h-4.5 text-emerald-500 shrink-0"></i> Manomithrapalakkad@gmail.com</p>
+                        <div class="border-t border-slate-100 pt-4 space-y-2.5 text-xs sm:text-sm text-slate-700 font-medium">
+                            <p class="flex items-center gap-2"><i data-lucide="map" class="w-4.5 h-4.5 text-wellness-500 shrink-0"></i> Kanjikode Rd, Pannimada, Palakkad, Kerala</p>
+                            <p class="flex items-center gap-2"><i data-lucide="phone" class="w-4.5 h-4.5 text-wellness-500 shrink-0"></i> +91 9446 431 342</p>
+                            <p class="flex items-center gap-2"><i data-lucide="mail" class="w-4.5 h-4.5 text-wellness-500 shrink-0"></i> Manomithrapalakkad@gmail.com</p>
                         </div>
                     </div>
                 </div>
@@ -1320,7 +1371,7 @@
                 <!-- COL 1 -->
                 <div class="md:col-span-5 space-y-4">
                     <div class="flex items-center gap-2.5">
-                        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-emerald-500 flex items-center justify-center shadow-md">
+                        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-500 to-wellness-400 flex items-center justify-center shadow-md">
                             <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                                 <path d="M12 3c1.5 3 4.5 4 6 7.5s-1.5 6.5-6 6.5-7.5-3-6-6.5 4.5-4.5 6-7.5z" />
                                 <circle cx="12" cy="12" r="2.5" fill="currentColor"/>
@@ -1331,43 +1382,43 @@
                             <p class="text-[9px] text-slate-400 uppercase tracking-widest font-semibold -mt-0.5">Institute of Medical Sciences</p>
                         </div>
                     </div>
-                    <p class="text-xs text-slate-400 leading-relaxed max-w-sm">
+                    <p class="text-xs text-slate-300 leading-relaxed max-w-sm">
                         Since 2008, Manomithra (MIMS) has provided compassionate inpatient psychiatric care and alcohol/drug rehabilitation in Palakkad, Kerala.
                     </p>
                 </div>
 
                 <!-- COL 2 -->
                 <div class="md:col-span-3 space-y-4 font-sans">
-                    <h5 class="text-xs font-bold uppercase tracking-wider text-brand-400">Services Directory</h5>
-                    <ul class="space-y-2 text-xs text-slate-400 font-semibold">
+                    <h5 class="text-xs font-bold uppercase tracking-wider text-brand-300">Services Directory</h5>
+                    <ul class="space-y-2 text-xs text-slate-300 font-semibold">
                         <li><a href="#services" class="hover:text-white transition">Outpatient Consultations</a></li>
                         <li><a href="#services" class="hover:text-white transition">Inpatient Care Wards</a></li>
+                        <li><a href="#services" class="hover:text-white transition">Manas Holistic Mind Therapy</a></li>
                         <li><a href="#services" class="hover:text-white transition">Alcohol De-Addiction</a></li>
                         <li><a href="#services" class="hover:text-white transition">Stress Management</a></li>
-                        <li><a href="#services" class="hover:text-white transition">Couple &amp; Family Therapy</a></li>
                     </ul>
                 </div>
 
                 <!-- COL 3 -->
                 <div class="md:col-span-4 space-y-4 text-xs font-sans">
-                    <h5 class="text-xs font-bold uppercase tracking-wider text-brand-400">Emergency &amp; Admissions</h5>
-                    <ul class="space-y-3 text-slate-400">
+                    <h5 class="text-xs font-bold uppercase tracking-wider text-brand-300 font-mono">Emergency &amp; Admissions</h5>
+                    <ul class="space-y-3 text-slate-300">
                         <li class="flex items-start gap-2">
-                            <i data-lucide="phone" class="w-4 h-4 text-red-500 shrink-0"></i>
+                            <i data-lucide="phone" class="w-4 h-4 text-rose-400 shrink-0"></i>
                             <div>
                                 <p class="font-bold text-white">Emergency Hotline (24/7)</p>
                                 <p class="text-[11px]">+91 9495 867 342</p>
                             </div>
                         </li>
                         <li class="flex items-start gap-2">
-                            <i data-lucide="phone-call" class="w-4 h-4 text-brand-500 shrink-0"></i>
+                            <i data-lucide="phone-call" class="w-4 h-4 text-brand-400 shrink-0"></i>
                             <div>
                                 <p class="font-bold text-white">Inpatient Admissions</p>
                                 <p class="text-[11px]">+91 9446 431 342</p>
                             </div>
                         </li>
                         <li class="flex items-start gap-2">
-                            <i data-lucide="clock" class="w-4 h-4 text-brand-500 shrink-0"></i>
+                            <i data-lucide="clock" class="w-4 h-4 text-brand-400 shrink-0"></i>
                             <div>
                                 <p class="font-bold text-white">Robinson Rd Clinic Hours</p>
                                 <p class="text-[11px]">Mon - Sat | 9:30 AM - 4:30 PM</p>
@@ -1378,11 +1429,11 @@
             </div>
 
             <!-- Medical Emergency Disclaimer -->
-            <div class="pt-8 text-center text-[10px] text-slate-500 leading-relaxed max-w-4xl mx-auto space-y-2">
-                <p>
-                    <strong>Medical Disclaimer:</strong> This website provides informational &amp; pre-registration administrative services regarding psychiatric medicine and de-addiction rehabilitation programs at Manomithra Institute of Medical Sciences. It does not replace immediate in-person psychiatric or medical support. If you are experiencing suicidal thoughts, severe withdrawal syndromes, or a critical psychiatric crisis, call our immediate emergency response helpline at +91 9495 867 342 or proceed directly to the nearest hospital casualty department.
+            <div class="pt-8 text-center text-[10px] text-slate-400 leading-relaxed max-w-4xl mx-auto space-y-2">
+                <p class="font-sans">
+                    <strong>Medical Disclaimer:</strong> This website provides informational &amp; pre-registration administrative services regarding psychiatric medicine, traditional Ayurvedic therapies, and de-addiction rehabilitation programs at Manomithra Institute of Medical Sciences. It does not replace immediate in-person psychiatric or medical support. If you are experiencing suicidal thoughts, severe withdrawal syndromes, or a critical psychiatric crisis, call our immediate emergency response helpline at +91 9495 867 342 or proceed directly to the nearest hospital casualty department.
                 </p>
-                <p class="pt-2 text-slate-600 font-mono text-[9px]">
+                <p class="pt-2 text-brand-300 font-mono text-[9px]">
                     Patient Registry Security Core | &copy; 2026 Manomithra Institute of Medical Sciences Pvt. Ltd. (MIMS).
                 </p>
             </div>
@@ -1390,18 +1441,18 @@
     </footer>
 
     <!-- FLOATING AI CHATBOT widget -->
-    <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end">
+    <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end font-sans">
         <!-- Chat Dialogue Bubble -->
         <div class="hidden bg-white text-slate-800 rounded-3xl shadow-2xl border border-slate-100 w-[330px] sm:w-[360px] overflow-hidden flex flex-col mb-4" id="chat-dialog-box">
             <!-- Header -->
-            <div class="bg-gradient-to-r from-brand-600 to-emerald-600 text-white px-4 py-3.5 flex items-center justify-between">
+            <div class="bg-gradient-to-r from-brand-600 to-wellness-600 text-white px-4 py-3.5 flex items-center justify-between">
                 <div class="flex items-center gap-2.5">
                     <div class="w-8 h-8 rounded-lg bg-white/20 flex items-center justify-center font-bold text-sm">
                         <i data-lucide="bot" class="w-4 h-4"></i>
                     </div>
                     <div>
                         <h4 class="text-xs font-bold leading-none">Mitra AI</h4>
-                        <span class="text-[9px] text-emerald-200 font-medium">Attending Support Assistant</span>
+                        <span class="text-[9px] text-rose-200 font-medium">Attending Support Assistant</span>
                     </div>
                 </div>
                 <button onclick="toggleChatbot()" class="text-white/80 hover:text-white" aria-label="Close chat">
@@ -1410,37 +1461,37 @@
             </div>
 
             <!-- Conversation window -->
-            <div class="h-[260px] overflow-y-auto p-4 space-y-3.5 text-xs bg-slate-50 no-scrollbar font-sans" id="chat-conversation-area">
-                <div class="bg-brand-50 border border-brand-100 text-brand-800 p-3 rounded-2xl text-left leading-relaxed">
+            <div class="h-[260px] overflow-y-auto p-4 space-y-3.5 text-xs bg-slate-50 no-scrollbar" id="chat-conversation-area">
+                <div class="bg-brand-50 border border-brand-100 text-brand-900 p-3 rounded-2xl text-left leading-relaxed font-sans">
                     Hello! I am <strong>Mitra AI</strong>, your attending administrative counselor here at Manomithra (MIMS). How can I assist you or your family today?
                 </div>
                 <div class="flex flex-wrap gap-1.5 pt-1" id="chat-quick-options">
                     <button onclick="sendQuickPrompt('doctor')" class="bg-white hover:bg-brand-50 text-[10px] text-slate-600 hover:text-brand-600 px-2.5 py-1 rounded-full border border-slate-200 font-medium transition shrink-0">👨‍⚕️ Meet Dr. Premadasan</button>
+                    <button onclick="sendQuickPrompt('manas')" class="bg-white hover:bg-brand-50 text-[10px] text-slate-600 hover:text-brand-600 px-2.5 py-1 rounded-full border border-slate-200 font-medium transition shrink-0">🌸 Manas Holistic Clinic</button>
                     <button onclick="sendQuickPrompt('inpatient')" class="bg-white hover:bg-brand-50 text-[10px] text-slate-600 hover:text-brand-600 px-2.5 py-1 rounded-full border border-slate-200 font-medium transition shrink-0">🏥 Inpatient Wards</button>
                     <button onclick="sendQuickPrompt('deaddiction')" class="bg-white hover:bg-brand-50 text-[10px] text-slate-600 hover:text-brand-600 px-2.5 py-1 rounded-full border border-slate-200 font-medium transition shrink-0">🛡️ De-addiction Rehab</button>
-                    <button onclick="sendQuickPrompt('crisis')" class="bg-white hover:bg-brand-50 text-[10px] text-slate-600 hover:text-brand-600 px-2.5 py-1 rounded-full border border-slate-200 font-medium transition shrink-0">🚨 Emergency Contact</button>
                 </div>
             </div>
 
-            <div class="px-4 py-1.5 text-[10px] text-slate-400 italic hidden text-left bg-slate-50 font-sans" id="chat-typing-indicator">
+            <div class="px-4 py-1.5 text-[10px] text-slate-400 italic hidden text-left bg-slate-50" id="chat-typing-indicator">
                 Mitra AI is formulating a clinical response...
             </div>
 
             <!-- Input area -->
-            <div class="border-t border-slate-100 p-3 bg-white flex gap-2 font-sans">
+            <div class="border-t border-slate-100 p-3 bg-white flex gap-2">
                 <input type="text" id="chat-input" placeholder="Ask a question..." onkeydown="handleChatKeyDown(event)" class="w-full bg-slate-100 border border-slate-200 px-3.5 py-2 rounded-xl text-xs focus:outline-none focus:border-brand-500 text-slate-800 placeholder-slate-400">
-                <button onclick="sendChatText()" class="bg-brand-600 hover:bg-brand-500 text-white p-2.5 rounded-xl transition shrink-0">
+                <button onclick="sendChatText()" class="bg-brand-500 hover:bg-brand-600 text-white p-2.5 rounded-xl transition shrink-0">
                     <i data-lucide="send" class="w-4 h-4"></i>
                 </button>
             </div>
         </div>
 
         <!-- Floating Button -->
-        <button onclick="toggleChatbot()" class="bg-gradient-to-r from-brand-600 to-emerald-600 text-white p-4 rounded-full shadow-2xl hover:shadow-brand-300 hover:scale-105 transition-all flex items-center gap-2" id="chat-trigger-btn" aria-label="Open support chat">
+        <button onclick="toggleChatbot()" class="bg-gradient-to-r from-brand-500 to-wellness-500 text-white p-4 rounded-full shadow-2xl hover:shadow-brand-200 hover:scale-105 transition-all flex items-center gap-2" id="chat-trigger-btn" aria-label="Open support chat">
             <div class="relative">
                 <span class="absolute -top-1 -right-1 flex h-2.5 w-2.5">
-                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-300 opacity-75"></span>
-                    <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-300 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-rose-400"></span>
                 </span>
                 <i data-lucide="message-square" class="w-6 h-6" id="chat-icon"></i>
             </div>
@@ -1468,8 +1519,7 @@
             lucide.createIcons();
         }
 
-        // --- DEPLOYMENT SAFE: CLIENT-SIDE LOCALSTORAGE VIRTUAL DATABASE ENGINE ---
-        // This ensures the site is 100% functional on Vercel/Netlify without any crashes!
+        // --- CLIENT-SIDE LOCALSTORAGE VIRTUAL DATABASE ENGINE ---
         
         const SEED_PATIENTS = [
             {
@@ -1555,7 +1605,6 @@
             }
         ];
 
-        // Initialize Virtual Ledger in LocalStorage
         function initVirtualLedger() {
             if (!localStorage.getItem('MIMS_patients')) {
                 localStorage.setItem('MIMS_patients', JSON.stringify(SEED_PATIENTS));
@@ -1565,7 +1614,6 @@
             }
         }
 
-        // Helper functions for reading/writing localStorage
         function getVirtualPatients() {
             return JSON.parse(localStorage.getItem('MIMS_patients')) || [];
         }
@@ -1582,13 +1630,6 @@
             localStorage.setItem('MIMS_appointments', JSON.stringify(appointments));
         }
 
-        // On Page Load
-        window.addEventListener('DOMContentLoaded', () => {
-            initVirtualLedger();
-            loadAdminAppointments();
-            loadAdminPatientsSelector();
-        });
-
         // Services Tab Switcher
         function switchServiceTab(tabId) {
             const panels = document.querySelectorAll('.service-panel');
@@ -1597,13 +1638,13 @@
             const buttons = document.querySelectorAll('.service-tab-btn');
             buttons.forEach(b => {
                 b.classList.remove('bg-brand-600', 'text-white', 'shadow-md');
-                b.classList.add('hover:bg-slate-200', 'text-slate-700');
+                b.classList.add('hover:bg-brand-50', 'text-slate-700');
             });
 
             document.getElementById(`panel-${tabId}`).classList.remove('hidden');
 
             const activeBtn = document.getElementById(`tab-${tabId}`);
-            activeBtn.classList.remove('hover:bg-slate-200', 'text-slate-700');
+            activeBtn.classList.remove('hover:bg-brand-50', 'text-slate-700');
             activeBtn.classList.add('bg-brand-600', 'text-white', 'shadow-md');
         }
 
@@ -1614,7 +1655,7 @@
             
             let icon = 'info';
             if (type === 'success') {
-                toast.className += ' bg-emerald-50 border-emerald-200 text-emerald-800';
+                toast.className += ' bg-rose-50 border-brand-200 text-brand-800';
                 icon = 'check-circle';
             } else if (type === 'error') {
                 toast.className += ' bg-red-50 border-red-200 text-red-800';
@@ -1668,7 +1709,6 @@
                 return;
             }
 
-            // Retrieve from LocalStorage registry
             const patients = getVirtualPatients();
             const patient = patients.find(p => p.id === id);
 
@@ -1685,27 +1725,23 @@
             errorState.classList.add('hidden');
             loadedState.classList.remove('hidden');
 
-            // Populate dashboard
             document.getElementById('db-patient-name').innerText = patient.name;
             document.getElementById('db-patient-program').innerText = patient.program;
             document.getElementById('db-patient-doctor').innerText = patient.doctor;
             document.getElementById('db-therapist-notes').innerText = patient.notes || 'No practitioner notes synchronized yet.';
 
-            // Status Badge styling
             const statusBadge = document.getElementById('db-patient-status');
             statusBadge.innerText = patient.status;
             if (patient.status.toLowerCase().includes('active')) {
-                statusBadge.className = 'bg-brand-500/10 text-brand-400 text-[9px] font-bold px-2 py-0.5 rounded-full border border-brand-500/20';
+                statusBadge.className = 'bg-brand-500/10 text-brand-500 text-[9px] font-bold px-2 py-0.5 rounded-full border border-brand-500/20';
             } else if (patient.status.toLowerCase().includes('complete') || patient.status.toLowerCase().includes('stable')) {
-                statusBadge.className = 'bg-emerald-500/10 text-emerald-400 text-[9px] font-bold px-2 py-0.5 rounded-full border border-emerald-500/20';
+                statusBadge.className = 'bg-emerald-500/10 text-emerald-600 text-[9px] font-bold px-2 py-0.5 rounded-full border border-emerald-500/20';
             } else {
                 statusBadge.className = 'bg-amber-500/10 text-amber-500 text-[9px] font-bold px-2 py-0.5 rounded-full border border-amber-500/20';
             }
 
-            // Duration course progress
             document.getElementById('db-duration-info').innerHTML = `Active Course Progress: <strong>Day ${patient.current_day} of ${patient.duration_days}</strong>`;
 
-            // Draw progress steps timeline
             document.getElementById('db-timeline-title').innerText = `Current Recovery Phase: Phase ${patient.phase} of 4`;
             
             const phases = [
@@ -1719,33 +1755,32 @@
             phases.forEach(ph => {
                 if (patient.phase > ph.num) {
                     phasesHtml += `
-                        <div class="p-2 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 font-semibold">
+                        <div class="p-2 rounded-xl bg-brand-500/10 border border-brand-200 text-brand-600 font-semibold">
                             <div class="font-black text-xs">Phase 0${ph.num}</div>
                             <p class="truncate text-[11px]">${ph.name}</p>
-                            <span class="text-[8px] text-emerald-500 font-bold block mt-1">✓ Finalized</span>
+                            <span class="text-[8px] text-brand-600 font-bold block mt-1">✓ Finalized</span>
                         </div>
                     `;
                 } else if (patient.phase === ph.num) {
                     phasesHtml += `
-                        <div class="p-2 rounded-xl bg-brand-500/10 border-2 border-brand-500 text-brand-300 font-bold animate-pulse">
+                        <div class="p-2 rounded-xl bg-wellness-500/10 border-2 border-brand-500 text-brand-300 font-bold animate-pulse">
                             <div class="font-black text-xs">Phase 0${ph.num}</div>
                             <p class="truncate text-[11px]">${ph.name}</p>
-                            <span class="text-[8px] text-brand-400 font-bold block mt-1">● Ongoing</span>
+                            <span class="text-[8px] text-brand-300 font-bold block mt-1">● Ongoing</span>
                         </div>
                     `;
                 } else {
                     phasesHtml += `
-                        <div class="p-2 rounded-xl bg-slate-900 border border-slate-800 text-slate-600">
+                        <div class="p-2 rounded-xl bg-brand-950 border border-brand-900 text-brand-400">
                             <div class="font-black text-xs">Phase 0${ph.num}</div>
                             <p class="truncate text-[11px]">${ph.name}</p>
-                            <span class="text-[8px] text-slate-700 block mt-1">Scheduled</span>
+                            <span class="text-[8px] text-brand-500 block mt-1">Scheduled</span>
                         </div>
                     `;
                 }
             });
             document.getElementById('db-phases-timeline').innerHTML = phasesHtml;
 
-            // Render interactive objective checks
             let checklistHtml = '';
             patient.daily_checklist.forEach((item, index) => {
                 const checkedAttr = item.done ? 'checked' : '';
@@ -1760,7 +1795,6 @@
             document.getElementById('db-checklist-container').innerHTML = checklistHtml;
         }
 
-        // Toggle objective checkbox directly inside LocalStorage registry!
         function togglePatientDbChecklist(patientId, itemIndex, isChecked) {
             const patients = getVirtualPatients();
             const pIdx = patients.findIndex(p => p.id === patientId);
@@ -1783,7 +1817,7 @@
 
             const buttons = document.querySelectorAll('.admin-tab-btn');
             buttons.forEach(b => {
-                b.classList.remove('border-brand-600', 'text-brand-600', 'font-bold');
+                b.classList.remove('border-brand-500', 'text-brand-500', 'font-bold');
                 b.classList.add('border-transparent', 'text-slate-400');
             });
 
@@ -1791,7 +1825,7 @@
 
             const activeBtn = document.getElementById(`admin-tab-${panelId}`);
             activeBtn.classList.remove('border-transparent', 'text-slate-400');
-            activeBtn.classList.add('border-brand-600', 'text-brand-600', 'font-bold');
+            activeBtn.classList.add('border-brand-500', 'text-brand-500', 'font-bold');
 
             if (panelId === 'appointments') {
                 loadAdminAppointments();
@@ -1800,7 +1834,6 @@
             }
         }
 
-        // Load active consultation schedule from LocalStorage registry
         function loadAdminAppointments() {
             const tbody = document.getElementById('admin-appointments-tbody');
             tbody.innerHTML = `<tr><td colspan="6" class="p-8 text-center text-slate-400 animate-pulse">Loading live clinical records...</td></tr>`;
@@ -1813,7 +1846,6 @@
             }
 
             let html = '';
-            // Render latest bookings first
             [...appointments].reverse().forEach(app => {
                 let statusColor = 'bg-amber-100 text-amber-800 border-amber-200';
                 if (app.status === 'Approved') statusColor = 'bg-emerald-100 text-emerald-800 border-emerald-200';
@@ -1823,6 +1855,7 @@
                 if (app.service === 'op') deptText = 'Outpatient (OP)';
                 if (app.service === 'inpatient') deptText = 'Inpatient (IP)';
                 if (app.service === 'deaddiction') deptText = 'De-Addiction';
+                if (app.service === 'manas') deptText = 'Manas Holistic';
                 if (app.service === 'palliative') deptText = 'Palliative/Home';
 
                 html += `
@@ -1872,7 +1905,7 @@
         }
 
         function deleteAppointment(id) {
-            if (!confirm('Are you absolutely sure you want to permanently delete this registration record from our central system?')) return;
+            if (!confirm('Are you absolutely sure you want to permanently delete this registration record?')) return;
             const appointments = getVirtualAppointments();
             const filtered = appointments.filter(app => app.id !== id);
 
@@ -1881,7 +1914,6 @@
             showClinicalNotification('Consultation entry permanently removed from central register.', 'success');
         }
 
-        // Populate patient selectors
         function loadAdminPatientsSelector() {
             const select = document.getElementById('edit-patient-selector');
             select.innerHTML = `<option value="">-- Choose Patient File --</option>`;
@@ -1895,7 +1927,6 @@
             });
         }
 
-        // Fetch patient for editing from LocalStorage registry
         function loadPatientForEditing(id) {
             const fieldsContainer = document.getElementById('edit-fields-container');
             const blankState = document.getElementById('edit-blank-state');
@@ -1923,7 +1954,6 @@
             document.getElementById('edit-p-duration').value = p.duration_days;
             document.getElementById('edit-p-notes').value = p.notes || '';
 
-            // Build objectives checks list
             let checkHtml = '';
             p.daily_checklist.forEach((item, idx) => {
                 const checked = item.done ? 'checked' : '';
@@ -1937,20 +1967,6 @@
             document.getElementById('edit-checklist-div').innerHTML = checkHtml;
         }
 
-        function affixPractitionerSignature() {
-            document.getElementById('signature-verified-badge').classList.remove('hidden');
-            document.getElementById('signature-display-div').classList.remove('hidden');
-            if (typeof confetti === 'function') {
-                confetti({
-                    particleCount: 40,
-                    spread: 40,
-                    origin: { y: 0.9 }
-                });
-            }
-            showClinicalNotification("Encrypted calligraphy practitioner seal affixed.", "success");
-        }
-
-        // Save Edits back to LocalStorage patient registry!
         function savePatientEdits() {
             const id = document.getElementById('edit-patient-selector').value;
             if (!id) return;
@@ -1987,7 +2003,6 @@
             }
         }
 
-        // Create and register a brand new patient profile inside LocalStorage registry!
         function createNewPatientInDb(event) {
             event.preventDefault();
 
@@ -2005,7 +2020,6 @@
                 return;
             }
 
-            // Generate randomized unique Patient File ID (e.g. MIMS-4921)
             const randomId = `MIMS-${Math.floor(1000 + Math.random() * 9000)}`;
             const patients = getVirtualPatients();
 
@@ -2039,9 +2053,8 @@
         }
 
 
-        // --- ONLINE REGISTRATION CONSULTATION SLOT BOOKING ---
+        // --- ONLINE CONSULTATION SLOT BOOKING ---
 
-        // Submit Booking and Write directly to LocalStorage Registry!
         function submitBooking() {
             const patient_name = document.getElementById('booking-name').value.trim();
             const patient_phone = document.getElementById('booking-phone').value.trim();
@@ -2076,7 +2089,6 @@
             appointments.push(newBooking);
             saveVirtualAppointments(appointments);
 
-            // Fill receipt slip
             document.getElementById('slip-name').innerText = patient_name;
             document.getElementById('slip-doctor').innerText = doctor;
             
@@ -2088,6 +2100,8 @@
             let locationText = "Robinson Road Outpatient Clinic, Palakkad";
             if (service === 'inpatient' || service === 'deaddiction') {
                 locationText = "Kanjikode Road Inpatient Campus, Pannimada";
+            } else if (service === 'manas') {
+                locationText = "Manas Holistic Suite, Robinson Road OP, Palakkad";
             } else if (service === 'palliative') {
                 locationText = "At-Home Caregiver Visit (Palakkad Limits)";
             }
@@ -2096,22 +2110,18 @@
 
             goToBookingStep(4);
 
-            // Confetti burst
             if (typeof confetti === 'function') {
                 confetti({
                     particleCount: 150,
                     spread: 80,
                     origin: { y: 0.6 },
-                    colors: ['#349287', '#27756d', '#4faea2', '#10b981']
+                    colors: ['#fb7185', '#ec4899', '#f43f5e', '#ffffff']
                 });
             }
 
             loadAdminAppointments();
             showClinicalNotification('Your online consultation pre-registration is confirmed!', 'success');
         }
-
-        // Multi-step Booking System Controls
-        let currentBookingStep = 1;
 
         function goToBookingStep(step) {
             document.getElementById('booking-step-1').classList.add('hidden');
@@ -2137,6 +2147,11 @@
                 docSelect.innerHTML = `
                     <option value="Dr. C.D. Premadasan">Dr. C.D. Premadasan, Psychiatrist (30+ Yrs Exp)</option>
                     <option value="Attending Clinical Psychologist">Attending Clinical Psychologist, Psychologist (MIMS Team)</option>
+                `;
+            } else if (serv === 'manas') {
+                docSelect.innerHTML = `
+                    <option value="Dr. Manas Dev, BAMS, MD (Ayurveda)">Dr. Manas Dev, BAMS, MD (Ayurveda)</option>
+                    <option value="Dr. C.D. Premadasan">Dr. C.D. Premadasan (Ayurvedic Reviewer)</option>
                 `;
             } else if (serv === 'deaddiction' || serv === 'inpatient') {
                 docSelect.innerHTML = `
@@ -2198,21 +2213,20 @@
             let classification = "Optimal Resilience & Healthy Balance";
             let guideline = "Your answers indicate standard, balanced levels of stress resistance! We recommend continuing everyday mindfulness practices. Standard outpatient wellness review courses at Robinson Road Clinic are always open to help you keep your coping skills refined.";
             let percent = 88;
-            let circleColor = "text-emerald-500";
+            let circleColor = "text-brand-400";
 
             if (scoreSum >= 4 && scoreSum <= 8) {
                 classification = "Moderate Clinical Burnout / Overwhelmed";
                 guideline = "Your response indicates a moderate level of mental load or beginning stages of professional burnout. We highly recommend booking a stress-management outpatient session with Dr. C.D. Premadasan's clinic to prevent further clinical fatigue.";
                 percent = 55;
-                circleColor = "text-amber-500";
+                circleColor = "text-wellness-400";
             } else if (scoreSum > 8) {
                 classification = "High Clinical Fatigue & Exhaustion";
                 guideline = "Your response indicates significant emotional burnout or clinical fatigue. Seeking professional guidance is highly courageous and life-affirming. Consider scheduling a diagnostic evaluation at either our Outpatient or inpatient support systems.";
                 percent = 25;
-                circleColor = "text-red-500";
+                circleColor = "text-brand-600";
             }
 
-            // Update SVG Circular Wellness Gauge
             document.getElementById('gauge-score-value').innerText = `${percent}%`;
             const circlePath = document.getElementById('gauge-circle-color');
             circlePath.setAttribute('stroke-dasharray', `${percent}, 100`);
@@ -2281,6 +2295,7 @@
 
             let query = '';
             if (promptKey === 'doctor') query = "Tell me about Dr. C.D. Premadasan.";
+            if (promptKey === 'manas') query = "Tell me about the Manas Holistic Mind Clinic and BAMS specialists.";
             if (promptKey === 'inpatient') query = "Tell me about inpatient services and wards.";
             if (promptKey === 'deaddiction') query = "What are the alcohol and substance abuse de-addiction programs?";
             if (promptKey === 'crisis') query = "I have an emergency right now!";
@@ -2294,7 +2309,7 @@
             const msgNode = document.createElement('div');
             
             if (sender === 'user') {
-                msgNode.className = "bg-brand-600 text-white p-3 rounded-2xl ml-auto max-w-[85%] text-right leading-relaxed font-medium";
+                msgNode.className = "bg-brand-500 text-white p-3 rounded-2xl ml-auto max-w-[85%] text-right leading-relaxed font-medium";
                 msgNode.innerText = text;
             } else {
                 msgNode.className = "bg-white border border-slate-200 text-slate-700 p-3 rounded-2xl mr-auto max-w-[85%] text-left leading-relaxed";
@@ -2317,6 +2332,8 @@
 
                 if (key === 'doctor' || q.includes('doctor') || q.includes('premadasan')) {
                     reply = "<strong>Dr. C.D. Premadasan</strong> is our Chief Medical Director with over 30 years of clinical and psychiatric experience. He leads the medical team across both Palakkad campuses, designing customized outpatient therapies and de-addiction programs.";
+                } else if (key === 'manas' || q.includes('manas') || q.includes('ayurveda') || q.includes('shirodhara') || q.includes('bams')) {
+                    reply = "The <strong>Manas Holistic Mind Clinic</strong> is our specialized division blending traditional Kerala Ayurveda with modern psychology. Led by **Dr. Manas Dev, BAMS, MD (Ayurveda)**, it features Shirodhara and traditional organic mental rejuvenation protocols such as *Manasamitra Vatakam* therapies.";
                 } else if (key === 'inpatient' || q.includes('inpatient') || q.includes('admission') || q.includes('ward')) {
                     reply = "Our residential <strong>Inpatient psychiatric care</strong> is at Kanjikode Road, Pannimada. It features 24/7 medical supervision, counseling, private and general ward formats, and therapeutic gardens. Admissions can be requested at +91 9446 431 342.";
                 } else if (key === 'deaddiction' || q.includes('addiction') || q.includes('alcohol') || q.includes('drug') || q.includes('rehab')) {

@@ -1333,6 +1333,47 @@
                         </div>
                     </div>
 
+                    <!-- DIRECT PATIENT MESSAGING SYSTEM -->
+                    <div class="max-w-md mx-auto space-y-3.5 pt-2 text-slate-800 font-sans">
+                        <!-- Simulated SMS dispatch status -->
+                        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-3.5 flex items-start gap-3 text-left shadow animate-float relative overflow-hidden">
+                            <div class="w-2.5 h-2.5 rounded-full bg-brand-500 absolute top-3.5 right-3.5 animate-pulse"></div>
+                            <div class="w-8 h-8 rounded-lg bg-brand-500 text-white flex items-center justify-center text-sm shrink-0">
+                                <i data-lucide="message-square" class="w-4 h-4"></i>
+                            </div>
+                            <div class="text-xs flex-1">
+                                <div class="flex justify-between items-center text-[9px] text-slate-400 font-bold uppercase tracking-wider font-mono">
+                                    <span>Instant SMS Dispatched</span>
+                                    <span>Locked</span>
+                                </div>
+                                <p class="text-slate-200 mt-1 leading-relaxed font-semibold">
+                                    "MIMS Booking Locked for <span id="msg-sms-name" class="text-white font-bold">-</span>! Ticket ID: <span id="msg-sms-id" class="text-brand-300 font-mono font-bold">-</span>. Date: <span id="msg-sms-date" class="text-white">-</span>. SMS successfully routed to patient mobile."
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Real Actions: Send to Patient and Clinic WhatsApp -->
+                        <div class="bg-white border border-brand-100 rounded-2xl p-4 shadow-md space-y-3">
+                            <h5 class="text-xs font-bold text-slate-900 uppercase font-display tracking-wider flex items-center gap-1"><i data-lucide="share-2" class="w-4 h-4 text-brand-500"></i> Dispatch Real WhatsApp Receipts</h5>
+                            
+                            <!-- Button A: Send to Patient's Own Number -->
+                            <a id="msg-wa-patient-btn" target="_blank" href="#" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white py-3 px-4 rounded-xl font-bold text-xs transition shadow flex items-center justify-center gap-2">
+                                <i data-lucide="smartphone" class="w-4 h-4 shrink-0"></i>
+                                <span>Send Ticket to Patient's WhatsApp</span>
+                            </a>
+                            
+                            <!-- Button B: Share to Clinic Reception -->
+                            <a id="msg-wa-clinic-btn" target="_blank" href="#" class="w-full bg-white border-2 border-emerald-500 hover:bg-emerald-50 text-emerald-700 py-2.5 px-4 rounded-xl font-bold text-xs transition flex items-center justify-center gap-2">
+                                <i data-lucide="phone-call" class="w-4 h-4 shrink-0"></i>
+                                <span>Share Ticket to Clinic Reception</span>
+                            </a>
+                            
+                            <p class="text-[9px] text-slate-400 text-center leading-relaxed">
+                                Click these links to instantly dispatch the formatted consultation pass to your own WhatsApp account or directly to our clinical front desk.
+                            </p>
+                        </div>
+                    </div>
+
                     <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4 font-display">
                         <button onclick="window.print()" class="w-full sm:w-auto bg-slate-200 hover:bg-slate-300 text-slate-800 font-semibold px-6 py-3 rounded-xl transition flex items-center justify-center gap-2">
                             <i data-lucide="printer" class="w-4 h-4"></i> Print Pass
@@ -2147,6 +2188,32 @@
             }
             document.getElementById('slip-location').innerText = locationText;
             document.getElementById('slip-id').innerText = ticket_id;
+
+            // Dynamically update simulated SMS log fields
+            document.getElementById('msg-sms-name').innerText = patient_name;
+            document.getElementById('msg-sms-id').innerText = ticket_id;
+            document.getElementById('msg-sms-date').innerText = formattedDate;
+
+            // Formulate secure rich-text WhatsApp message template
+            let deptName = service.toUpperCase();
+            if (service === 'op') deptName = "Outpatient (OP) Clinic";
+            if (service === 'inpatient') deptName = "Inpatient Care Ward";
+            if (service === 'deaddiction') deptName = "De-Addiction Rehabilitation";
+            if (service === 'manas') deptName = "Manas Holistic Mind Clinic";
+            if (service === 'palliative') deptName = "At-Home Caregiver Visit";
+
+            const waMessage = `Welcome to Manomithra Institute of Medical Sciences (MIMS), *${patient_name}*! Your mind wellness session has been successfully logged. \n\n*Ticket Code:* ${ticket_id}\n*Date:* ${formattedDate}\n*Time:* ${time}\n*Consultant:* ${doctor}\n*Location:* ${locationText}\n\nPlease show this secure pass at our clinical desk.`;
+            const encodedMsg = encodeURIComponent(waMessage);
+
+            // Clean patient phone format
+            let cleanPhone = patient_phone.replace(/[^0-9]/g, '');
+            if (cleanPhone.length === 10) cleanPhone = '91' + cleanPhone; // append India prefix
+
+            // Bind click-to-chat links!
+            // 1. Send directly to patient's own mobile WhatsApp number!
+            document.getElementById('msg-wa-patient-btn').href = `https://wa.me/${cleanPhone}?text=${encodedMsg}`;
+            // 2. Share directly to clinic reception WhatsApp number!
+            document.getElementById('msg-wa-clinic-btn').href = `https://wa.me/919495867342?text=${encodedMsg}`;
 
             goToBookingStep(4);
 

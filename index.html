@@ -1,0 +1,2156 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manomithra Institute of Medical Sciences | Pioneer of Mental Health Care in Palakkad</title>
+    <!-- Tailwind CSS Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f9f8',
+                            100: '#d7f0ec',
+                            200: '#afe0d8',
+                            300: '#7bc9bd',
+                            400: '#4faea2',
+                            500: '#349287',
+                            600: '#27756d',
+                            700: '#235e58',
+                            800: '#204c47',
+                            900: '#1e403d',
+                            950: '#0c2523',
+                        },
+                        wellness: {
+                            50: '#f5f7fb',
+                            100: '#ebeff7',
+                            200: '#d1dcfa',
+                            300: '#a7bdf5',
+                            400: '#7494ee',
+                            500: '#4f6ee3',
+                            600: '#384fd4',
+                            700: '#2d3ebb',
+                            800: '#2a3598',
+                            900: '#26317b',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Syne', 'sans-serif'],
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Syne:wght@500;700;800&display=swap" rel="stylesheet">
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Canvas Confetti CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <style>
+        .glass {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .glass-dark {
+            background: rgba(12, 37, 35, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        /* Hide scrollbars but keep functionality */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        /* Custom progress bar styles */
+        .step-active {
+            color: #349287;
+            font-weight: 600;
+        }
+        /* Pulse border animation */
+        @keyframes pulse-border {
+            0%, 100% { border-color: rgba(52, 146, 135, 0.4); }
+            50% { border-color: rgba(52, 146, 135, 1); }
+        }
+        .pulse-border-teal {
+            animation: pulse-border 2s infinite;
+        }
+    </style>
+</head>
+<body class="font-sans bg-slate-50 text-slate-800 antialiased overflow-x-hidden selection:bg-brand-500 selection:text-white">
+
+    <!-- TOP EMERGENCY ALERT BAR -->
+    <div class="bg-gradient-to-r from-red-600 via-brand-700 to-brand-800 text-white text-xs sm:text-sm py-2 px-4 shadow-md sticky top-0 z-50 transition-all duration-300" id="emergency-banner">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
+            <div class="flex items-center gap-2 font-medium">
+                <span class="inline-flex h-2.5 w-2.5 items-center justify-center rounded-full bg-red-400 animate-ping absolute"></span>
+                <span class="inline-flex h-2.5 w-2.5 items-center justify-center rounded-full bg-red-500 relative"></span>
+                <span><strong>24/7 Psychiatric Emergency Support &amp; Critical Ambulance:</strong> +91 9495 867 342</span>
+            </div>
+            <div class="flex items-center gap-4 text-xs font-semibold">
+                <a href="#booking" class="bg-white/20 hover:bg-white/30 text-white px-3 py-1 rounded transition">Pre-Register Online</a>
+                <button onclick="document.getElementById('emergency-banner').remove()" class="text-white hover:text-slate-200" aria-label="Dismiss banner">
+                    <i data-lucide="x" class="w-4 h-4"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN STICKY HEADER -->
+    <header class="sticky top-[38px] sm:top-[40px] z-40 w-full transition-all duration-300" id="main-nav">
+        <div class="glass border-b border-brand-100/50 shadow-sm mx-auto max-w-7xl sm:rounded-2xl sm:mt-2 transition-all duration-300">
+            <div class="px-4 sm:px-6 lg:px-8 py-3.5 flex items-center justify-between">
+                <!-- LOGO -->
+                <a href="#" class="flex items-center gap-2.5 group">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-emerald-500 flex items-center justify-center shadow-md shadow-brand-200 group-hover:scale-105 transition-all duration-300">
+                        <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 3c1.5 3 4.5 4 6 7.5s-1.5 6.5-6 6.5-7.5-3-6-6.5 4.5-4.5 6-7.5z" />
+                            <circle cx="12" cy="12" r="2.5" fill="currentColor"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <div class="flex items-center">
+                            <span class="font-display font-bold text-lg sm:text-xl tracking-tight text-slate-900 group-hover:text-brand-600 transition">MANOMITHRA</span>
+                            <span class="text-xs font-bold text-brand-600 ml-1.5 bg-brand-50 border border-brand-200 px-1.5 py-0.2 rounded-md">MIMS</span>
+                        </div>
+                        <p class="text-[9px] text-slate-500 uppercase tracking-widest font-semibold -mt-0.5">Institute of Medical Sciences</p>
+                    </div>
+                </a>
+
+                <!-- DESKTOP NAVIGATION -->
+                <nav class="hidden md:flex items-center gap-6 font-medium text-xs lg:text-sm text-slate-600">
+                    <a href="#about" class="hover:text-brand-600 transition relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-brand-500 after:transition-all hover:after:w-full">About</a>
+                    <a href="#services" class="hover:text-brand-600 transition relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-brand-500 after:transition-all hover:after:w-full">Services</a>
+                    <a href="#wellness-quiz" class="hover:text-brand-600 transition relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-brand-500 after:transition-all hover:after:w-full">Self-Assessment</a>
+                    <a href="#patient-portal" class="hover:text-brand-600 transition relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-brand-500 after:transition-all hover:after:w-full">Patient Dashboard</a>
+                    <a href="#admin-console" class="hover:text-brand-600 transition relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-brand-500 after:transition-all hover:after:w-full font-bold flex items-center gap-1 text-slate-800">Staff Console <span class="bg-brand-100 text-brand-700 text-[9px] px-1.5 py-0.5 rounded font-extrabold tracking-wider">LIVE SQL</span></a>
+                    <a href="#campuses" class="hover:text-brand-600 transition relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-brand-500 after:transition-all hover:after:w-full">Campuses</a>
+                </nav>
+
+                <!-- DESKTOP CTA -->
+                <div class="hidden md:flex items-center gap-3">
+                    <a href="tel:+919495867342" class="flex items-center gap-1.5 text-slate-700 hover:text-brand-600 transition font-semibold text-xs lg:text-sm mr-1">
+                        <i data-lucide="phone-call" class="w-4 h-4 text-brand-500"></i>
+                        <span>+91 9495 867 342</span>
+                    </a>
+                    <a href="#booking" class="bg-gradient-to-r from-brand-600 to-emerald-600 hover:from-brand-700 hover:to-emerald-700 text-white font-semibold text-xs lg:text-sm px-4 lg:px-5 py-2.5 rounded-xl shadow-md hover:shadow-lg transition-all">
+                        Book Appointment
+                    </a>
+                </div>
+
+                <!-- MOBILE MENU TOGGLE -->
+                <button onclick="toggleMobileMenu()" class="md:hidden p-2 text-slate-600 hover:text-brand-600 hover:bg-slate-100 rounded-lg transition" id="mobile-menu-btn" aria-label="Toggle menu">
+                    <i data-lucide="menu" class="w-6 h-6" id="menu-icon"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- MOBILE MENU DRAWER -->
+        <div class="hidden md:hidden mx-auto max-w-7xl px-4 mt-1 transition-all duration-300" id="mobile-menu">
+            <div class="bg-white/95 backdrop-blur-md border border-brand-100 rounded-2xl p-4 shadow-xl flex flex-col gap-3">
+                <a href="#about" onclick="toggleMobileMenu()" class="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 text-slate-700 font-semibold transition">
+                    <i data-lucide="heart" class="w-5 h-5 text-brand-500"></i> About Us
+                </a>
+                <a href="#services" onclick="toggleMobileMenu()" class="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 text-slate-700 font-semibold transition">
+                    <i data-lucide="activity" class="w-5 h-5 text-brand-500"></i> Medical Services
+                </a>
+                <a href="#wellness-quiz" onclick="toggleMobileMenu()" class="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 text-slate-700 font-semibold transition">
+                    <i data-lucide="brain-circuit" class="w-5 h-5 text-brand-500"></i> Mental Health Quiz
+                </a>
+                <a href="#patient-portal" onclick="toggleMobileMenu()" class="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 text-slate-700 font-semibold transition">
+                    <i data-lucide="user-check" class="w-5 h-5 text-brand-500"></i> Recovery Portal
+                </a>
+                <a href="#admin-console" onclick="toggleMobileMenu()" class="flex items-center justify-between p-3 rounded-xl hover:bg-slate-50 text-slate-900 font-bold transition border border-brand-200 bg-brand-50/50">
+                    <span class="flex items-center gap-3"><i data-lucide="database" class="w-5 h-5 text-brand-500"></i> Staff Admin Console</span>
+                    <span class="bg-brand-600 text-white text-[9px] px-1.5 py-0.5 rounded font-black uppercase">SQLite</span>
+                </a>
+                <a href="#campuses" onclick="toggleMobileMenu()" class="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 text-slate-700 font-semibold transition">
+                    <i data-lucide="map-pin" class="w-5 h-5 text-brand-500"></i> Our Campuses
+                </a>
+                <hr class="border-slate-100 my-1">
+                <div class="flex flex-col gap-2 pt-1">
+                    <a href="tel:+919495867342" class="flex items-center justify-center gap-2 text-brand-600 bg-brand-50 hover:bg-brand-100 py-3 rounded-xl font-bold transition">
+                        <i data-lucide="phone" class="w-5 h-5"></i> Call +91 9495 867 342
+                    </a>
+                    <a href="#booking" onclick="toggleMobileMenu()" class="flex items-center justify-center gap-2 bg-gradient-to-r from-brand-600 to-emerald-600 text-white py-3 rounded-xl font-bold transition shadow-md">
+                        <i data-lucide="calendar" class="w-5 h-5"></i> Book Appointment Now
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="relative overflow-hidden pt-12 pb-24 lg:pt-16 lg:pb-32 bg-gradient-to-b from-brand-50/70 via-white to-slate-50">
+        <!-- Abstract blur shapes -->
+        <div class="absolute top-1/4 -left-48 w-96 h-96 bg-brand-200/50 rounded-full blur-3xl -z-10 animate-pulse-slow"></div>
+        <div class="absolute top-1/3 -right-48 w-96 h-96 bg-wellness-200/40 rounded-full blur-3xl -z-10"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+                <!-- HERO LEFT (Text Content) -->
+                <div class="lg:col-span-7 text-center lg:text-left space-y-6">
+                    <div class="inline-flex items-center gap-2 bg-brand-100/70 border border-brand-200 text-brand-800 text-xs sm:text-sm font-semibold px-4 py-1.5 rounded-full shadow-sm animate-float">
+                        <span class="flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                        <span>Palakkad's Premier Mental Healthcare &amp; SQLite-Backed System</span>
+                    </div>
+                    
+                    <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-950 leading-tight tracking-tight">
+                        Strengthening <span class="bg-gradient-to-r from-brand-600 to-emerald-600 bg-clip-text text-transparent">Minds</span>,<br>
+                        Transforming <span class="bg-gradient-to-r from-emerald-500 to-wellness-600 bg-clip-text text-transparent">Lives</span>.
+                    </h1>
+
+                    <p class="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                        Since 2008, <strong>Manomithra Institute of Medical Sciences (MIMS)</strong> has paved the way as the pioneer of mental healthcare in Palakkad, Kerala. We empower individuals to break free from addiction and reclaim their life through clinical excellence, holistic inpatient programs, and compassionate guidance.
+                    </p>
+
+                    <!-- Interactive Quick Stats Widget -->
+                    <div class="grid grid-cols-3 gap-3 max-w-md mx-auto lg:mx-0 py-2">
+                        <div class="bg-white border border-slate-100 p-3 rounded-2xl shadow-sm hover:shadow-md hover:border-brand-300 transition-all duration-300 group">
+                            <p class="text-xl sm:text-2xl font-black text-brand-600 group-hover:scale-105 transition-all">30+</p>
+                            <p class="text-[10px] sm:text-xs font-semibold text-slate-500">Yrs Expert Led Care</p>
+                        </div>
+                        <div class="bg-white border border-slate-100 p-3 rounded-2xl shadow-sm hover:shadow-md hover:border-brand-300 transition-all duration-300 group">
+                            <p class="text-xl sm:text-2xl font-black text-brand-600 group-hover:scale-105 transition-all">10k+</p>
+                            <p class="text-[10px] sm:text-xs font-semibold text-slate-500">Healed Families</p>
+                        </div>
+                        <div class="bg-white border border-slate-100 p-3 rounded-2xl shadow-sm hover:shadow-md hover:border-brand-300 transition-all duration-300 group">
+                            <p class="text-xl sm:text-2xl font-black text-brand-600 group-hover:scale-105 transition-all">24/7</p>
+                            <p class="text-[10px] sm:text-xs font-semibold text-slate-500">Medical Support</p>
+                        </div>
+                    </div>
+
+                    <!-- HERO CTAs -->
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+                        <a href="#booking" class="w-full sm:w-auto text-center bg-gradient-to-r from-brand-600 to-emerald-600 text-white font-bold px-8 py-4 rounded-2xl shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all">
+                            Book Consultant Appointment
+                        </a>
+                        <a href="#admin-console" class="w-full sm:w-auto text-center bg-brand-50 border-2 border-brand-200 hover:border-brand-500 text-brand-700 font-bold px-8 py-4 rounded-2xl shadow-sm hover:shadow-md transition-all flex items-center justify-center gap-2">
+                            <i data-lucide="database" class="w-5 h-5 text-brand-600"></i>
+                            <span>Enter Database Console</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- HERO RIGHT (Interactive Advanced Visual Console) -->
+                <div class="lg:col-span-5 relative mt-8 lg:mt-0">
+                    <div class="relative mx-auto max-w-[420px] lg:max-w-none">
+                        <!-- Main Frame: Interactive Health Dashboard Preview -->
+                        <div class="bg-gradient-to-tr from-brand-900 to-brand-950 text-white rounded-3xl p-6 shadow-2xl relative border border-brand-800 overflow-hidden group">
+                            <!-- Background Grid Pattern -->
+                            <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px]"></div>
+                            
+                            <!-- Header status -->
+                            <div class="flex items-center justify-between border-b border-brand-800 pb-4 mb-5 relative z-10">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-3 h-3 rounded-full bg-red-500 animate-ping"></div>
+                                    <div>
+                                        <h3 class="text-xs font-bold uppercase tracking-wider text-brand-400">Palakkad HQ Status</h3>
+                                        <p class="text-xs text-brand-200 font-medium">Inpatient &amp; Outpatient Active</p>
+                                    </div>
+                                </div>
+                                <div class="bg-brand-800 text-brand-300 text-[10px] font-bold px-2 py-1 rounded-md border border-brand-700">
+                                    SQLITE ACTIVE
+                                </div>
+                            </div>
+
+                            <!-- Diagnostic Interface -->
+                            <div class="space-y-4 relative z-10">
+                                <div class="bg-brand-950/80 rounded-2xl p-4 border border-brand-800 hover:border-brand-600 transition">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <span class="text-xs text-brand-300 font-medium">Psychiatric Case Load</span>
+                                        <span class="text-xs text-emerald-400 font-bold">Stable Care</span>
+                                    </div>
+                                    <div class="w-full bg-brand-900 h-2 rounded-full overflow-hidden">
+                                        <div class="bg-gradient-to-r from-brand-400 to-emerald-400 h-2 rounded-full" style="width: 78%"></div>
+                                    </div>
+                                    <div class="flex items-center justify-between mt-2 text-[10px] text-slate-400 font-medium">
+                                        <span>78% Occupancy</span>
+                                        <span>24/7 Med Staff Active</span>
+                                    </div>
+                                </div>
+
+                                <!-- Doctor Card -->
+                                <div class="bg-gradient-to-r from-brand-800 to-brand-900 rounded-2xl p-4 border border-brand-700 flex items-center justify-between">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-11 h-11 rounded-xl bg-slate-100 flex items-center justify-center font-bold text-brand-800 border-2 border-brand-500 shrink-0">
+                                            <span class="font-display">CDP</span>
+                                        </div>
+                                        <div class="text-left">
+                                            <p class="text-xs font-bold text-white">Dr. C.D. Premadasan</p>
+                                            <p class="text-[10px] text-brand-300 font-semibold">Chief Psychiatric Provider (30+ Yrs)</p>
+                                        </div>
+                                    </div>
+                                    <span class="bg-emerald-500/20 text-emerald-400 text-[10px] font-bold px-2 py-1 rounded-md border border-emerald-500/30">
+                                        Active Today
+                                    </span>
+                                </div>
+                            </div>
+
+                            <!-- Decorative visual graphics -->
+                            <div class="mt-4 pt-4 border-t border-brand-800/60 flex items-center justify-between text-[11px] text-slate-400 font-medium">
+                                <span class="flex items-center gap-1 text-emerald-400"><span class="h-2 w-2 rounded-full bg-emerald-500 inline-block animate-pulse"></span> Telehealth Enabled</span>
+                                <span>Est. Palakkad 2008</span>
+                            </div>
+                        </div>
+
+                        <!-- Secondary floating card -->
+                        <div class="absolute -bottom-8 -right-4 sm:-right-8 bg-white text-slate-800 p-4 rounded-2xl shadow-xl border border-slate-100 max-w-[210px] animate-float z-20">
+                            <div class="flex items-center gap-2.5 mb-2">
+                                <div class="w-8 h-8 rounded-lg bg-emerald-100 flex items-center justify-center text-emerald-600 font-bold">
+                                    <i data-lucide="check-circle" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-xs font-black text-slate-900">Database Engine</h4>
+                                    <p class="text-[10px] text-slate-500 font-medium">Real SQLite Node Driver</p>
+                                </div>
+                            </div>
+                            <p class="text-xs font-bold text-emerald-600 bg-emerald-50 px-2 py-1 rounded">✓ Safe File Storage</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CORE MISSION & FOUNDATION (ABOUT US) -->
+    <section id="about" class="py-20 sm:py-28 bg-white border-y border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <h2 class="text-brand-600 text-xs sm:text-sm font-bold uppercase tracking-widest">Strengthening Minds, Transforming Lives</h2>
+                <h3 class="font-display text-3xl sm:text-4xl font-extrabold text-slate-950">About Manomithra Institute</h3>
+                <p class="text-slate-600 leading-relaxed text-sm sm:text-base">
+                    Founded in 2008 in Palakkad, Kerala, Manomithra Institute of Medical Sciences Pvt. Ltd. (MIMS) is committed to empowering individuals through personalized, ethical, and evidence-based mental healthcare. We combine state-of-the-art medical treatments with empathetic, community-centric approaches.
+                </p>
+            </div>
+
+            <!-- Pillars Grid -->
+            <div class="grid md:grid-cols-3 gap-8 mb-16">
+                <!-- Card 1 -->
+                <div class="bg-slate-50 border border-slate-100 p-8 rounded-3xl hover:bg-white hover:border-brand-200 hover:shadow-xl transition-all duration-300 space-y-4 group">
+                    <div class="w-12 h-12 rounded-2xl bg-brand-100 text-brand-600 flex items-center justify-center group-hover:bg-brand-600 group-hover:text-white transition-all duration-300">
+                        <i data-lucide="eye" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="font-display text-xl font-bold text-slate-900">Our Vision</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        We envision a highly compassionate world where mental health is prioritized, free from social stigma. With outreach programs like “Breaking the Chains,” we aim to educate school and college students, counsel families, and foster a strong, resilient community.
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-slate-50 border border-slate-100 p-8 rounded-3xl hover:bg-white hover:border-brand-200 hover:shadow-xl transition-all duration-300 space-y-4 group">
+                    <div class="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center group-hover:bg-emerald-600 group-hover:text-white transition-all duration-300">
+                        <i data-lucide="compass" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="font-display text-xl font-bold text-slate-900">Our Mission</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        We believe that effective mental health treatment must be fully personalized. At Manomithra, our goal is to empower every single patient to manage their conditions, overcome chemical dependencies, and reclaim an exceptionally fulfilling and purposeful life.
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-slate-50 border border-slate-100 p-8 rounded-3xl hover:bg-white hover:border-brand-200 hover:shadow-xl transition-all duration-300 space-y-4 group">
+                    <div class="w-12 h-12 rounded-2xl bg-wellness-100 text-wellness-600 flex items-center justify-center group-hover:bg-wellness-600 group-hover:text-white transition-all duration-300">
+                        <i data-lucide="users-2" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="font-display text-xl font-bold text-slate-900">Collaborative Healing</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        We practice holistic, multi-disciplinary care. Our treatment designs are formed together by experienced psychiatrists, clinical psychologists, speech educators, occupational therapists, and dedicated nursing professionals in complete coordination with the patient's family.
+                    </p>
+                </div>
+            </div>
+
+            <!-- DR CD PREMADASAN FOCUS -->
+            <div class="bg-gradient-to-tr from-slate-50 to-brand-50/50 rounded-3xl p-8 lg:p-12 border border-slate-100">
+                <div class="grid lg:grid-cols-12 gap-8 items-center">
+                    <div class="lg:col-span-4 text-center">
+                        <div class="w-32 h-32 sm:w-40 sm:h-40 rounded-full bg-brand-100 border-4 border-brand-500 flex items-center justify-center mx-auto text-brand-800 text-4xl sm:text-5xl font-extrabold shadow-lg relative">
+                            <span class="font-display select-none">CDP</span>
+                            <span class="absolute bottom-1 right-1 bg-emerald-500 text-white text-xs px-2 py-0.5 rounded-full font-bold shadow-md">Founder</span>
+                        </div>
+                        <h4 class="font-display text-xl font-bold text-slate-900 mt-4">Dr. C.D. Premadasan</h4>
+                        <p class="text-xs text-brand-600 font-bold uppercase tracking-wider">Chief Psychiatric Provider</p>
+                        <p class="text-xs text-slate-500 font-medium mt-1">30+ Years Clinical Practice</p>
+                    </div>
+                    <div class="lg:col-span-8 space-y-4 text-center lg:text-left">
+                        <i data-lucide="quote" class="w-10 h-10 text-brand-400 mx-auto lg:mx-0 opacity-50"></i>
+                        <p class="text-base sm:text-lg text-slate-700 italic font-medium leading-relaxed">
+                            "True healing is not just the management of psychiatric symptoms, but the complete restoration of a person's dignity, hope, and potential. At Manomithra, we treat every individual as a valued mind capable of extraordinary recovery, surrounding them with structured, non-judgmental expertise."
+                        </p>
+                        <hr class="border-slate-200">
+                        <div class="flex flex-col sm:flex-row items-center gap-4 text-xs sm:text-sm text-slate-600">
+                            <div>
+                                <strong>Leadership:</strong> Founder, Manomithra Institute
+                            </div>
+                            <span class="h-1.5 w-1.5 rounded-full bg-slate-300 hidden sm:inline"></span>
+                            <div>
+                                <strong>Area of Expertise:</strong> Complex Psychopathology, Neuro-Psychiatry, De-Addiction Rehabilitation
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CLINICAL SERVICES EXPLORER -->
+    <section id="services" class="py-20 sm:py-28 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12 space-y-4">
+                <h2 class="text-brand-600 text-xs sm:text-sm font-bold uppercase tracking-widest">Compassionate &amp; Specialized Care</h2>
+                <h3 class="font-display text-3xl sm:text-4xl font-extrabold text-slate-950">Explore Our Expert Services</h3>
+                <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+                    We offer tailored solutions spanning primary outpatient care, deep residential inpatient programs, de-addiction, and palliative family support. Click the tabs below to explore our medical departments.
+                </p>
+            </div>
+
+            <!-- Interactive Tab buttons -->
+            <div class="flex flex-wrap items-center justify-center gap-2 mb-10 max-w-4xl mx-auto bg-slate-100 p-2 rounded-2xl border border-slate-200">
+                <button onclick="switchServiceTab('outpatient')" id="tab-outpatient" class="service-tab-btn flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-semibold transition bg-brand-600 text-white shadow-md">
+                    <i data-lucide="stethoscope" class="w-4 h-4"></i>
+                    <span>Outpatient Clinic (OP)</span>
+                </button>
+                <button onclick="switchServiceTab('inpatient')" id="tab-inpatient" class="service-tab-btn flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-semibold transition hover:bg-slate-200 text-slate-700">
+                    <i data-lucide="hotel" class="w-4 h-4"></i>
+                    <span>Inpatient Hospitalization</span>
+                </button>
+                <button onclick="switchServiceTab('addiction')" id="tab-addiction" class="service-tab-btn flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-semibold transition hover:bg-slate-200 text-slate-700">
+                    <i data-lucide="shield-off" class="w-4 h-4"></i>
+                    <span>De-Addiction Programs</span>
+                </button>
+                <button onclick="switchServiceTab('family')" id="tab-family" class="service-tab-btn flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-semibold transition hover:bg-slate-200 text-slate-700">
+                    <i data-lucide="home" class="w-4 h-4"></i>
+                    <span>Family &amp; Palliative Care</span>
+                </button>
+            </div>
+
+            <!-- Dynamic Tab Content Panels -->
+            <div class="bg-white border border-slate-100 rounded-3xl p-6 sm:p-10 shadow-xl transition-all duration-300">
+                <!-- OUTPATIENT TAB -->
+                <div id="panel-outpatient" class="service-panel grid lg:grid-cols-2 gap-10 items-center">
+                    <div class="space-y-6">
+                        <span class="bg-brand-50 border border-brand-200 text-brand-700 text-xs font-bold px-3 py-1 rounded-md">Robinson Road, Palakkad</span>
+                        <h4 class="font-display text-2xl sm:text-3xl font-extrabold text-slate-950">Psychiatric Outpatient &amp; Case Management</h4>
+                        <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+                            Our primary outpatient facility is dedicated to clinical diagnostic tests, quick medical reviews, counseling sessions, and psychological assessments. Perfect for individuals needing routine monitoring under the supervision of Dr. C.D. Premadasan.
+                        </p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+                            <div class="flex items-start gap-2 text-sm text-slate-700 font-semibold">
+                                <i data-lucide="check-circle" class="w-4 h-4 text-emerald-500 mt-1"></i> Stress Management &amp; Burnout
+                            </div>
+                            <div class="flex items-start gap-2 text-sm text-slate-700 font-semibold">
+                                <i data-lucide="check-circle" class="w-4 h-4 text-emerald-500 mt-1"></i> Pre-marital &amp; Marital Counseling
+                            </div>
+                            <div class="flex items-start gap-2 text-sm text-slate-700 font-semibold">
+                                <i data-lucide="check-circle" class="w-4 h-4 text-emerald-500 mt-1"></i> Intelligence Testing (IQ Profile)
+                            </div>
+                            <div class="flex items-start gap-2 text-sm text-slate-700 font-semibold">
+                                <i data-lucide="check-circle" class="w-4 h-4 text-emerald-500 mt-1"></i> Couple &amp; Family Therapy
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gradient-to-tr from-brand-50 to-brand-100/50 p-6 rounded-2xl border border-brand-100 flex flex-col justify-between h-full">
+                        <h5 class="font-bold text-slate-900 text-lg mb-4">OP Operational Details</h5>
+                        <ul class="space-y-3.5 text-xs sm:text-sm text-slate-600">
+                            <li class="flex justify-between items-center py-2 border-b border-brand-200/50">
+                                <span class="font-medium text-slate-500">Days Active:</span>
+                                <span class="font-bold text-slate-800">Monday - Saturday</span>
+                            </li>
+                            <li class="flex justify-between items-center py-2 border-b border-brand-200/50">
+                                <span class="font-medium text-slate-500">Consultation Timings:</span>
+                                <span class="font-bold text-slate-800">9:30 AM - 4:30 PM</span>
+                            </li>
+                            <li class="flex justify-between items-center py-2 border-b border-brand-200/50">
+                                <span class="font-medium text-slate-500">Primary Provider:</span>
+                                <span class="font-bold text-slate-800">Dr. C.D. Premadasan</span>
+                            </li>
+                            <li class="flex justify-between items-center py-2">
+                                <span class="font-medium text-slate-500">Emergency Walk-ins:</span>
+                                <span class="font-bold text-red-600 bg-red-50 border border-red-200 px-2 py-0.5 rounded">Accepted</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- INPATIENT TAB -->
+                <div id="panel-inpatient" class="service-panel hidden grid lg:grid-cols-2 gap-10 items-center">
+                    <div class="space-y-6">
+                        <span class="bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-bold px-3 py-1 rounded-md">Kanjikode Road, Pannimada</span>
+                        <h4 class="font-display text-2xl sm:text-3xl font-extrabold text-slate-950">Residential Inpatient Psychiatric Care</h4>
+                        <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+                            For complex psychiatric illnesses that require close, continuous observation and clinical stabilization. Our facility in Pannimada provides a tranquil, compassionate setting with round-the-clock medical personnel, nurse assistance, and modern clinical amenities.
+                        </p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+                            <div class="flex items-start gap-2 text-sm text-slate-700 font-semibold">
+                                <i data-lucide="check-circle" class="w-4 h-4 text-brand-500 mt-1"></i> 24/7 Professional Medical Care
+                            </div>
+                            <div class="flex items-start gap-2 text-sm text-slate-700 font-semibold">
+                                <i data-lucide="check-circle" class="w-4 h-4 text-brand-500 mt-1"></i> Intensive Diagnostic Assessments
+                            </div>
+                            <div class="flex items-start gap-2 text-sm text-slate-700 font-semibold">
+                                <i data-lucide="check-circle" class="w-4 h-4 text-brand-500 mt-1"></i> Private &amp; General Wards
+                            </div>
+                            <div class="flex items-start gap-2 text-sm text-slate-700 font-semibold">
+                                <i data-lucide="check-circle" class="w-4 h-4 text-brand-500 mt-1"></i> Multi-disciplinary Therapy Panels
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gradient-to-tr from-emerald-50 to-brand-50 p-6 rounded-2xl border border-emerald-100 flex flex-col justify-between h-full">
+                        <h5 class="font-bold text-slate-900 text-lg mb-4">Key Inpatient Features</h5>
+                        <ul class="space-y-3.5 text-xs sm:text-sm text-slate-600">
+                            <li class="flex justify-between items-center py-2 border-b border-emerald-200/50">
+                                <span class="font-medium text-slate-500">Security &amp; Nursing:</span>
+                                <span class="font-bold text-slate-800">24 Hours / 365 Days</span>
+                            </li>
+                            <li class="flex justify-between items-center py-2 border-b border-emerald-200/50">
+                                <span class="font-medium text-slate-500">Structured Therapy:</span>
+                                <span class="font-bold text-slate-800">Individual + Group Daily</span>
+                            </li>
+                            <li class="flex justify-between items-center py-2 border-b border-emerald-200/50">
+                                <span class="font-medium text-slate-500">Environment:</span>
+                                <span class="font-bold text-slate-800">Peaceful Suburban Healing Garden</span>
+                            </li>
+                            <li class="flex justify-between items-center py-2">
+                                <span class="font-medium text-slate-500">Family visits:</span>
+                                <span class="font-bold text-slate-800">Regulated Scheduled Hours</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- DE-ADDICTION TAB -->
+                <div id="panel-addiction" class="service-panel hidden grid lg:grid-cols-2 gap-10 items-center">
+                    <div class="space-y-6">
+                        <span class="bg-amber-50 border border-amber-200 text-amber-700 text-xs font-bold px-3 py-1 rounded-md">Breaking the Chains</span>
+                        <h4 class="font-display text-2xl sm:text-3xl font-extrabold text-slate-950">Substance Abuse &amp; Alcohol De-Addiction</h4>
+                        <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+                            Our premier rehabilitation program is specifically customized for patients battling alcohol, narcotic, and electronic screen addiction. Grounded in both pharmacological detoxification and cognitive behavioral therapy (CBT), we ensure a safe environment for physical and chemical recovery.
+                        </p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+                            <div class="flex items-start gap-2 text-sm text-slate-700 font-semibold">
+                                <i data-lucide="check-circle" class="w-4 h-4 text-amber-500 mt-1"></i> Medical Detoxification Protocol
+                            </div>
+                            <div class="flex items-start gap-2 text-sm text-slate-700 font-semibold">
+                                <i data-lucide="check-circle" class="w-4 h-4 text-amber-500 mt-1"></i> Relapse Prevention Strategies
+                            </div>
+                            <div class="flex items-start gap-2 text-sm text-slate-700 font-semibold">
+                                <i data-lucide="check-circle" class="w-4 h-4 text-amber-500 mt-1"></i> Peer Support Groups (AA style)
+                            </div>
+                            <div class="flex items-start gap-2 text-sm text-slate-700 font-semibold">
+                                <i data-lucide="check-circle" class="w-4 h-4 text-amber-500 mt-1"></i> Family Healing Sessions
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gradient-to-tr from-amber-50 to-brand-50 p-6 rounded-2xl border border-amber-200 flex flex-col justify-between h-full">
+                        <h5 class="font-bold text-slate-900 text-lg mb-4">Rehabilitation Stages</h5>
+                        <div class="space-y-4">
+                            <div class="flex gap-3 text-xs sm:text-sm">
+                                <div class="font-black text-amber-500">01</div>
+                                <div>
+                                    <h6 class="font-bold text-slate-900">Assisted Detox</h6>
+                                    <p class="text-slate-500 text-xs mt-0.5">Safely manage withdrawal symptoms under medical care.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-3 text-xs sm:text-sm">
+                                <div class="font-black text-amber-500">02</div>
+                                <div>
+                                    <h6 class="font-bold text-slate-900">Cognitive Restructuring</h6>
+                                    <p class="text-slate-500 text-xs mt-0.5">Therapy to understand and overcome psychological triggers.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-3 text-xs sm:text-sm">
+                                <div class="font-black text-amber-500">03</div>
+                                <div>
+                                    <h6 class="font-bold text-slate-900">Life-skills Re-integration</h6>
+                                    <p class="text-slate-500 text-xs mt-0.5">Occupational training and preparation to face family and work.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAMILY & PALLIATIVE TAB -->
+                <div id="panel-family" class="service-panel hidden grid lg:grid-cols-2 gap-10 items-center">
+                    <div class="space-y-6">
+                        <span class="bg-slate-100 border border-slate-200 text-slate-700 text-xs font-bold px-3 py-1 rounded-md">At-Home &amp; Support Groups</span>
+                        <h4 class="font-display text-2xl sm:text-3xl font-extrabold text-slate-950">Home Visits &amp; Caregiver Support System</h4>
+                        <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+                            Mental illness and addiction affect the whole home. We provide critical medical home visits and palliative care for patients who cannot physically travel to our clinics. Simultaneously, our team supports the primary caregivers with educational programs and counseling tools.
+                        </p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+                            <div class="flex items-start gap-2 text-sm text-slate-700 font-semibold">
+                                <i data-lucide="check-circle" class="w-4 h-4 text-slate-500 mt-1"></i> Psychiatric Palliative Home Visit
+                            </div>
+                            <div class="flex items-start gap-2 text-sm text-slate-700 font-semibold">
+                                <i data-lucide="check-circle" class="w-4 h-4 text-slate-500 mt-1"></i> Educational Caregiver Materials
+                            </div>
+                            <div class="flex items-start gap-2 text-sm text-slate-700 font-semibold">
+                                <i data-lucide="check-circle" class="w-4 h-4 text-slate-500 mt-1"></i> At-Home Medication Management
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gradient-to-tr from-slate-100 to-slate-200/50 p-6 rounded-2xl border border-slate-200 flex flex-col justify-between h-full">
+                        <h5 class="font-bold text-slate-900 text-lg mb-4">Caregiver Assistance Pack</h5>
+                        <p class="text-xs text-slate-600 leading-relaxed mb-4">
+                            We offer complete medical coordination to empower parents, spouses, and children. Caregivers receive specialized access to our peer-support groups.
+                        </p>
+                        <div class="border-t border-slate-300/50 pt-4 flex items-center justify-between">
+                            <span class="text-xs text-slate-500 font-semibold">Call Home-Visit Service:</span>
+                            <a href="tel:+919446431342" class="text-sm font-black text-brand-600 hover:underline">+91 9446 431 342</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- REAL-TIME PATIENT DATABASE GATEWAY (PORTAL) -->
+    <section id="patient-portal" class="py-20 sm:py-28 bg-white border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <span class="text-brand-600 text-xs sm:text-sm font-bold uppercase tracking-widest font-mono">SQLite Data Pipeline Connected</span>
+                <h3 class="font-display text-3xl sm:text-4xl font-extrabold text-slate-950">Patient &amp; Rehab Recovery Dashboard</h3>
+                <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+                    This module fetches patient details directly from the hospital's secure SQLite database in real time. Input your hospital file ID to view milestones, schedules, and clinical psychologist notes.
+                </p>
+            </div>
+
+            <!-- DASHBOARD CONTAINER -->
+            <div class="bg-slate-900 text-white rounded-3xl p-6 sm:p-10 shadow-2xl border border-slate-800 max-w-5xl mx-auto overflow-hidden relative">
+                <!-- Background ambient lights -->
+                <div class="absolute -top-32 -left-32 w-64 h-64 bg-brand-500/10 rounded-full blur-3xl"></div>
+                <div class="absolute -bottom-32 -right-32 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl"></div>
+
+                <div class="relative z-10 grid lg:grid-cols-12 gap-8 items-stretch">
+                    <!-- PORTAL LEFT: Login / Sample Access Form -->
+                    <div class="lg:col-span-4 flex flex-col justify-between space-y-6">
+                        <div>
+                            <div class="flex items-center gap-2 mb-3">
+                                <div class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></div>
+                                <span class="text-xs font-bold text-brand-400 uppercase tracking-widest">Secure Client Access</span>
+                            </div>
+                            <h4 class="font-display text-xl font-bold text-slate-100">Patient Recovery Tracker</h4>
+                            <p class="text-xs text-slate-400 mt-2 leading-relaxed">
+                                Enter your unique clinical registration code to load real database records. Try **MIMS-2025**, **MIMS-2026**, or **MIMS-2027**.
+                            </p>
+                        </div>
+
+                        <!-- ID Input Form -->
+                        <div class="space-y-3">
+                            <label class="block text-[11px] font-bold text-slate-400 uppercase tracking-wider">Patient File ID</label>
+                            <div class="flex gap-2">
+                                <input type="text" id="patient-id-input" value="MIMS-2026" placeholder="e.g. MIMS-1092" class="w-full bg-slate-950/80 border border-slate-800 text-sm font-mono tracking-wider text-slate-100 px-4 py-3 rounded-xl focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 placeholder-slate-700">
+                                <button onclick="loadPatientDashboard()" class="bg-brand-600 hover:bg-brand-500 text-white font-bold text-xs px-4 py-3 rounded-xl transition shrink-0">
+                                    Query DB
+                                </button>
+                            </div>
+                            <p class="text-[10px] text-slate-500">Querying live backend: `GET /api/patients/:id`</p>
+                        </div>
+
+                        <div class="bg-slate-950/40 p-4 border border-slate-800/80 rounded-2xl">
+                            <h5 class="text-xs font-bold text-slate-300">✓ Inpatient &amp; Family Synergy</h5>
+                            <p class="text-[10px] text-slate-500 mt-1 font-mono">Updates are written to database.db instantly.</p>
+                        </div>
+                    </div>
+
+                    <!-- PORTAL RIGHT: Dynamic Dashboard Panel -->
+                    <div class="lg:col-span-8 bg-slate-950/80 rounded-2xl p-6 border border-slate-800 flex flex-col justify-between min-h-[350px]" id="dashboard-content-area">
+                        <!-- Default Blank Slate State / Loader -->
+                        <div class="flex flex-col items-center justify-center text-center py-12 space-y-4" id="dashboard-blank-slate">
+                            <div class="w-16 h-16 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-600">
+                                <i data-lucide="database" class="w-8 h-8 text-brand-500"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-200">Awaiting Database Query</h4>
+                                <p class="text-xs text-slate-500 mt-1 max-w-sm">
+                                    Click "Query DB" or select a preset patient code to fetch live records.
+                                </p>
+                            </div>
+                            <div class="flex flex-wrap items-center justify-center gap-2">
+                                <button onclick="loadPresetPatient('MIMS-2025')" class="bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-300 font-mono text-xs px-3 py-2 rounded-xl transition">MIMS-2025</button>
+                                <button onclick="loadPresetPatient('MIMS-2026')" class="bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-300 font-mono text-xs px-3 py-2 rounded-xl transition">MIMS-2026</button>
+                                <button onclick="loadPresetPatient('MIMS-2027')" class="bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-300 font-mono text-xs px-3 py-2 rounded-xl transition">MIMS-2027</button>
+                            </div>
+                        </div>
+
+                        <!-- Loaded State Structure (Initially Hidden) -->
+                        <div class="hidden space-y-6" id="dashboard-loaded-state">
+                            <!-- Header Info -->
+                            <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-slate-800/80 pb-4">
+                                <div class="text-left">
+                                    <div class="flex items-center gap-2">
+                                        <h4 class="font-bold text-base text-white" id="db-patient-name">-</h4>
+                                        <span class="text-[9px] font-bold px-2 py-0.5 rounded-full border" id="db-patient-status">-</span>
+                                    </div>
+                                    <p class="text-xs text-slate-400 mt-0.5" id="db-patient-program">-</p>
+                                </div>
+                                <div class="text-right shrink-0">
+                                    <p class="text-[10px] text-slate-500 uppercase tracking-wider font-bold">Attending Provider</p>
+                                    <p class="text-xs font-bold text-brand-400" id="db-patient-doctor">-</p>
+                                </div>
+                            </div>
+
+                            <!-- Progress Timeline Visual -->
+                            <div>
+                                <h5 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3" id="db-timeline-title">Recovery Progression (Phase 1)</h5>
+                                <div class="grid grid-cols-4 gap-2 text-center text-[10px] sm:text-xs" id="db-phases-timeline">
+                                    <!-- Dynamic Phases -->
+                                </div>
+                            </div>
+
+                            <!-- Diagnostic Metrics Checklist -->
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <div class="bg-slate-900 border border-slate-800 rounded-xl p-4 text-left">
+                                    <h6 class="text-xs font-bold text-slate-300 mb-2">Therapy Checklist</h6>
+                                    <div class="space-y-2 text-xs" id="db-checklist-container">
+                                        <!-- Checkboxes list -->
+                                    </div>
+                                </div>
+
+                                <div class="bg-slate-900 border border-slate-800 rounded-xl p-4 text-left space-y-2">
+                                    <h6 class="text-xs font-bold text-slate-300">Therapist Clinical Notes</h6>
+                                    <p class="text-xs text-slate-400 leading-relaxed italic" id="db-therapist-notes">
+                                        -
+                                    </p>
+                                    <p class="text-[10px] text-brand-400 font-semibold pt-1 border-t border-slate-800/80">
+                                        Database Source: SQLite `patients` Row
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Recovery Milestone Footer -->
+                            <div class="border-t border-slate-800/80 pt-4 flex items-center justify-between text-xs text-slate-500">
+                                <span id="db-duration-info">Active Program Duration: <strong>Day -</strong></span>
+                                <span class="text-brand-400 font-bold flex items-center gap-1">
+                                    <i data-lucide="shield-check" class="w-3.5 h-3.5"></i> SQLite Verified File
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ADMIN CONSOLE / STAFF MEDICAL PORTAL (LIVE DATABASE INTERACTION) -->
+    <section id="admin-console" class="py-20 sm:py-28 bg-slate-50 border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12 space-y-4">
+                <span class="bg-brand-600 text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-full font-mono tracking-wider shadow">MIMS Admin Panel</span>
+                <h3 class="font-display text-3xl sm:text-4xl font-extrabold text-slate-950">Staff &amp; Doctor Admin Console</h3>
+                <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+                    This console lets you read and write directly to the hospital's **SQLite database**. Any updates you perform on patient notes, checklists, or appointments will instantly modify the SQLite tables!
+                </p>
+            </div>
+
+            <!-- ADMIN TABS -->
+            <div class="bg-white border border-slate-200 rounded-3xl p-6 sm:p-10 shadow-xl max-w-5xl mx-auto space-y-8">
+                <div class="flex border-b border-slate-200 gap-4 text-sm font-semibold overflow-x-auto no-scrollbar">
+                    <button onclick="switchAdminTab('appointments')" id="admin-tab-appointments" class="admin-tab-btn pb-3 border-b-2 border-brand-600 text-brand-600 flex items-center gap-2 px-1 text-slate-900 font-bold shrink-0">
+                        <i data-lucide="calendar-check" class="w-4.5 h-4.5"></i> Manage Bookings
+                    </button>
+                    <button onclick="switchAdminTab('patients')" id="admin-tab-patients" class="admin-tab-btn pb-3 border-b-2 border-transparent text-slate-400 hover:text-slate-600 flex items-center gap-2 px-1 shrink-0">
+                        <i data-lucide="folder-git-2" class="w-4.5 h-4.5"></i> Manage Patient Files (SQLite Writes)
+                    </button>
+                </div>
+
+                <!-- ADMIN AREA: APPOINTMENTS -->
+                <div id="admin-panel-appointments" class="admin-panel-content space-y-6">
+                    <div class="flex items-center justify-between">
+                        <h4 class="font-bold text-lg text-slate-900 flex items-center gap-1.5"><i data-lucide="list" class="w-5 h-5 text-brand-500"></i> Online Pre-Registration Bookings</h4>
+                        <button onclick="loadAdminAppointments()" class="text-xs bg-slate-100 hover:bg-slate-200 text-slate-700 px-3 py-1.5 rounded-lg font-bold border border-slate-200 transition flex items-center gap-1">
+                            <i data-lucide="refresh-cw" class="w-3.5 h-3.5"></i> Refresh SQL Table
+                        </button>
+                    </div>
+
+                    <!-- Appointments Table wrapper -->
+                    <div class="overflow-x-auto border border-slate-100 rounded-2xl shadow-sm">
+                        <table class="w-full text-left text-xs sm:text-sm border-collapse bg-white">
+                            <thead class="bg-slate-50 text-slate-500 font-bold border-b border-slate-100">
+                                <tr>
+                                    <th class="p-4">Ticket ID</th>
+                                    <th class="p-4">Patient Name</th>
+                                    <th class="p-4">Date / Slot</th>
+                                    <th class="p-4">Department &amp; Doctor</th>
+                                    <th class="p-4">Status</th>
+                                    <th class="p-4 text-right">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="admin-appointments-tbody" class="divide-y divide-slate-100 font-medium text-slate-700">
+                                <tr>
+                                    <td colspan="6" class="p-8 text-center text-slate-400">Loading live bookings database...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- ADMIN AREA: PATIENTS -->
+                <div id="admin-panel-patients" class="admin-panel-content hidden space-y-8">
+                    <!-- SPLIT GRID: Register New Patient vs Update Notes -->
+                    <div class="grid lg:grid-cols-2 gap-8 items-start">
+                        <!-- REGISTER NEW PATIENT -->
+                        <div class="bg-slate-50 border border-slate-200/60 p-6 rounded-2xl space-y-4">
+                            <h4 class="font-bold text-base text-slate-900 flex items-center gap-1.5 border-b border-slate-200 pb-3"><i data-lucide="user-plus" class="w-5 h-5 text-brand-500"></i> Create New SQLite Patient File</h4>
+                            
+                            <form id="create-patient-form" onsubmit="createNewPatientInDb(event)" class="space-y-4">
+                                <div class="grid sm:grid-cols-2 gap-4">
+                                    <div class="space-y-1">
+                                        <label class="text-[11px] font-bold text-slate-500 uppercase">Patient Full Name</label>
+                                        <input type="text" id="new-p-name" placeholder="Johnathan Miller" required class="w-full bg-white border border-slate-200 px-3 py-2 text-sm rounded-lg text-slate-800 font-semibold focus:outline-none focus:border-brand-500">
+                                    </div>
+                                    <div class="space-y-1">
+                                        <label class="text-[11px] font-bold text-slate-500 uppercase">Phone Number</label>
+                                        <input type="tel" id="new-p-phone" placeholder="+91 94958 12345" required class="w-full bg-white border border-slate-200 px-3 py-2 text-sm rounded-lg text-slate-800 font-semibold focus:outline-none focus:border-brand-500">
+                                    </div>
+                                </div>
+
+                                <div class="space-y-1">
+                                    <label class="text-[11px] font-bold text-slate-500 uppercase">Medical Treatment Program</label>
+                                    <select id="new-p-program" class="w-full bg-white border border-slate-200 p-2 text-sm rounded-lg text-slate-800 font-semibold focus:outline-none">
+                                        <option value="45-Day Custom Rehab & De-addiction Plan">45-Day Custom Rehab &amp; De-addiction Plan</option>
+                                        <option value="Outpatient Stress Management Program">Outpatient Stress Management Program</option>
+                                        <option value="Residential Inpatient Psychiatric Care">Residential Inpatient Psychiatric Care</option>
+                                        <option value="Caregiver Support & Palliative Care">Caregiver Support &amp; Palliative Care</option>
+                                    </select>
+                                </div>
+
+                                <div class="grid sm:grid-cols-2 gap-4">
+                                    <div class="space-y-1">
+                                        <label class="text-[11px] font-bold text-slate-500 uppercase">Doctor</label>
+                                        <select id="new-p-doctor" class="w-full bg-white border border-slate-200 p-2 text-sm rounded-lg text-slate-800 font-semibold focus:outline-none">
+                                            <option value="Dr. C.D. Premadasan">Dr. C.D. Premadasan</option>
+                                            <option value="Attending Clinical Psychologist">Attending Clinical Psychologist</option>
+                                        </select>
+                                    </div>
+                                    <div class="space-y-1">
+                                        <label class="text-[11px] font-bold text-slate-500 uppercase">Recovery Status Badge</label>
+                                        <input type="text" id="new-p-status" placeholder="e.g. Detox Active" value="Detox Active" class="w-full bg-white border border-slate-200 px-3 py-2 text-sm rounded-lg text-slate-800 font-semibold focus:outline-none focus:border-brand-500">
+                                    </div>
+                                </div>
+
+                                <div class="grid grid-cols-3 gap-2">
+                                    <div class="space-y-1">
+                                        <label class="text-[11px] font-bold text-slate-500 uppercase">Phase (1-4)</label>
+                                        <input type="number" id="new-p-phase" min="1" max="4" value="1" class="w-full bg-white border border-slate-200 px-3 py-2 text-sm rounded-lg text-slate-800 font-semibold focus:outline-none focus:border-brand-500">
+                                    </div>
+                                    <div class="space-y-1">
+                                        <label class="text-[11px] font-bold text-slate-500 uppercase">Total Days</label>
+                                        <input type="number" id="new-p-duration" value="30" class="w-full bg-white border border-slate-200 px-3 py-2 text-sm rounded-lg text-slate-800 font-semibold focus:outline-none focus:border-brand-500">
+                                    </div>
+                                    <div class="space-y-1">
+                                        <label class="text-[11px] font-bold text-slate-500 uppercase">Day Number</label>
+                                        <input type="number" id="new-p-day" value="1" class="w-full bg-white border border-slate-200 px-3 py-2 text-sm rounded-lg text-slate-800 font-semibold focus:outline-none focus:border-brand-500">
+                                    </div>
+                                </div>
+
+                                <button type="submit" class="w-full bg-brand-600 hover:bg-brand-500 text-white font-bold py-3.5 rounded-xl text-xs transition shadow-md flex items-center justify-center gap-1.5">
+                                    <i data-lucide="check" class="w-4.5 h-4.5"></i> Insert Patient in SQLite DB
+                                </button>
+                            </form>
+                        </div>
+
+                        <!-- EDIT EXISTING PATIENT NOTES -->
+                        <div class="bg-slate-50 border border-slate-200/60 p-6 rounded-2xl space-y-4">
+                            <h4 class="font-bold text-base text-slate-900 flex items-center gap-1.5 border-b border-slate-200 pb-3"><i data-lucide="edit-3" class="w-5 h-5 text-brand-500"></i> Update Patient File &amp; Progress Notes</h4>
+                            
+                            <div class="space-y-4">
+                                <div class="space-y-1">
+                                    <label class="text-[11px] font-bold text-slate-500 uppercase">Select Patient File to Edit</label>
+                                    <select id="edit-patient-selector" onchange="loadPatientForEditing(this.value)" class="w-full bg-white border border-slate-200 p-2.5 rounded-lg text-sm text-slate-800 font-mono font-bold focus:outline-none">
+                                        <option value="">-- Choose patient --</option>
+                                    </select>
+                                </div>
+
+                                <div id="edit-fields-container" class="hidden space-y-4">
+                                    <div class="grid sm:grid-cols-2 gap-4">
+                                        <div class="space-y-1">
+                                            <label class="text-[11px] font-bold text-slate-500 uppercase">Current Phase (1-4)</label>
+                                            <input type="number" id="edit-p-phase" min="1" max="4" class="w-full bg-white border border-slate-200 px-3 py-2 text-sm rounded-lg text-slate-800 font-semibold focus:outline-none">
+                                        </div>
+                                        <div class="space-y-1">
+                                            <label class="text-[11px] font-bold text-slate-500 uppercase">Progress Status text</label>
+                                            <input type="text" id="edit-p-status" class="w-full bg-white border border-slate-200 px-3 py-2 text-sm rounded-lg text-slate-800 font-semibold focus:outline-none">
+                                        </div>
+                                    </div>
+
+                                    <div class="grid sm:grid-cols-2 gap-4">
+                                        <div class="space-y-1">
+                                            <label class="text-[11px] font-bold text-slate-500 uppercase">Current Treatment Day</label>
+                                            <input type="number" id="edit-p-day" class="w-full bg-white border border-slate-200 px-3 py-2 text-sm rounded-lg text-slate-800 font-semibold focus:outline-none">
+                                        </div>
+                                        <div class="space-y-1">
+                                            <label class="text-[11px] font-bold text-slate-500 uppercase">Total Treatment Duration</label>
+                                            <input type="number" id="edit-p-duration" class="w-full bg-white border border-slate-200 px-3 py-2 text-sm rounded-lg text-slate-800 font-semibold focus:outline-none">
+                                        </div>
+                                    </div>
+
+                                    <!-- CHECKLIST EDIT -->
+                                    <div class="space-y-1">
+                                        <label class="text-[11px] font-bold text-slate-500 uppercase block mb-1">Checklist Checklist Status (Toggle Checked)</label>
+                                        <div id="edit-checklist-div" class="space-y-2 text-xs bg-white p-3 rounded-lg border border-slate-200">
+                                            <!-- checkboxes will be populated -->
+                                        </div>
+                                    </div>
+
+                                    <div class="space-y-1">
+                                        <label class="text-[11px] font-bold text-slate-500 uppercase">Attending Clinical Psychologist Notes</label>
+                                        <textarea id="edit-p-notes" rows="4" class="w-full bg-white border border-slate-200 p-3 rounded-lg text-xs text-slate-800 leading-relaxed font-semibold focus:outline-none focus:border-brand-500"></textarea>
+                                    </div>
+
+                                    <button onclick="savePatientEdits()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold py-3.5 rounded-xl text-xs transition shadow-md flex items-center justify-center gap-1.5">
+                                        <i data-lucide="save" class="w-4.5 h-4.5"></i> Save &amp; Write to SQLite File
+                                    </button>
+                                </div>
+
+                                <div id="edit-blank-state" class="py-12 text-center text-slate-400 text-xs italic">
+                                    Select a patient code from the dropdown above to load and update notes from SQLite.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERACTIVE MENTAL WELLNESS ASSESSMENT QUIZ -->
+    <section id="wellness-quiz" class="py-20 sm:py-28 bg-gradient-to-b from-slate-50 to-brand-50/40 border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <span class="text-brand-600 text-xs sm:text-sm font-bold uppercase tracking-widest">Confidential Self-Reflection</span>
+                <h3 class="font-display text-3xl sm:text-4xl font-extrabold text-slate-950">Mental Wellness Self-Assessment</h3>
+                <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+                    Check in with your emotional health using our interactive, stress and burnout screener. This assessment is private, anonymous, and provides constructive next steps.
+                </p>
+            </div>
+
+            <!-- QUIZ CARD -->
+            <div class="bg-white border border-slate-100 rounded-3xl p-6 sm:p-10 shadow-xl max-w-3xl mx-auto">
+                <!-- QUIZ STEPS -->
+                <div id="quiz-question-container">
+                    <div class="flex items-center justify-between mb-8">
+                        <span class="text-xs font-bold text-brand-600 uppercase tracking-widest" id="quiz-step-indicator">Question 1 of 5</span>
+                        <div class="w-1/2 bg-slate-100 h-2 rounded-full overflow-hidden">
+                            <div class="bg-brand-500 h-2 rounded-full transition-all duration-300" id="quiz-progress-bar" style="width: 20%"></div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-6">
+                        <h4 class="font-display text-lg sm:text-xl font-bold text-slate-900" id="quiz-question-text">
+                            How often have you felt unable to control the important things in your life over the past month?
+                        </h4>
+
+                        <div class="space-y-3" id="quiz-options-container">
+                            <button onclick="selectQuizAnswer(0)" class="w-full text-left p-4 rounded-2xl border border-slate-200 hover:border-brand-500 hover:bg-brand-50/30 text-slate-700 hover:text-slate-900 font-medium transition flex items-center justify-between group">
+                                <span>Almost Never / Never</span>
+                                <i data-lucide="chevron-right" class="w-4 h-4 text-slate-400 group-hover:text-brand-600 group-hover:translate-x-1 transition"></i>
+                            </button>
+                            <button onclick="selectQuizAnswer(1)" class="w-full text-left p-4 rounded-2xl border border-slate-200 hover:border-brand-500 hover:bg-brand-50/30 text-slate-700 hover:text-slate-900 font-medium transition flex items-center justify-between group">
+                                <span>Sometimes</span>
+                                <i data-lucide="chevron-right" class="w-4 h-4 text-slate-400 group-hover:text-brand-600 group-hover:translate-x-1 transition"></i>
+                            </button>
+                            <button onclick="selectQuizAnswer(2)" class="w-full text-left p-4 rounded-2xl border border-slate-200 hover:border-brand-500 hover:bg-brand-50/30 text-slate-700 hover:text-slate-900 font-medium transition flex items-center justify-between group">
+                                <span>Fairly Often</span>
+                                <i data-lucide="chevron-right" class="w-4 h-4 text-slate-400 group-hover:text-brand-600 group-hover:translate-x-1 transition"></i>
+                            </button>
+                            <button onclick="selectQuizAnswer(3)" class="w-full text-left p-4 rounded-2xl border border-slate-200 hover:border-brand-500 hover:bg-brand-50/30 text-slate-700 hover:text-slate-900 font-medium transition flex items-center justify-between group">
+                                <span>Very Often</span>
+                                <i data-lucide="chevron-right" class="w-4 h-4 text-slate-400 group-hover:text-brand-600 group-hover:translate-x-1 transition"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- QUIZ RESULTS SCREEN -->
+                <div id="quiz-result-container" class="hidden space-y-6 text-center py-8">
+                    <div class="w-20 h-20 bg-brand-50 rounded-full flex items-center justify-center mx-auto text-brand-600 mb-4">
+                        <i data-lucide="check-circle" class="w-12 h-12"></i>
+                    </div>
+                    <div class="space-y-2">
+                        <h4 class="font-display text-2xl font-bold text-slate-950">Assessment Complete</h4>
+                        <p class="text-xs text-slate-500 uppercase tracking-widest font-bold">Your Score Classification:</p>
+                        <p class="text-xl font-extrabold text-brand-600" id="quiz-result-classification">Mild Anxiety &amp; Stress Load</p>
+                    </div>
+
+                    <div class="bg-slate-50 border border-slate-100 p-6 rounded-2xl text-slate-600 text-sm max-w-xl mx-auto leading-relaxed" id="quiz-result-guideline">
+                        Your answers indicate typical everyday stress levels. To maintain mental peace, we recommend scheduling standard stress case management counseling sessions at our Outpatient Clinic on Robinson Road, or implementing mindful lifestyle activities.
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+                        <button onclick="restartQuiz()" class="w-full sm:w-auto bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold px-6 py-3 rounded-xl transition">
+                            Retake Assessment
+                        </button>
+                        <a href="#booking" class="w-full sm:w-auto bg-gradient-to-r from-brand-600 to-emerald-600 text-white font-bold px-6 py-3 rounded-xl transition shadow-md">
+                            Speak to a Counselor
+                        </a>
+                    </div>
+
+                    <p class="text-[10px] text-slate-400 italic max-w-md mx-auto pt-4">
+                        Disclaimer: This assessment is an educational screening tool. It does not replace a clinical psychiatric consultation with Dr. C.D. Premadasan or other certified psychologists.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTEGRATED MULTI-STEP APPOINTMENT SYSTEM (DATABASE INTEGRATION) -->
+    <section id="booking" class="py-20 sm:py-28 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <span class="text-brand-600 text-xs sm:text-sm font-bold uppercase tracking-widest font-mono">SQLite Writes Enabled</span>
+                <h3 class="font-display text-3xl sm:text-4xl font-extrabold text-slate-950">Schedule Your Consultation</h3>
+                <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+                    Book your counseling or clinical slot. Completing this secure portal saves your registration inside our clinic's SQLite database automatically!
+                </p>
+            </div>
+
+            <!-- BOOKING WIDGET -->
+            <div class="max-w-3xl mx-auto bg-slate-50 border border-slate-100 rounded-3xl p-6 sm:p-10 shadow-xl relative overflow-hidden">
+                <!-- Step progress labels -->
+                <div class="flex justify-between items-center mb-8 text-xs sm:text-sm font-medium border-b border-slate-200 pb-5">
+                    <span class="step-active" id="book-step-1-lbl">01 Service &amp; Doctor</span>
+                    <span class="text-slate-400" id="book-step-2-lbl">02 Slot Selection</span>
+                    <span class="text-slate-400" id="book-step-3-lbl">03 Contact Details</span>
+                    <span class="text-slate-400" id="book-step-4-lbl">04 Confirmation</span>
+                </div>
+
+                <!-- STEP 1: SERVICE & DOCTOR -->
+                <div id="booking-step-1" class="space-y-6">
+                    <div class="space-y-2">
+                        <label class="block text-xs font-bold text-slate-500 uppercase">Select Clinic Department / Program</label>
+                        <select id="booking-service" onchange="updateAttendingDoctorOptions()" class="w-full bg-white border border-slate-200 p-4 rounded-xl focus:outline-none focus:border-brand-500 font-semibold text-slate-800">
+                            <option value="op">Outpatient Case Management (Stress, Family, Couple, IQ)</option>
+                            <option value="inpatient">Inpatient Psychiatric Stabilization (Residential Clinic)</option>
+                            <option value="deaddiction">Inpatient De-Addiction Rehabilitation (Substance Abuse)</option>
+                            <option value="palliative">Psychiatric Home Visit &amp; Palliative Care</option>
+                        </select>
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="block text-xs font-bold text-slate-500 uppercase">Available Healthcare Provider</label>
+                        <select id="booking-doctor" class="w-full bg-white border border-slate-200 p-4 rounded-xl focus:outline-none focus:border-brand-500 font-semibold text-slate-800">
+                            <option value="Dr. C.D. Premadasan">Dr. C.D. Premadasan, Psychiatrist (30+ Yrs Exp)</option>
+                            <option value="Attending Clinical Psychologist">Attending Clinical Psychologist, Psychologist (MIMS Team)</option>
+                        </select>
+                    </div>
+
+                    <div class="flex justify-end pt-4">
+                        <button onclick="goToBookingStep(2)" class="bg-brand-600 hover:bg-brand-500 text-white font-bold px-6 py-3.5 rounded-xl transition flex items-center gap-2">
+                            <span>Proceed to Slots</span> <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- STEP 2: SLOT SELECTION -->
+                <div id="booking-step-2" class="hidden space-y-6">
+                    <div class="grid sm:grid-cols-2 gap-6">
+                        <div class="space-y-2">
+                            <label class="block text-xs font-bold text-slate-500 uppercase">Preferred Consult Date</label>
+                            <input type="date" id="booking-date" min="2026-08-08" value="2026-08-10" class="w-full bg-white border border-slate-200 p-4 rounded-xl focus:outline-none focus:border-brand-500 font-semibold text-slate-800">
+                        </div>
+
+                        <div class="space-y-2">
+                            <label class="block text-xs font-bold text-slate-500 uppercase">Preferred Time Slot</label>
+                            <select id="booking-time" class="w-full bg-white border border-slate-200 p-4 rounded-xl focus:outline-none focus:border-brand-500 font-semibold text-slate-800">
+                                <option value="09:30 AM">09:30 AM (Available)</option>
+                                <option value="11:00 AM">11:00 AM (Available)</option>
+                                <option value="02:00 PM">02:00 PM (Available)</option>
+                                <option value="03:30 PM">03:30 PM (Limited Slots)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-between pt-4">
+                        <button onclick="goToBookingStep(1)" class="bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold px-6 py-3.5 rounded-xl transition">
+                            Back
+                        </button>
+                        <button onclick="goToBookingStep(3)" class="bg-brand-600 hover:bg-brand-500 text-white font-bold px-6 py-3.5 rounded-xl transition flex items-center gap-2">
+                            <span>Proceed to Patient Details</span> <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- STEP 3: CONTACT DETAILS -->
+                <div id="booking-step-3" class="hidden space-y-6">
+                    <div class="grid sm:grid-cols-2 gap-6">
+                        <div class="space-y-2">
+                            <label class="block text-xs font-bold text-slate-500 uppercase">Patient Full Name</label>
+                            <input type="text" id="booking-name" placeholder="John Doe" class="w-full bg-white border border-slate-200 p-4 rounded-xl focus:outline-none focus:border-brand-500 text-slate-800 font-medium">
+                        </div>
+
+                        <div class="space-y-2">
+                            <label class="block text-xs font-bold text-slate-500 uppercase">Contact Phone Number</label>
+                            <input type="tel" id="booking-phone" placeholder="+91 94958 67342" class="w-full bg-white border border-slate-200 p-4 rounded-xl focus:outline-none focus:border-brand-500 text-slate-800 font-medium">
+                        </div>
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="block text-xs font-bold text-slate-500 uppercase">Brief consultation notes or concerns (Optional)</label>
+                        <textarea id="booking-notes" rows="3" placeholder="e.g., Requesting anxiety counseling or drug rehabilitation assessment notes..." class="w-full bg-white border border-slate-200 p-4 rounded-xl focus:outline-none focus:border-brand-500 text-slate-800 text-sm"></textarea>
+                    </div>
+
+                    <div class="flex justify-between pt-4">
+                        <button onclick="goToBookingStep(2)" class="bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold px-6 py-3.5 rounded-xl transition">
+                            Back
+                        </button>
+                        <button onclick="submitBooking()" class="bg-gradient-to-r from-brand-600 to-emerald-600 hover:from-brand-700 hover:to-emerald-700 text-white font-extrabold px-8 py-3.5 rounded-xl transition shadow-md flex items-center gap-2">
+                            <span>Confirm &amp; Write to SQL</span> <i data-lucide="database" class="w-4.5 h-4.5"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- STEP 4: SUCCESS CONFIRMATION SLIP -->
+                <div id="booking-step-4" class="hidden space-y-6">
+                    <div class="text-center space-y-2">
+                        <div class="w-16 h-16 bg-emerald-50 rounded-full flex items-center justify-center mx-auto text-emerald-600">
+                            <i data-lucide="check-circle-2" class="w-10 h-10"></i>
+                        </div>
+                        <h4 class="font-display text-2xl font-extrabold text-slate-950">Appointment Saved in Database</h4>
+                        <p class="text-sm text-slate-500">Your registration is written to the SQLite file. Show this ticket slip at the desk.</p>
+                    </div>
+
+                    <!-- MOCK PRINTABLE TICKET SLIP -->
+                    <div class="bg-white border-2 border-dashed border-slate-200 rounded-2xl p-6 text-slate-800 space-y-4 max-w-md mx-auto shadow-md">
+                        <div class="flex justify-between items-center border-b border-slate-100 pb-3">
+                            <div>
+                                <h5 class="font-bold text-slate-900 text-sm">MANOMITHRA MIMS</h5>
+                                <p class="text-[9px] text-slate-400 uppercase tracking-widest font-semibold">SQLite Verified Ticket</p>
+                            </div>
+                            <div class="text-right">
+                                <span class="bg-brand-50 border border-brand-200 text-brand-700 text-[10px] font-bold px-2 py-0.5 rounded" id="slip-id">#MIMS-8321</span>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-4 text-xs">
+                            <div>
+                                <p class="text-slate-400 font-medium">Patient Name</p>
+                                <p class="font-bold text-slate-800" id="slip-name">John Doe</p>
+                            </div>
+                            <div>
+                                <p class="text-slate-400 font-medium">Attending Doctor</p>
+                                <p class="font-bold text-slate-800" id="slip-doctor">Dr. C.D. Premadasan</p>
+                            </div>
+                            <div>
+                                <p class="text-slate-400 font-medium">Consultation Date</p>
+                                <p class="font-bold text-slate-800" id="slip-date">August 10, 2026</p>
+                            </div>
+                            <div>
+                                <p class="text-slate-400 font-medium">Scheduled Time</p>
+                                <p class="font-bold text-slate-800" id="slip-time">11:00 AM</p>
+                            </div>
+                            <div class="col-span-2 border-t border-slate-100 pt-3">
+                                <p class="text-slate-400 font-medium">Campus Location</p>
+                                <p class="font-bold text-slate-800" id="slip-location">Robinson Road Outpatient Clinic, Palakkad</p>
+                            </div>
+                        </div>
+
+                        <!-- Barcode simulator -->
+                        <div class="border-t border-slate-100 pt-4 flex flex-col items-center justify-center space-y-1">
+                            <div class="bg-slate-100 h-12 w-full max-w-[200px] flex items-center justify-center border border-slate-200 select-none overflow-hidden rounded">
+                                <div class="flex gap-[2px] items-stretch h-full w-full px-4 py-2">
+                                    <div class="bg-slate-800 w-[2px]"></div>
+                                    <div class="bg-slate-800 w-[1px]"></div>
+                                    <div class="bg-slate-800 w-[3px]"></div>
+                                    <div class="bg-slate-800 w-[1px]"></div>
+                                    <div class="bg-slate-800 w-[2px]"></div>
+                                    <div class="bg-slate-800 w-[4px]"></div>
+                                    <div class="bg-slate-800 w-[1px]"></div>
+                                    <div class="bg-slate-800 w-[3px]"></div>
+                                    <div class="bg-slate-800 w-[2px]"></div>
+                                    <div class="bg-slate-800 w-[1px]"></div>
+                                    <div class="bg-slate-800 w-[4px]"></div>
+                                    <div class="bg-slate-800 w-[2px]"></div>
+                                    <div class="bg-slate-800 w-[1px]"></div>
+                                    <div class="bg-slate-800 w-[3px]"></div>
+                                    <div class="bg-slate-800 w-[2px]"></div>
+                                    <div class="bg-slate-800 w-[1px]"></div>
+                                    <div class="bg-slate-800 w-[4px]"></div>
+                                </div>
+                            </div>
+                            <span class="text-[9px] font-mono tracking-widest text-slate-400 font-bold">SQLITE-ROW-STAMP-2026</span>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+                        <button onclick="window.print()" class="w-full sm:w-auto bg-slate-200 hover:bg-slate-300 text-slate-800 font-semibold px-6 py-3 rounded-xl transition flex items-center justify-center gap-2">
+                            <i data-lucide="printer" class="w-4 h-4"></i> Print Ticket
+                        </button>
+                        <button onclick="resetBookingForm()" class="w-full sm:w-auto bg-brand-600 hover:bg-brand-500 text-white font-bold px-6 py-3 rounded-xl transition">
+                            Book Another Session
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CAMPUSES & GEOGRAPHIC REACH -->
+    <section id="campuses" class="py-20 sm:py-28 bg-slate-50 border-t border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <span class="text-brand-600 text-xs sm:text-sm font-bold uppercase tracking-widest">Our Operations in Palakkad</span>
+                <h3 class="font-display text-3xl sm:text-4xl font-extrabold text-slate-950">Two Dedicated Campuses</h3>
+                <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+                    To serve you best, we divide our specialist mental wellness departments into two locations in Palakkad, Kerala.
+                </p>
+            </div>
+
+            <!-- Locations Cards -->
+            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <!-- Location 1: Robinson Road -->
+                <div class="bg-white border border-slate-100 rounded-3xl p-6 sm:p-8 shadow-lg hover:shadow-xl hover:border-brand-300 transition-all duration-300 flex flex-col justify-between group">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 rounded-2xl bg-brand-50 text-brand-600 flex items-center justify-center group-hover:bg-brand-600 group-hover:text-white transition-all">
+                            <i data-lucide="map-pin" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <span class="text-[10px] text-brand-600 font-bold uppercase tracking-widest">Outpatient (OP) &amp; Consultation Center</span>
+                            <h4 class="font-display text-2xl font-bold text-slate-950 mt-1">Robinson Road Clinic</h4>
+                        </div>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Conveniently located in the heart of Palakkad town, managing clinical consults, case assessments, pre-marital therapy, intelligence screening, and routine doctor checks.
+                        </p>
+                        <div class="border-t border-slate-100 pt-4 space-y-2.5 text-xs sm:text-sm text-slate-700 font-medium">
+                            <p class="flex items-center gap-2"><i data-lucide="map" class="w-4.5 h-4.5 text-brand-500 shrink-0"></i> Robinson Road, Palakkad - 678 014, Kerala</p>
+                            <p class="flex items-center gap-2"><i data-lucide="phone" class="w-4.5 h-4.5 text-brand-500 shrink-0"></i> +91 0491 253 1342 / +91 9495 867 342</p>
+                            <p class="flex items-center gap-2"><i data-lucide="mail" class="w-4.5 h-4.5 text-brand-500 shrink-0"></i> info@manomithra.com</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Location 2: Kanjikode Road -->
+                <div class="bg-white border border-slate-100 rounded-3xl p-6 sm:p-8 shadow-lg hover:shadow-xl hover:border-brand-300 transition-all duration-300 flex flex-col justify-between group">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center group-hover:bg-emerald-600 group-hover:text-white transition-all">
+                            <i data-lucide="hotel" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <span class="text-[10px] text-emerald-600 font-bold uppercase tracking-widest">Inpatient (IP) &amp; Rehabilitation Center</span>
+                            <h4 class="font-display text-2xl font-bold text-slate-950 mt-1">Kanjikode Road Campus</h4>
+                        </div>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            A highly serene residential hospital dedicated to full inpatient services, drug and alcohol detoxification, comprehensive psychological rehabilitation, and caregiver residential courses.
+                        </p>
+                        <div class="border-t border-slate-100 pt-4 space-y-2.5 text-xs sm:text-sm text-slate-700 font-medium">
+                            <p class="flex items-center gap-2"><i data-lucide="map" class="w-4.5 h-4.5 text-emerald-500 shrink-0"></i> Kanjikode Rd, Pannimada, Palakkad, Kerala</p>
+                            <p class="flex items-center gap-2"><i data-lucide="phone" class="w-4.5 h-4.5 text-emerald-500 shrink-0"></i> +91 9446 431 342</p>
+                            <p class="flex items-center gap-2"><i data-lucide="mail" class="w-4.5 h-4.5 text-emerald-500 shrink-0"></i> Manomithrapalakkad@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOSPITAL FOOTER -->
+    <footer class="bg-brand-950 text-white pt-16 pb-8 border-t border-brand-900 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 pb-12 border-b border-brand-900">
+                <!-- COL 1: Branding -->
+                <div class="md:col-span-5 space-y-4">
+                    <div class="flex items-center gap-2.5">
+                        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-emerald-500 flex items-center justify-center shadow-md">
+                            <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                <path d="M12 3c1.5 3 4.5 4 6 7.5s-1.5 6.5-6 6.5-7.5-3-6-6.5 4.5-4.5 6-7.5z" />
+                                <circle cx="12" cy="12" r="2.5" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <span class="font-display font-bold text-lg tracking-tight text-white">MANOMITHRA</span>
+                            <p class="text-[9px] text-slate-400 uppercase tracking-widest font-semibold -mt-0.5">Institute of Medical Sciences</p>
+                        </div>
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed max-w-sm">
+                        Since 2008, Manomithra (MIMS) has provided compassionate inpatient psychiatric care and alcohol/drug rehabilitation in Palakkad, Kerala.
+                    </p>
+                </div>
+
+                <!-- COL 2: Navigation Links -->
+                <div class="md:col-span-3 space-y-4">
+                    <h5 class="text-xs font-bold uppercase tracking-wider text-brand-400">Services Directory</h5>
+                    <ul class="space-y-2 text-xs text-slate-400">
+                        <li><a href="#services" class="hover:text-white transition">Outpatient Consultations</a></li>
+                        <li><a href="#services" class="hover:text-white transition">Inpatient Care Wards</a></li>
+                        <li><a href="#services" class="hover:text-white transition">Alcohol De-Addiction</a></li>
+                        <li><a href="#services" class="hover:text-white transition">Stress Management</a></li>
+                        <li><a href="#services" class="hover:text-white transition">Couple &amp; Family Therapy</a></li>
+                    </ul>
+                </div>
+
+                <!-- COL 3: Emergency & Support Contact -->
+                <div class="md:col-span-4 space-y-4 text-xs">
+                    <h5 class="text-xs font-bold uppercase tracking-wider text-brand-400">Emergency &amp; Admissions</h5>
+                    <ul class="space-y-3 text-slate-400">
+                        <li class="flex items-start gap-2">
+                            <i data-lucide="phone" class="w-4 h-4 text-red-500 shrink-0"></i>
+                            <div>
+                                <p class="font-bold text-white">Emergency Hotline (24/7)</p>
+                                <p class="text-[11px]">+91 9495 867 342</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i data-lucide="phone-call" class="w-4 h-4 text-brand-500 shrink-0"></i>
+                            <div>
+                                <p class="font-bold text-white">Inpatient Admissions</p>
+                                <p class="text-[11px]">+91 9446 431 342</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i data-lucide="clock" class="w-4 h-4 text-brand-500 shrink-0"></i>
+                            <div>
+                                <p class="font-bold text-white">Robinson Rd Clinic Hours</p>
+                                <p class="text-[11px]">Mon - Sat | 9:30 AM - 4:30 PM</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Medical Emergency Disclaimer -->
+            <div class="pt-8 text-center text-[10px] text-slate-500 leading-relaxed max-w-4xl mx-auto space-y-2">
+                <p>
+                    <strong>Medical Disclaimer:</strong> This website provides informational &amp; pre-registration administrative services regarding psychiatric medicine and de-addiction rehabilitation programs at Manomithra Institute of Medical Sciences. It does not replace immediate in-person psychiatric or medical trauma support. If you are experiencing suicidal thoughts, severe withdrawal syndromes, or a critical psychiatric crisis, call our immediate emergency response helpline at +91 9495 867 342 or proceed directly to the nearest hospital casualty department.
+                </p>
+                <p class="pt-2 text-slate-600 font-mono text-[9px]">
+                    SQLite SQLite3 Data Core Version 1.0.0 | &copy; 2026 Manomithra Institute of Medical Sciences Pvt. Ltd. (MIMS).
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE FLOATING AI CHATBOT widget ("Mitra AI") -->
+    <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end">
+        <!-- Chat Dialogue Bubble -->
+        <div class="hidden bg-white text-slate-800 rounded-3xl shadow-2xl border border-slate-100 w-[330px] sm:w-[360px] overflow-hidden flex flex-col mb-4" id="chat-dialog-box">
+            <!-- Header -->
+            <div class="bg-gradient-to-r from-brand-600 to-emerald-600 text-white px-4 py-3.5 flex items-center justify-between">
+                <div class="flex items-center gap-2.5">
+                    <div class="w-8 h-8 rounded-lg bg-white/20 flex items-center justify-center font-bold text-sm">
+                        <i data-lucide="bot" class="w-4 h-4"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-xs font-bold leading-none">Mitra AI</h4>
+                        <span class="text-[9px] text-emerald-200 font-medium">Attending Support Assistant</span>
+                    </div>
+                </div>
+                <button onclick="toggleChatbot()" class="text-white/80 hover:text-white" aria-label="Close chat">
+                    <i data-lucide="x" class="w-4 h-4"></i>
+                </button>
+            </div>
+
+            <!-- Conversation window -->
+            <div class="h-[260px] overflow-y-auto p-4 space-y-3.5 text-xs bg-slate-50 no-scrollbar" id="chat-conversation-area">
+                <div class="bg-brand-50 border border-brand-100 text-brand-800 p-3 rounded-2xl text-left leading-relaxed">
+                    Hello! I am <strong>Mitra AI</strong>, your attending administrative counselor here at Manomithra (MIMS). How can I assist you or your family today?
+                </div>
+                <!-- Chat quick suggestion pills -->
+                <div class="flex flex-wrap gap-1.5 pt-1" id="chat-quick-options">
+                    <button onclick="sendQuickPrompt('doctor')" class="bg-white hover:bg-brand-50 text-[10px] text-slate-600 hover:text-brand-600 px-2.5 py-1 rounded-full border border-slate-200 font-medium transition shrink-0">👨‍⚕️ Meet Dr. Premadasan</button>
+                    <button onclick="sendQuickPrompt('inpatient')" class="bg-white hover:bg-brand-50 text-[10px] text-slate-600 hover:text-brand-600 px-2.5 py-1 rounded-full border border-slate-200 font-medium transition shrink-0">🏥 Inpatient Wards</button>
+                    <button onclick="sendQuickPrompt('deaddiction')" class="bg-white hover:bg-brand-50 text-[10px] text-slate-600 hover:text-brand-600 px-2.5 py-1 rounded-full border border-slate-200 font-medium transition shrink-0">🛡️ De-addiction Rehab</button>
+                    <button onclick="sendQuickPrompt('crisis')" class="bg-white hover:bg-brand-50 text-[10px] text-slate-600 hover:text-brand-600 px-2.5 py-1 rounded-full border border-slate-200 font-medium transition shrink-0">🚨 Emergency Contact</button>
+                </div>
+            </div>
+
+            <div class="px-4 py-1.5 text-[10px] text-slate-400 italic hidden text-left bg-slate-50" id="chat-typing-indicator">
+                Mitra AI is formulating a clinical response...
+            </div>
+
+            <!-- Input area -->
+            <div class="border-t border-slate-100 p-3 bg-white flex gap-2">
+                <input type="text" id="chat-input" placeholder="Ask a question..." onkeydown="handleChatKeyDown(event)" class="w-full bg-slate-100 border border-slate-200 px-3.5 py-2 rounded-xl text-xs focus:outline-none focus:border-brand-500 text-slate-800 placeholder-slate-400">
+                <button onclick="sendChatText()" class="bg-brand-600 hover:bg-brand-500 text-white p-2.5 rounded-xl transition shrink-0">
+                    <i data-lucide="send" class="w-4 h-4"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Floating Button -->
+        <button onclick="toggleChatbot()" class="bg-gradient-to-r from-brand-600 to-emerald-600 text-white p-4 rounded-full shadow-2xl hover:shadow-brand-300 hover:scale-105 transition-all flex items-center gap-2" id="chat-trigger-btn" aria-label="Open support chat">
+            <div class="relative">
+                <span class="absolute -top-1 -right-1 flex h-2.5 w-2.5">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-300 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+                </span>
+                <i data-lucide="message-square" class="w-6 h-6" id="chat-icon"></i>
+            </div>
+            <span class="text-xs font-bold pr-1 hidden sm:inline">Attending Counselor</span>
+        </button>
+    </div>
+
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Mobile Menu Drawer Controls
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('menu-icon');
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+                icon.setAttribute('data-lucide', 'x');
+            } else {
+                menu.classList.add('hidden');
+                icon.setAttribute('data-lucide', 'menu');
+            }
+            lucide.createIcons();
+        }
+
+        // On Page Load
+        window.addEventListener('DOMContentLoaded', () => {
+            // Load live admin tables & selectors
+            loadAdminAppointments();
+            loadAdminPatientsSelector();
+        });
+
+        // Services Tab Switcher
+        function switchServiceTab(tabId) {
+            const panels = document.querySelectorAll('.service-panel');
+            panels.forEach(p => p.classList.add('hidden'));
+
+            const buttons = document.querySelectorAll('.service-tab-btn');
+            buttons.forEach(b => {
+                b.classList.remove('bg-brand-600', 'text-white', 'shadow-md');
+                b.classList.add('hover:bg-slate-200', 'text-slate-700');
+            });
+
+            document.getElementById(`panel-${tabId}`).classList.remove('hidden');
+
+            const activeBtn = document.getElementById(`tab-${tabId}`);
+            activeBtn.classList.remove('hover:bg-slate-200', 'text-slate-700');
+            activeBtn.classList.add('bg-brand-600', 'text-white', 'shadow-md');
+        }
+
+        // --- SQLITE INTEGRATIONS ---
+
+        // Patient Dashboard Database Query
+        function loadPresetPatient(id) {
+            document.getElementById('patient-id-input').value = id;
+            loadPatientDashboard();
+        }
+
+        async function loadPatientDashboard() {
+            const id = document.getElementById('patient-id-input').value.trim().toUpperCase();
+            const blankState = document.getElementById('dashboard-blank-slate');
+            const loadedState = document.getElementById('dashboard-loaded-state');
+
+            if (!id) {
+                alert('Please enter a clinical Registration ID.');
+                return;
+            }
+
+            try {
+                const response = await fetch(`/api/patients/${id}`);
+                if (!response.ok) {
+                    throw new Error('Patient file ID not found in SQLite tables.');
+                }
+                const patient = await response.json();
+
+                blankState.classList.add('hidden');
+                loadedState.classList.remove('hidden');
+
+                // Fill patient card fields
+                document.getElementById('db-patient-name').innerText = patient.name;
+                document.getElementById('db-patient-program').innerText = patient.program;
+                document.getElementById('db-patient-doctor').innerText = patient.doctor;
+                document.getElementById('db-therapist-notes').innerText = patient.notes || 'No therapist clinical notes recorded for this patient file.';
+
+                // Status Badge styling
+                const statusBadge = document.getElementById('db-patient-status');
+                statusBadge.innerText = patient.status;
+                if (patient.status.toLowerCase().includes('active')) {
+                    statusBadge.className = 'bg-brand-500/10 text-brand-400 text-[9px] font-bold px-2 py-0.5 rounded-full border border-brand-500/20';
+                } else if (patient.status.toLowerCase().includes('complete') || patient.status.toLowerCase().includes('stable')) {
+                    statusBadge.className = 'bg-emerald-500/10 text-emerald-400 text-[9px] font-bold px-2 py-0.5 rounded-full border border-emerald-500/20';
+                } else {
+                    statusBadge.className = 'bg-amber-500/10 text-amber-500 text-[9px] font-bold px-2 py-0.5 rounded-full border border-amber-500/20';
+                }
+
+                // Program Durations
+                document.getElementById('db-duration-info').innerHTML = `Active Program Duration: <strong>Day ${patient.current_day} of ${patient.duration_days}</strong>`;
+
+                // Render dynamic timeline phases based on SQL phase
+                document.getElementById('db-timeline-title').innerText = `Recovery Progression (Phase ${patient.phase} of 4)`;
+                
+                const phases = [
+                    { num: 1, name: "Intake & Detox" },
+                    { num: 2, name: "Psych Assessment" },
+                    { num: 3, name: "Daily Therapies" },
+                    { num: 4, name: "Family Re-integration" }
+                ];
+
+                let phasesHtml = '';
+                phases.forEach(ph => {
+                    if (patient.phase > ph.num) {
+                        phasesHtml += `
+                            <div class="p-2 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 font-semibold">
+                                <div class="font-black text-xs">Phase 0${ph.num}</div>
+                                <p class="truncate">${ph.name}</p>
+                                <span class="text-[8px] text-emerald-500 font-bold block mt-1">✓ Complete</span>
+                            </div>
+                        `;
+                    } else if (patient.phase === ph.num) {
+                        phasesHtml += `
+                            <div class="p-2 rounded-xl bg-brand-500/10 border-2 border-brand-500 text-brand-300 font-bold animate-pulse">
+                                <div class="font-black text-xs">Phase 0${ph.num}</div>
+                                <p class="truncate">${ph.name}</p>
+                                <span class="text-[8px] text-brand-400 font-bold block mt-1">● Active Now</span>
+                            </div>
+                        `;
+                    } else {
+                        phasesHtml += `
+                            <div class="p-2 rounded-xl bg-slate-900 border border-slate-800 text-slate-600">
+                                <div class="font-black text-xs">Phase 0${ph.num}</div>
+                                <p class="truncate">${ph.name}</p>
+                                <span class="text-[8px] text-slate-700 block mt-1">Pending</span>
+                            </div>
+                        `;
+                    }
+                });
+                document.getElementById('db-phases-timeline').innerHTML = phasesHtml;
+
+                // Render checkboxes checklist
+                let checklistHtml = '';
+                patient.daily_checklist.forEach((item, index) => {
+                    const checkedAttr = item.done ? 'checked' : '';
+                    const lineClass = item.done ? 'line-through text-slate-400' : 'text-slate-200';
+                    checklistHtml += `
+                        <label class="flex items-center gap-2.5 ${lineClass}">
+                            <input type="checkbox" ${checkedAttr} onchange="togglePatientDbChecklist('${patient.id}', ${index}, this.checked)" class="accent-brand-500 h-3.5 w-3.5 rounded">
+                            <span>${item.text}</span>
+                        </label>
+                    `;
+                });
+                document.getElementById('db-checklist-container').innerHTML = checklistHtml;
+
+            } catch (err) {
+                alert(err.message);
+                blankState.classList.remove('hidden');
+                loadedState.classList.add('hidden');
+            }
+        }
+
+        // Checkbox interaction in patient portal updates SQL directly!
+        async function togglePatientDbChecklist(patientId, itemIndex, isChecked) {
+            try {
+                // Fetch patient first
+                const response = await fetch(`/api/patients/${patientId}`);
+                const patient = await response.json();
+
+                // Toggle item in checklist array
+                patient.daily_checklist[itemIndex].done = isChecked;
+
+                // PUT request to update SQLite row
+                const updateRes = await fetch(`/api/patients/${patientId}`, {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ daily_checklist: patient.daily_checklist })
+                });
+
+                if (updateRes.ok) {
+                    // Reload dashboard visual
+                    loadPatientDashboard();
+                    // Reload admin lists
+                    loadAdminPatientsSelector();
+                }
+            } catch (err) {
+                console.error('Error toggling database checklist item:', err);
+            }
+        }
+
+
+        // --- ADMINISTRATIVE DASHBOARD CONTROLS ---
+
+        function switchAdminTab(panelId) {
+            // Hide panels
+            document.getElementById('admin-panel-appointments').classList.add('hidden');
+            document.getElementById('admin-panel-patients').classList.add('hidden');
+
+            // Reset tab styles
+            const buttons = document.querySelectorAll('.admin-tab-btn');
+            buttons.forEach(b => {
+                b.classList.remove('border-brand-600', 'text-brand-600', 'font-bold');
+                b.classList.add('border-transparent', 'text-slate-400');
+            });
+
+            // Show selected panel
+            document.getElementById(`admin-panel-${panelId}`).classList.remove('hidden');
+
+            // Select active tab style
+            const activeBtn = document.getElementById(`admin-tab-${panelId}`);
+            activeBtn.classList.remove('border-transparent', 'text-slate-400');
+            activeBtn.classList.add('border-brand-600', 'text-brand-600', 'font-bold');
+
+            if (panelId === 'appointments') {
+                loadAdminAppointments();
+            } else {
+                loadAdminPatientsSelector();
+            }
+        }
+
+        // Fetch & Populate Appointments SQL table
+        async function loadAdminAppointments() {
+            const tbody = document.getElementById('admin-appointments-tbody');
+            tbody.innerHTML = `<tr><td colspan="6" class="p-8 text-center text-slate-400">Fetching records from appointments database...</td></tr>`;
+
+            try {
+                const res = await fetch('/api/appointments');
+                const data = await res.json();
+
+                if (data.length === 0) {
+                    tbody.innerHTML = `<tr><td colspan="6" class="p-8 text-center text-slate-400 font-medium">No bookings records found inside SQLite database.</td></tr>`;
+                    return;
+                }
+
+                let html = '';
+                data.forEach(app => {
+                    let statusColor = 'bg-amber-100 text-amber-800 border-amber-200';
+                    if (app.status === 'Approved') statusColor = 'bg-emerald-100 text-emerald-800 border-emerald-200';
+                    if (app.status === 'Cancelled') statusColor = 'bg-red-100 text-red-800 border-red-200';
+
+                    let deptText = app.service.toUpperCase();
+                    if (app.service === 'op') deptText = 'Outpatient (OP)';
+                    if (app.service === 'inpatient') deptText = 'Inpatient (IP)';
+                    if (app.service === 'deaddiction') deptText = 'De-Addiction';
+                    if (app.service === 'palliative') deptText = 'Palliative/Home';
+
+                    html += `
+                        <tr class="hover:bg-slate-50 transition">
+                            <td class="p-4 font-mono font-bold text-brand-600">${app.ticket_id}</td>
+                            <td class="p-4">
+                                <div class="font-bold text-slate-900">${app.patient_name}</div>
+                                <div class="text-[10px] text-slate-400">${app.patient_phone}</div>
+                            </td>
+                            <td class="p-4">
+                                <div class="font-semibold text-slate-800">${app.date}</div>
+                                <div class="text-[10px] text-slate-500">${app.time}</div>
+                            </td>
+                            <td class="p-4">
+                                <div class="font-semibold text-slate-800">${deptText}</div>
+                                <div class="text-[10px] text-slate-500">${app.doctor}</div>
+                            </td>
+                            <td class="p-4">
+                                <span class="px-2 py-0.5 rounded border text-[10px] font-bold ${statusColor}">${app.status}</span>
+                            </td>
+                            <td class="p-4 text-right space-x-1 shrink-0">
+                                ${app.status === 'Pending' ? `
+                                    <button onclick="updateAppointmentStatus(${app.id}, 'Approved')" class="bg-emerald-500 hover:bg-emerald-600 text-white text-[10px] font-bold px-2 py-1 rounded transition">Approve</button>
+                                ` : ''}
+                                ${app.status !== 'Cancelled' ? `
+                                    <button onclick="updateAppointmentStatus(${app.id}, 'Cancelled')" class="bg-amber-500 hover:bg-amber-600 text-white text-[10px] font-bold px-2 py-1 rounded transition">Cancel</button>
+                                ` : ''}
+                                <button onclick="deleteAppointment(${app.id})" class="bg-red-600 hover:bg-red-700 text-white text-[10px] font-bold px-2 py-1 rounded transition" title="Delete from SQLite"><i data-lucide="trash" class="w-3 h-3 inline"></i></button>
+                            </td>
+                        </tr>
+                    `;
+                });
+                tbody.innerHTML = html;
+                lucide.createIcons();
+
+            } catch (err) {
+                tbody.innerHTML = `<tr><td colspan="6" class="p-8 text-center text-red-500 font-bold">Error connecting to back-end: ${err.message}</td></tr>`;
+            }
+        }
+
+        async function updateAppointmentStatus(id, newStatus) {
+            try {
+                const res = await fetch(`/api/appointments/${id}/status`, {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ status: newStatus })
+                });
+                if (res.ok) {
+                    loadAdminAppointments();
+                }
+            } catch (err) {
+                alert('Database status update failed: ' + err.message);
+            }
+        }
+
+        async function deleteAppointment(id) {
+            if (!confirm('Are you absolutely sure you want to permanently delete this appointment from the SQLite database file?')) return;
+            try {
+                const res = await fetch(`/api/appointments/${id}`, { method: 'DELETE' });
+                if (res.ok) {
+                    loadAdminAppointments();
+                }
+            } catch (err) {
+                alert('Database deletion failed: ' + err.message);
+            }
+        }
+
+        // Fetch & Populate Patient selector list
+        async function loadAdminPatientsSelector() {
+            const select = document.getElementById('edit-patient-selector');
+            select.innerHTML = `<option value="">-- Choose patient file --</option>`;
+
+            try {
+                const res = await fetch('/api/patients');
+                const patients = await res.json();
+
+                patients.forEach(p => {
+                    const opt = document.createElement('option');
+                    opt.value = p.id;
+                    opt.innerText = `${p.id} - ${p.name} (${p.status})`;
+                    select.appendChild(opt);
+                });
+            } catch (err) {
+                console.error('Error loading patients selector:', err);
+            }
+        }
+
+        // Load Patient profile into edit fields
+        async function loadPatientForEditing(id) {
+            const fieldsContainer = document.getElementById('edit-fields-container');
+            const blankState = document.getElementById('edit-blank-state');
+
+            if (!id) {
+                fieldsContainer.classList.add('hidden');
+                blankState.classList.remove('hidden');
+                return;
+            }
+
+            try {
+                const res = await fetch(`/api/patients/${id}`);
+                const p = await res.json();
+
+                blankState.classList.add('hidden');
+                fieldsContainer.classList.remove('hidden');
+
+                document.getElementById('edit-p-phase').value = p.phase;
+                document.getElementById('edit-p-status').value = p.status;
+                document.getElementById('edit-p-day').value = p.current_day;
+                document.getElementById('edit-p-duration').value = p.duration_days;
+                document.getElementById('edit-p-notes').value = p.notes || '';
+
+                // Build daily checklist editor checkboxes
+                let checkHtml = '';
+                p.daily_checklist.forEach((item, idx) => {
+                    const checked = item.done ? 'checked' : '';
+                    checkHtml += `
+                        <label class="flex items-center gap-2 font-medium text-slate-700">
+                            <input type="checkbox" ${checked} id="edit-check-idx-${idx}" class="accent-brand-600 h-3.5 w-3.5">
+                            <input type="text" id="edit-check-text-idx-${idx}" value="${item.text}" class="border border-slate-200 px-2 py-0.5 rounded text-[11px] w-full text-slate-800 font-semibold focus:outline-none">
+                        </label>
+                    `;
+                });
+                document.getElementById('edit-checklist-div').innerHTML = checkHtml;
+
+            } catch (err) {
+                alert('Error querying patient record: ' + err.message);
+            }
+        }
+
+        // Save Patient profile edits back to SQLite
+        async function savePatientEdits() {
+            const id = document.getElementById('edit-patient-selector').value;
+            if (!id) return;
+
+            try {
+                // Read checkboxes and text to rebuild the checklist JSON
+                const response = await fetch(`/api/patients/${id}`);
+                const originalPatient = await response.json();
+
+                const updatedChecklist = [];
+                originalPatient.daily_checklist.forEach((item, idx) => {
+                    const isChecked = document.getElementById(`edit-check-idx-${idx}`).checked;
+                    const txt = document.getElementById(`edit-check-text-idx-${idx}`).value.trim();
+                    updatedChecklist.push({ text: txt || item.text, done: isChecked });
+                });
+
+                const payload = {
+                    phase: parseInt(document.getElementById('edit-p-phase').value) || 1,
+                    status: document.getElementById('edit-p-status').value.trim() || 'Active',
+                    current_day: parseInt(document.getElementById('edit-p-day').value) || 1,
+                    duration_days: parseInt(document.getElementById('edit-p-duration').value) || 30,
+                    notes: document.getElementById('edit-p-notes').value.trim(),
+                    daily_checklist: updatedChecklist
+                };
+
+                const saveRes = await fetch(`/api/patients/${id}`, {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (saveRes.ok) {
+                    alert(`Patient file ${id} successfully updated inside database.db SQLite!`);
+                    loadAdminPatientsSelector();
+                    // If this patient is loaded in the dashboard portal, reload it!
+                    if (document.getElementById('patient-id-input').value.trim().toUpperCase() === id) {
+                        loadPatientDashboard();
+                    }
+                } else {
+                    throw new Error('Database write operation rejected.');
+                }
+
+            } catch (err) {
+                alert('Failed to write to database: ' + err.message);
+            }
+        }
+
+        // Create Patient row in SQLite
+        async function createNewPatientInDb(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('new-p-name').value.trim();
+            const phone = document.getElementById('new-p-phone').value.trim();
+            const program = document.getElementById('new-p-program').value;
+            const doctor = document.getElementById('new-p-doctor').value;
+            const status = document.getElementById('new-p-status').value.trim();
+            const phase = parseInt(document.getElementById('new-p-phase').value) || 1;
+            const duration_days = parseInt(document.getElementById('new-p-duration').value) || 30;
+            const current_day = parseInt(document.getElementById('new-p-day').value) || 1;
+
+            if (!name || !phone) return;
+
+            try {
+                const res = await fetch('/api/patients', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name, phone, program, doctor, status, phase, duration_days, current_day })
+                });
+
+                if (res.ok) {
+                    const data = await res.json();
+                    alert(`Success! Registered new clinical file in SQL:\nPatient ID: ${data.patient.id}\nName: ${data.patient.name}\n\nYou can now type "${data.patient.id}" in the Patient Portal to see their recovery chart live!`);
+                    
+                    // Reset registration form
+                    document.getElementById('create-patient-form').reset();
+                    // Reload drop selector lists
+                    loadAdminPatientsSelector();
+                } else {
+                    throw new Error('Database insert operation rejected.');
+                }
+            } catch (err) {
+                alert('Database write failed: ' + err.message);
+            }
+        }
+
+
+        // --- ORIGINAL APP JS COMPONENT CONTROLS ---
+
+        // Wellness Quiz Logic
+        let quizStep = 0;
+        let quizAnswers = [];
+        const quizQuestions = [
+            {
+                q: "How often have you felt unable to control the important things in your life over the past month?",
+                opt: ["Almost Never / Never", "Sometimes", "Fairly Often", "Very Often"]
+            },
+            {
+                q: "How often have you felt confident about your ability to handle your personal mental challenges?",
+                opt: ["Very Often (Confident)", "Sometimes", "Almost Never / Never", "Extremely Overwhelmed"]
+            },
+            {
+                q: "Have you experienced disruptions in sleep (insomnia, racing thoughts) or physical tension due to stress?",
+                opt: ["No physical symptoms", "Mild / Intermittent sleep delay", "Frequent physical tightness", "Severe daily insomnia"]
+            },
+            {
+                q: "How would you describe your emotional state when dealing with family, work, or peer pressure?",
+                opt: ["Calm & constructive", "Slightly irritable but manage", "Highly anxious / Burned out", "Feeling completely detached"]
+            },
+            {
+                q: "Do you have a reliable family or community support system to share your struggles with?",
+                opt: ["Yes, strong family support", "Moderate social circle", "Very limited / Feel isolated", "No support / Caregivers are also exhausted"]
+            }
+        ];
+
+        function selectQuizAnswer(index) {
+            quizAnswers.push(index);
+            quizStep++;
+
+            if (quizStep < quizQuestions.length) {
+                document.getElementById('quiz-step-indicator').innerText = `Question ${quizStep + 1} of 5`;
+                document.getElementById('quiz-progress-bar').style.width = `${(quizStep + 1) * 20}%`;
+                document.getElementById('quiz-question-text').innerText = quizQuestions[quizStep].q;
+                
+                let optHtml = '';
+                quizQuestions[quizStep].opt.forEach((optText, i) => {
+                    optHtml += `
+                        <button onclick="selectQuizAnswer(${i})" class="w-full text-left p-4 rounded-2xl border border-slate-200 hover:border-brand-500 hover:bg-brand-50/30 text-slate-700 hover:text-slate-900 font-medium transition flex items-center justify-between group">
+                            <span>${optText}</span>
+                            <i data-lucide="chevron-right" class="w-4 h-4 text-slate-400 group-hover:text-brand-600 group-hover:translate-x-1 transition"></i>
+                        </button>
+                    `;
+                });
+                document.getElementById('quiz-options-container').innerHTML = optHtml;
+                lucide.createIcons();
+            } else {
+                displayQuizResults();
+            }
+        }
+
+        function displayQuizResults() {
+            document.getElementById('quiz-question-container').classList.add('hidden');
+            const resultBox = document.getElementById('quiz-result-container');
+            resultBox.classList.remove('hidden');
+
+            const scoreSum = quizAnswers.reduce((a, b) => a + b, 0);
+            let classification = "Healthy Stress Balance";
+            let guideline = "Your score indicates a stable stress profile! Continue maintaining your emotional hygiene. Mindful meditation or casual consultations at our Robinson Road clinic are always helpful to keep your resilience strong.";
+
+            if (scoreSum >= 4 && scoreSum <= 8) {
+                classification = "Moderate Stress / Overwhelmed";
+                guideline = "Your response indicates a moderate level of mental load or beginning stages of professional burnout. We highly recommend booking a stress-management outpatient session with Dr. C.D. Premadasan's clinic to prevent further clinical fatigue.";
+            } else if (scoreSum > 8) {
+                classification = "High Clinical Fatigue & Exhaustion";
+                guideline = "Your response indicates significant emotional burnout or clinical fatigue. Seeking professional guidance is highly courageous and life-affirming. Consider scheduling a diagnostic evaluation at either our Outpatient or inpatient support systems.";
+            }
+
+            document.getElementById('quiz-result-classification').innerText = classification;
+            document.getElementById('quiz-result-guideline').innerText = guideline;
+        }
+
+        function restartQuiz() {
+            quizStep = 0;
+            quizAnswers = [];
+            document.getElementById('quiz-question-container').classList.remove('hidden');
+            document.getElementById('quiz-result-container').classList.add('hidden');
+            document.getElementById('quiz-step-indicator').innerText = `Question 1 of 5`;
+            document.getElementById('quiz-progress-bar').style.width = `20%`;
+            document.getElementById('quiz-question-text').innerText = quizQuestions[0].q;
+
+            let optHtml = '';
+            quizQuestions[0].opt.forEach((optText, i) => {
+                optHtml += `
+                    <button onclick="selectQuizAnswer(${i})" class="w-full text-left p-4 rounded-2xl border border-slate-200 hover:border-brand-500 hover:bg-brand-50/30 text-slate-700 hover:text-slate-900 font-medium transition flex items-center justify-between group">
+                        <span>${optText}</span>
+                        <i data-lucide="chevron-right" class="w-4 h-4 text-slate-400 group-hover:text-brand-600 group-hover:translate-x-1 transition"></i>
+                    </button>
+                `;
+            });
+            document.getElementById('quiz-options-container').innerHTML = optHtml;
+            lucide.createIcons();
+        }
+
+        // Multi-step Booking System Controls
+        let currentBookingStep = 1;
+
+        function goToBookingStep(step) {
+            document.getElementById('booking-step-1').classList.add('hidden');
+            document.getElementById('booking-step-2').classList.add('hidden');
+            document.getElementById('booking-step-3').classList.add('hidden');
+            document.getElementById('booking-step-4').classList.add('hidden');
+
+            document.getElementById('book-step-1-lbl').className = 'text-slate-400';
+            document.getElementById('book-step-2-lbl').className = 'text-slate-400';
+            document.getElementById('book-step-3-lbl').className = 'text-slate-400';
+            document.getElementById('book-step-4-lbl').className = 'text-slate-400';
+
+            document.getElementById(`booking-step-${step}`).classList.remove('hidden');
+            document.getElementById(`book-step-${step}-lbl`).className = 'step-active';
+            
+            currentBookingStep = step;
+        }
+
+        function updateAttendingDoctorOptions() {
+            const serv = document.getElementById('booking-service').value;
+            const docSelect = document.getElementById('booking-doctor');
+            if (serv === 'op') {
+                docSelect.innerHTML = `
+                    <option value="Dr. C.D. Premadasan">Dr. C.D. Premadasan, Psychiatrist (30+ Yrs Exp)</option>
+                    <option value="Attending Clinical Psychologist">Attending Clinical Psychologist, Psychologist (MIMS Team)</option>
+                `;
+            } else if (serv === 'deaddiction' || serv === 'inpatient') {
+                docSelect.innerHTML = `
+                    <option value="Dr. C.D. Premadasan">Dr. C.D. Premadasan (Residential Chief)</option>
+                    <option value="Attending Clinical Psychologist">Attending Clinical Psychologist (MIMS Team)</option>
+                `;
+            } else {
+                docSelect.innerHTML = `
+                    <option value="Attending Clinical Psychologist">Home Visit Nursing Panel (MIMS Palliative)</option>
+                    <option value="Dr. C.D. Premadasan">Dr. C.D. Premadasan (Home Reviewer)</option>
+                `;
+            }
+        }
+
+        // Submit Booking and Write directly to SQLite Table!
+        async function submitBooking() {
+            const patient_name = document.getElementById('booking-name').value.trim();
+            const patient_phone = document.getElementById('booking-phone').value.trim();
+            const service = document.getElementById('booking-service').value;
+            const doctor = document.getElementById('booking-doctor').value;
+            const date = document.getElementById('booking-date').value;
+            const time = document.getElementById('booking-time').value;
+            const notes = document.getElementById('booking-notes').value.trim();
+
+            if (!patient_name || !patient_phone || !date || !time) {
+                alert('Please complete the patient name, phone, date, and time slot.');
+                return;
+            }
+
+            try {
+                // Post to API (inserts row into SQLite)
+                const response = await fetch('/api/appointments', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ patient_name, patient_phone, service, doctor, date, time, notes })
+                });
+
+                if (!response.ok) {
+                    throw new Error('Back-end database transaction failed.');
+                }
+
+                const payload = await response.json();
+                const appRow = payload.appointment;
+
+                // Fill slip fields from SQL-returned data
+                document.getElementById('slip-name').innerText = appRow.patient_name;
+                document.getElementById('slip-doctor').innerText = appRow.doctor;
+                
+                const dOptions = { year: 'numeric', month: 'long', day: 'numeric' };
+                const formattedDate = new Date(appRow.date).toLocaleDateString("en-US", dOptions);
+                document.getElementById('slip-date').innerText = formattedDate;
+                document.getElementById('slip-time').innerText = appRow.time;
+
+                let locationText = "Robinson Road Outpatient Clinic, Palakkad";
+                if (appRow.service === 'inpatient' || appRow.service === 'deaddiction') {
+                    locationText = "Kanjikode Road Inpatient Campus, Pannimada";
+                } else if (appRow.service === 'palliative') {
+                    locationText = "At-Home Caregiver Visit (Palakkad Limits)";
+                }
+                document.getElementById('slip-location').innerText = locationText;
+                document.getElementById('slip-id').innerText = appRow.ticket_id;
+
+                goToBookingStep(4);
+
+                // Confetti burst
+                if (typeof confetti === 'function') {
+                    confetti({
+                        particleCount: 150,
+                        spread: 80,
+                        origin: { y: 0.6 },
+                        colors: ['#349287', '#27756d', '#4faea2', '#10b981']
+                    });
+                }
+
+                // Refresh appointments list in admin panel
+                loadAdminAppointments();
+
+            } catch (err) {
+                alert('Error writing appointment to database: ' + err.message);
+            }
+        }
+
+        function resetBookingForm() {
+            document.getElementById('booking-name').value = '';
+            document.getElementById('booking-phone').value = '';
+            document.getElementById('booking-notes').value = '';
+            goToBookingStep(1);
+        }
+
+        // Mitra AI Chatbot Widget Controls
+        function toggleChatbot() {
+            const dialog = document.getElementById('chat-dialog-box');
+            if (dialog.classList.contains('hidden')) {
+                dialog.classList.remove('hidden');
+            } else {
+                dialog.classList.add('hidden');
+            }
+        }
+
+        function handleChatKeyDown(event) {
+            if (event.key === 'Enter') {
+                sendChatText();
+            }
+        }
+
+        function sendChatText() {
+            const input = document.getElementById('chat-input');
+            const query = input.value.trim();
+            if (!query) return;
+
+            appendChatMessage(query, 'user');
+            input.value = '';
+
+            simulateAttendingAttache(query);
+        }
+
+        function sendQuickPrompt(promptKey) {
+            document.getElementById('chat-quick-options').classList.add('hidden');
+
+            let query = '';
+            if (promptKey === 'doctor') query = "Tell me about Dr. C.D. Premadasan.";
+            if (promptKey === 'inpatient') query = "Tell me about inpatient services and wards.";
+            if (promptKey === 'deaddiction') query = "What are the alcohol and substance abuse de-addiction programs?";
+            if (promptKey === 'crisis') query = "I have an emergency right now!";
+
+            appendChatMessage(query, 'user');
+            simulateAttendingAttache(query, promptKey);
+        }
+
+        function appendChatMessage(text, sender) {
+            const conv = document.getElementById('chat-conversation-area');
+            const msgNode = document.createElement('div');
+            
+            if (sender === 'user') {
+                msgNode.className = "bg-brand-600 text-white p-3 rounded-2xl ml-auto max-w-[85%] text-right leading-relaxed font-medium";
+                msgNode.innerText = text;
+            } else {
+                msgNode.className = "bg-white border border-slate-200 text-slate-700 p-3 rounded-2xl mr-auto max-w-[85%] text-left leading-relaxed";
+                msgNode.innerHTML = text;
+            }
+
+            conv.appendChild(msgNode);
+            conv.scrollTop = conv.scrollHeight;
+        }
+
+        function simulateAttendingAttache(query, key = '') {
+            const indicator = document.getElementById('chat-typing-indicator');
+            indicator.classList.remove('hidden');
+
+            setTimeout(() => {
+                indicator.classList.add('hidden');
+                let reply = "I appreciate you sharing that with me. At Manomithra (MIMS), we cover complete psychiatric case support led by Dr. C.D. Premadasan. Let me direct you to our Outpatient Clinic (+91 9495 867 342) or Inpatient Center (+91 9446 431 342) for immediate, detailed solutions.";
+
+                const q = query.toLowerCase();
+
+                if (key === 'doctor' || q.includes('doctor') || q.includes('premadasan')) {
+                    reply = "<strong>Dr. C.D. Premadasan</strong> is our Chief Psychiatric Provider with over 30 years of clinical and psychiatric experience. He leads the medical team across both Palakkad campuses, designing customized outpatient therapies and de-addiction programs.";
+                } else if (key === 'inpatient' || q.includes('inpatient') || q.includes('admission') || q.includes('ward')) {
+                    reply = "Our residential <strong>Inpatient psychiatric care</strong> is at Kanjikode Road, Pannimada. It features 24/7 medical supervision, counseling, private and general ward formats, and therapeutic gardens. Admissions can be requested at +91 9446 431 342.";
+                } else if (key === 'deaddiction' || q.includes('addiction') || q.includes('alcohol') || q.includes('drug') || q.includes('rehab')) {
+                    reply = "Our <strong>De-Addiction &amp; Substance Rehab</strong> program is highly respected. Attending medical teams administer chemical detox protocols, group therapies, and life-skills reintegration. It operates in confidence at our Pannimada facility.";
+                } else if (key === 'crisis' || q.includes('emergency') || q.includes('ambulance') || q.includes('suicide') || q.includes('crisis')) {
+                    reply = "🚨 <strong>Emergency Contact Alert:</strong> For immediate psychiatric emergencies, suicidal support, or ambulance requests, please dial +91 9495 867 342 immediately. Our medical transport operates across Palakkad.";
+                } else if (q.includes('location') || q.includes('where') || q.includes('address') || q.includes('palakkad')) {
+                    reply = "We have 2 locations in Palakkad:<br>1. <strong>Robinson Road:</strong> Outpatient clinic (OP)<br>2. <strong>Kanjikode Road, Pannimada:</strong> Inpatient residential hospital (IP). Call +91 9495 867 342 for appointments.";
+                } else if (q.includes('price') || q.includes('cost') || q.includes('fee')) {
+                    reply = "Our consultation and admission rates are highly competitive and structured ethically. Standard pre-registration can be completed online for free. For specialized de-addiction or inpatient ward daily fee quotes, please dial +91 9446 431 342.";
+                }
+
+                appendChatMessage(reply, 'bot');
+                
+                const options = document.getElementById('chat-quick-options');
+                if (options.classList.contains('hidden')) {
+                    options.classList.remove('hidden');
+                }
+            }, 1200);
+        }
+    </script>
+</body>
+</html>

@@ -139,7 +139,7 @@
                     <a href="#about" class="hover:text-brand-600 transition relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-brand-500 after:transition-all hover:after:w-full">About</a>
                     <a href="#services" class="hover:text-brand-600 transition relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-brand-500 after:transition-all hover:after:w-full">Services</a>
                     <a href="#wellness-quiz" class="hover:text-brand-600 transition relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-brand-500 after:transition-all hover:after:w-full">Wellness Quiz</a>
-                    <a href="#patient-portal" class="hover:text-brand-600 transition relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-brand-500 after:transition-all hover:after:w-full">Patient Desk</a>
+                    
                     <a href="#practitioner-console" class="hover:text-brand-600 transition relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-brand-500 after:transition-all hover:after:w-full font-bold flex items-center gap-1 text-slate-800">Practitioner Desk <span class="bg-brand-100 text-brand-700 text-[9px] px-1.5 py-0.5 rounded font-extrabold tracking-wider">SECURE</span></a>
                     <a href="#campuses" class="hover:text-brand-600 transition relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-brand-500 after:transition-all hover:after:w-full">Campuses</a>
                 </nav>
@@ -174,9 +174,7 @@
                 <a href="#wellness-quiz" onclick="toggleMobileMenu()" class="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 text-slate-700 font-semibold transition">
                     <i data-lucide="brain-circuit" class="w-5 h-5 text-brand-500"></i> Wellness Quiz
                 </a>
-                <a href="#patient-portal" onclick="toggleMobileMenu()" class="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 text-slate-700 font-semibold transition">
-                    <i data-lucide="user-check" class="w-5 h-5 text-brand-500"></i> Patient Desk
-                </a>
+                
                 <a href="#practitioner-console" onclick="toggleMobileMenu()" class="flex items-center justify-between p-3 rounded-xl hover:bg-slate-50 text-slate-900 font-bold transition border border-brand-200 bg-brand-50">
                     <span class="flex items-center gap-3"><i data-lucide="shield" class="w-5 h-5 text-brand-500"></i> Practitioner Desk</span>
                     <span class="bg-brand-600 text-white text-[9px] px-1.5 py-0.5 rounded font-black uppercase">Secure</span>
@@ -710,369 +708,406 @@
         </div>
     </section>
 
-    <!-- REAL-TIME PATIENT DESK -->
-    <section id="patient-portal" class="py-20 sm:py-28 bg-white border-b border-brand-100/50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
-                <span class="text-brand-600 text-xs sm:text-sm font-bold uppercase tracking-widest font-mono">Secure Cloud Network Synchronized</span>
-                <h3 class="font-display text-3xl sm:text-4xl font-extrabold text-slate-950">Patient &amp; Rehab Progress Desk</h3>
-                <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
-                    This secure portal retrieves your clinical registration records directly from the hospital's central storage registry. Input your file ID to view rehabilitation calendars, therapist logs, and daily progress analytics.
-                </p>
-            </div>
-
-            <!-- DASHBOARD CONTAINER -->
-            <div class="bg-brand-950 text-white rounded-3xl p-6 sm:p-10 shadow-2xl border border-brand-900 max-w-5xl mx-auto overflow-hidden relative">
-                <!-- Background ambient lights -->
-                <div class="absolute -top-32 -left-32 w-64 h-64 bg-brand-500/10 rounded-full blur-3xl"></div>
-                <div class="absolute -bottom-32 -right-32 w-64 h-64 bg-wellness-500/10 rounded-full blur-3xl"></div>
-
-                <div class="relative z-10 grid lg:grid-cols-12 gap-8 items-stretch">
-                    <!-- PORTAL LEFT -->
-                    <div class="lg:col-span-4 flex flex-col justify-between space-y-6">
-                        <div>
-                            <div class="flex items-center gap-2 mb-3 font-sans">
-                                <div class="w-2.5 h-2.5 rounded-full bg-brand-400 animate-pulse"></div>
-                                <span class="text-xs font-bold text-brand-200 uppercase tracking-widest">Protected File Retrieval</span>
-                            </div>
-                            <h4 class="font-display text-xl font-bold text-slate-100">Patient Recovery Desk</h4>
-                            <p class="text-xs text-brand-100 mt-2 leading-relaxed font-sans">
-                                Enter your patient registration code to fetch official medical files. Preset clinical files: **MIMS-2025**, **MIMS-2026**, or **MIMS-2027**.
-                            </p>
-                        </div>
-
-                        <!-- ID Input Form -->
-                        <div class="space-y-3 font-sans">
-                            <label class="block text-[11px] font-bold text-brand-200 uppercase tracking-wider">Patient File Code</label>
-                            <div class="flex gap-2">
-                                <input type="text" id="patient-id-input" value="MIMS-2026" placeholder="e.g. MIMS-2026" class="w-full bg-brand-900/60 border border-brand-800 text-sm font-mono tracking-wider text-slate-100 px-4 py-3 rounded-xl focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 placeholder-brand-700">
-                                <button onclick="loadPatientDashboard()" class="bg-brand-600 hover:bg-brand-500 text-white font-bold text-xs px-4 py-3 rounded-xl transition shrink-0 font-display">
-                                    Search File
-                                </button>
-                            </div>
-                            <p class="text-[10px] text-brand-300 font-semibold font-mono">Accessing Clinic Secure Ledger</p>
-                        </div>
-
-                        <div class="bg-brand-900/30 p-4 border border-brand-800/80 rounded-2xl">
-                            <h5 class="text-xs font-bold text-brand-200">✓ Inpatient &amp; Caregiver Synergy</h5>
-                            <p class="text-[10px] text-brand-300 mt-1 font-semibold font-sans">Updates are finalized in our secure clinic ledger instantly.</p>
-                        </div>
-                    </div>
-
-                    <!-- PORTAL RIGHT -->
-                    <div class="lg:col-span-8 bg-brand-900/40 rounded-2xl p-6 border border-brand-800 flex flex-col justify-between min-h-[380px]" id="dashboard-content-area">
-                        <!-- Default Blank Slate State / Loader -->
-                        <div class="flex flex-col items-center justify-center text-center py-12 space-y-4" id="dashboard-blank-slate">
-                            <div class="w-16 h-16 rounded-full bg-brand-900 border border-brand-800 flex items-center justify-center text-brand-300">
-                                <i data-lucide="shield" class="w-8 h-8 text-brand-400 animate-pulse"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-slate-200 font-display">Awaiting Registration Code</h4>
-                                <p class="text-xs text-brand-300 mt-1 max-w-sm font-sans">
-                                    Click "Search File" or select an existing record below to review clinical charts.
-                                </p>
-                            </div>
-                            <div class="flex flex-wrap items-center justify-center gap-2">
-                                <button onclick="loadPresetPatient('MIMS-2025')" class="bg-brand-900 hover:bg-brand-800 border border-brand-800 text-brand-200 font-mono text-xs px-3 py-2 rounded-xl transition">MIMS-2025</button>
-                                <button onclick="loadPresetPatient('MIMS-2026')" class="bg-brand-900 hover:bg-brand-800 border border-brand-800 text-brand-200 font-mono text-xs px-3 py-2 rounded-xl transition">MIMS-2026</button>
-                                <button onclick="loadPresetPatient('MIMS-2027')" class="bg-brand-900 hover:bg-brand-800 border border-brand-800 text-brand-200 font-mono text-xs px-3 py-2 rounded-xl transition">MIMS-2027</button>
-                            </div>
-                        </div>
-
-                        <!-- Graceful Error Fallback State -->
-                        <div class="hidden flex flex-col items-center justify-center text-center py-12 space-y-4" id="dashboard-error-slate">
-                            <div class="w-16 h-16 rounded-full bg-rose-500/10 border border-rose-500/20 flex items-center justify-center text-brand-300">
-                                <i data-lucide="alert-triangle" class="w-8 h-8"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-slate-200 font-display">Record Retrieval Delayed</h4>
-                                <p class="text-xs text-brand-300 mt-2 max-w-sm leading-relaxed font-sans" id="dashboard-error-text">
-                                    We could not match this registration file. Please verify your code or contact our front office.
-                                </p>
-                            </div>
-                            <button onclick="resetDashboardView()" class="bg-brand-900 hover:bg-brand-800 border border-brand-800 text-slate-300 font-bold text-xs px-5 py-2.5 rounded-xl transition font-display">
-                                Clear Search &amp; Try Again
-                            </button>
-                        </div>
-
-                        <!-- Loaded State Structure -->
-                        <div class="hidden space-y-6 animate-fade-in" id="dashboard-loaded-state">
-                            <!-- Header Info -->
-                            <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-brand-800/80 pb-4">
-                                <div class="text-left font-sans">
-                                    <div class="flex items-center gap-2">
-                                        <h4 class="font-bold text-base text-white" id="db-patient-name">-</h4>
-                                        <span class="text-[9px] font-bold px-2 py-0.5 rounded-full border" id="db-patient-status">-</span>
-                                    </div>
-                                    <p class="text-xs text-brand-200 mt-0.5" id="db-patient-program">-</p>
-                                </div>
-                                <div class="text-right shrink-0">
-                                    <p class="text-[10px] text-brand-300 uppercase tracking-wider font-bold font-mono">Primary Consultant</p>
-                                    <p class="text-xs font-bold text-brand-300" id="db-patient-doctor">-</p>
-                                </div>
-                            </div>
-
-                            <!-- ADVANCED RECOVERY TRAJECTORY GRAPH -->
-                            <div class="bg-brand-950/40 p-4 rounded-xl border border-brand-900">
-                                <h5 class="text-xs font-bold uppercase tracking-wider text-brand-300 mb-2 font-display">Patient Clinical Stability Trajectory</h5>
-                                <div class="w-full">
-                                    <svg viewBox="0 0 400 110" class="w-full h-28 text-brand-500">
-                                        <line x1="40" y1="10" x2="380" y2="10" stroke="#f43f5e" stroke-dasharray="4 4" stroke-opacity="0.15"></line>
-                                        <line x1="40" y1="50" x2="380" y2="50" stroke="#f43f5e" stroke-dasharray="4 4" stroke-opacity="0.15"></line>
-                                        <line x1="40" y1="90" x2="380" y2="90" stroke="#f43f5e" stroke-dasharray="4 4" stroke-opacity="0.15"></line>
-                                        <path d="M 40 100 Q 120 70, 200 45 T 360 15" fill="none" stroke="#fda4af" stroke-width="2.5" stroke-linecap="round"></path>
-                                        <path d="M 40 15 Q 120 35, 200 65 T 360 95" fill="none" stroke="#f43f5e" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="3 3"></path>
-                                        <circle cx="250" cy="35" r="4.5" fill="#fda4af"></circle>
-                                        <text x="40" y="105" fill="#fecdd3" font-size="8" font-family="monospace">Intake</text>
-                                        <text x="180" y="105" fill="#fecdd3" font-size="8" font-family="monospace">Mid-Course</text>
-                                        <text x="330" y="105" fill="#fecdd3" font-size="8" font-family="monospace">Stabilization</text>
-                                        <text x="5" y="15" fill="#fda4af" font-size="8" font-weight="bold">Wellness</text>
-                                        <text x="5" y="95" fill="#f43f5e" font-size="8" font-weight="bold">Stress</text>
-                                    </svg>
-                                </div>
-                            </div>
-
-                            <!-- Progress Timeline Visual -->
-                            <div>
-                                <h5 class="text-xs font-bold uppercase tracking-wider text-brand-300 mb-3 font-display" id="db-timeline-title">Recovery Progression</h5>
-                                <div class="grid grid-cols-4 gap-2 text-center text-[10px] sm:text-xs font-sans" id="db-phases-timeline">
-                                    <!-- Dynamic Phases -->
-                                </div>
-                            </div>
-
-                            <!-- Diagnostic Metrics Checklist -->
-                            <div class="grid sm:grid-cols-2 gap-4">
-                                <div class="bg-brand-950/40 border border-brand-800 rounded-xl p-4 text-left">
-                                    <h6 class="text-xs font-bold text-brand-200 mb-2 flex items-center gap-1 font-display"><i data-lucide="check-square" class="w-4 h-4 text-brand-400"></i> Therapy Objectives</h6>
-                                    <div class="space-y-2 text-xs animate-fade-in font-sans" id="db-checklist-container">
-                                        <!-- Checkboxes list -->
-                                    </div>
-                                </div>
-
-                                <div class="bg-brand-950/40 border border-brand-800 rounded-xl p-4 text-left space-y-2 flex flex-col justify-between">
-                                    <div>
-                                        <h6 class="text-xs font-bold text-brand-200 mb-1 flex items-center gap-1 font-display"><i data-lucide="clipboard" class="w-4 h-4 text-brand-400"></i> Clinical Practitioner Logs</h6>
-                                        <p class="text-xs text-brand-200 leading-relaxed italic font-sans" id="db-therapist-notes">-</p>
-                                    </div>
-                                    <p class="text-[10px] text-brand-300 font-semibold pt-1.5 border-t border-brand-800">
-                                        Clinical ledger source verified.
-                                    </p>
-                                </div>
-                            </div>
-
-                            <!-- Recovery Milestone Footer -->
-                            <div class="border-t border-brand-800/80 pt-4 flex items-center justify-between text-xs text-brand-300 font-sans">
-                                <span id="db-duration-info">Active Treatment Course: <strong>Day -</strong></span>
-                                <span class="text-brand-300 font-bold flex items-center gap-1">
-                                    <i data-lucide="lock" class="w-3.5 h-3.5 text-brand-400"></i> Secure Health Record Lock
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- PRACTITIONER CLINICAL DESK -->
+    
+    <!-- SECURE PRACTITIONER CLINICAL DESK -->
     <section id="practitioner-console" class="py-20 sm:py-28 bg-slate-50 border-b border-brand-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-12 space-y-4">
-                <span class="bg-brand-500 text-white text-[10px] font-black uppercase px-3 py-1.5 rounded-full font-mono tracking-wider shadow">Practitioner Operational Console</span>
-                <h3 class="font-display text-3xl sm:text-4xl font-extrabold text-slate-950">Practitioner Desk &amp; Clinic Administration</h3>
-                <p class="text-slate-600 text-sm sm:text-base leading-relaxed font-sans">
-                    This private console gives verified clinicians access to update therapy objectives, add patient profiles, and manage consultation calendars. Updates write directly to the hospital's secured information ledger.
-                </p>
+            
+            <!-- SECURE STAFF LOGIN CARD (Shown by default if unauthenticated) -->
+            <div id="staff-login-card" class="bg-white border border-brand-100 rounded-3xl p-8 shadow-2xl max-w-md mx-auto space-y-6 text-center animate-float">
+                <div class="w-16 h-16 rounded-full bg-brand-50 border border-brand-200 flex items-center justify-center text-brand-500 mx-auto">
+                    <i data-lucide="lock" class="w-8 h-8 animate-pulse"></i>
+                </div>
+                <div class="space-y-2">
+                    <h3 class="font-display text-2xl font-black text-slate-950">Staff Secure Access</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed font-sans font-medium">
+                        Patient records and clinical ledger balances are strictly confidential. Please authorize your clinical session.
+                    </p>
+                </div>
+
+                <form onsubmit="handleStaffLogin(event)" class="space-y-4 text-left font-sans">
+                    <div class="space-y-1">
+                        <label class="text-[10px] font-black text-slate-500 uppercase tracking-widest">Clinician Username</label>
+                        <input type="text" id="login-username" required placeholder="Enter username" class="w-full bg-slate-50 border border-slate-200 px-3.5 py-2.5 text-xs rounded-xl font-semibold text-slate-800 focus:outline-none focus:border-brand-500">
+                    </div>
+                    <div class="space-y-1">
+                        <label class="text-[10px] font-black text-slate-500 uppercase tracking-widest">Secure Access Password</label>
+                        <input type="password" id="login-password" required placeholder="••••••••" class="w-full bg-slate-50 border border-slate-200 px-3.5 py-2.5 text-xs rounded-xl font-semibold text-slate-800 focus:outline-none focus:border-brand-500">
+                    </div>
+                    <button type="submit" class="w-full bg-gradient-to-r from-brand-500 to-wellness-500 hover:from-brand-600 hover:to-wellness-600 text-white font-bold py-3 rounded-xl text-xs transition shadow-md flex items-center justify-center gap-1.5">
+                        <i data-lucide="key-round" class="w-4 h-4"></i> Secure Authorize
+                    </button>
+                </form>
+
+                <div class="bg-brand-50/50 p-4 border border-brand-100 rounded-2xl text-left text-[10px] text-brand-800 font-medium font-sans">
+                    <strong>🔐 Clinician Reference Notice:</strong><br>
+                    This console is locked under HIPAA security guidelines. For review testing, use default staff credentials:<br>
+                    <span class="font-mono mt-1 block">Username: <strong class="text-brand-600">admin</strong></span>
+                    <span class="font-mono block">Password: <strong class="text-brand-600">mims2026</strong></span>
+                </div>
             </div>
 
-            <!-- ADMIN TABS -->
-            <div class="bg-white border border-brand-100 rounded-3xl p-6 sm:p-10 shadow-xl max-w-5xl mx-auto space-y-8">
-                <div class="flex border-b border-brand-100 gap-4 text-sm font-semibold overflow-x-auto no-scrollbar font-display">
-                    <button onclick="switchAdminTab('appointments')" id="admin-tab-appointments" class="admin-tab-btn pb-3 border-b-2 border-brand-500 text-brand-500 flex items-center gap-2 px-1 text-slate-900 font-bold shrink-0">
-                        <i data-lucide="calendar-check" class="w-4.5 h-4.5"></i> Consultation Registry
-                    </button>
-                    <button onclick="switchAdminTab('patients')" id="admin-tab-patients" class="admin-tab-btn pb-3 border-b-2 border-transparent text-slate-400 hover:text-slate-600 flex items-center gap-2 px-1 shrink-0">
-                        <i data-lucide="folder-lock" class="w-4.5 h-4.5"></i> Clinical File Registrar
+            <!-- AUTHENTICATED PRACTITIONER DESK (Hidden by default until logged in) -->
+            <div id="staff-auth-panel" class="hidden space-y-8 animate-fade-in">
+                
+                <!-- Desk Header with Profile Status and Logout -->
+                <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-brand-100 pb-6">
+                    <div class="text-left">
+                        <div class="flex items-center gap-2">
+                            <span class="bg-emerald-50 border border-emerald-200 text-emerald-700 text-[10px] font-black uppercase px-2.5 py-1 rounded-full font-mono tracking-wider shadow animate-pulse">Session Verified</span>
+                            <span class="text-slate-400 text-xs font-mono">Secured Endpoint</span>
+                        </div>
+                        <h3 class="font-display text-3xl font-extrabold text-slate-950 mt-1">Practitioner Desk &amp; Clinic Administration</h3>
+                        <p class="text-slate-500 text-xs sm:text-sm font-sans font-semibold">Logged in as: <span class="text-brand-600">Clinical Administrator Desk (Dr. Premadasan's Office)</span></p>
+                    </div>
+                    
+                    <button onclick="handleStaffLogout()" class="bg-red-50 hover:bg-red-100 text-red-600 border border-red-200 font-extrabold px-4 py-2.5 rounded-xl text-xs flex items-center gap-1.5 transition shrink-0 font-display shadow-sm">
+                        <i data-lucide="log-out" class="w-4 h-4"></i> Lock Console Session
                     </button>
                 </div>
 
-                <!-- ADMIN AREA: APPOINTMENTS -->
-                <div id="admin-panel-appointments" class="admin-panel-content space-y-6">
-                    <div class="flex items-center justify-between border-b border-brand-50 pb-3">
-                        <h4 class="font-bold text-lg text-slate-900 flex items-center gap-1.5 font-display"><i data-lucide="list" class="w-5 h-5 text-brand-500"></i> Active Consultation Calendar</h4>
-                        <button onclick="loadAdminAppointments()" class="text-xs bg-slate-100 hover:bg-slate-200 text-slate-700 px-3 py-1.5 rounded-lg font-bold border border-slate-200 transition flex items-center gap-1 font-display">
-                            <i data-lucide="refresh-cw" class="w-3.5 h-3.5"></i> Reload Registry Files
+                <!-- ADMIN TABS (Three secure operations categories) -->
+                <div class="bg-white border border-brand-100 rounded-3xl p-6 sm:p-10 shadow-2xl max-w-5xl mx-auto space-y-8">
+                    <div class="flex border-b border-brand-100 gap-4 text-sm font-semibold overflow-x-auto no-scrollbar font-display">
+                        <button onclick="switchAdminTab('appointments')" id="admin-tab-appointments" class="admin-tab-btn pb-3 border-b-2 border-brand-500 text-brand-500 flex items-center gap-2 px-1 text-slate-900 font-bold shrink-0">
+                            <i data-lucide="calendar-check" class="w-4.5 h-4.5"></i> Consultation Registry
+                        </button>
+                        <button onclick="switchAdminTab('patients')" id="admin-tab-patients" class="admin-tab-btn pb-3 border-b-2 border-transparent text-slate-400 hover:text-slate-600 flex items-center gap-2 px-1 shrink-0">
+                            <i data-lucide="folder-lock" class="w-4.5 h-4.5"></i> Clinical File Registrar
+                        </button>
+                        <button onclick="switchAdminTab('charts')" id="admin-tab-charts" class="admin-tab-btn pb-3 border-b-2 border-transparent text-slate-400 hover:text-slate-600 flex items-center gap-2 px-1 shrink-0">
+                            <i data-lucide="trending-up" class="w-4.5 h-4.5 text-brand-500 animate-pulse"></i> Search &amp; Review Charts
                         </button>
                     </div>
 
-                    <!-- Appointments Table wrapper -->
-                    <div class="overflow-x-auto border border-brand-100 rounded-2xl shadow-sm bg-white font-sans">
-                        <table class="w-full text-left text-xs sm:text-sm border-collapse">
-                            <thead class="bg-brand-50/50 text-slate-500 font-bold border-b border-brand-100">
-                                <tr>
-                                    <th class="p-4">Registration ID</th>
-                                    <th class="p-4">Patient Details</th>
-                                    <th class="p-4">Consultation Slot</th>
-                                    <th class="p-4">Assigned Department &amp; Practitioner</th>
-                                    <th class="p-4">Verification Status</th>
-                                    <th class="p-4 text-right">Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody id="admin-appointments-tbody" class="divide-y divide-slate-100 font-medium text-slate-700">
-                                <tr>
-                                    <td colspan="6" class="p-8 text-center text-slate-400 animate-pulse">Loading live clinical records...</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-                <!-- ADMIN AREA: PATIENTS -->
-                <div id="admin-panel-patients" class="admin-panel-content hidden space-y-8 animate-fade-in font-sans">
-                    <div class="grid lg:grid-cols-2 gap-8 items-start">
-                        <!-- REGISTER NEW PATIENT -->
-                        <div class="bg-brand-50/50 border border-brand-100 p-6 rounded-2xl space-y-4">
-                            <h4 class="font-bold text-base text-slate-900 flex items-center gap-1.5 border-b border-brand-100 pb-3 font-display"><i data-lucide="user-plus" class="w-5 h-5 text-brand-500"></i> Open New Clinical Patient Profile</h4>
-                            
-                            <form id="create-patient-form" onsubmit="createNewPatientInDb(event)" class="space-y-4">
-                                <div class="grid sm:grid-cols-2 gap-4">
-                                    <div class="space-y-1">
-                                        <label class="text-[11px] font-bold text-slate-500 uppercase">Patient Full Name</label>
-                                        <input type="text" id="new-p-name" placeholder="E.g. Rahul Sharma" required class="w-full bg-white border border-slate-200 px-3 py-2 text-sm rounded-lg text-slate-800 font-semibold focus:outline-none focus:border-brand-500">
-                                    </div>
-                                    <div class="space-y-1">
-                                        <label class="text-[11px] font-bold text-slate-500 uppercase">Phone Number</label>
-                                        <input type="tel" id="new-p-phone" placeholder="+91 94958 12345" required class="w-full bg-white border border-slate-200 px-3 py-2 text-sm rounded-lg text-slate-800 font-semibold focus:outline-none focus:border-brand-500">
-                                    </div>
-                                </div>
-
-                                <div class="space-y-1">
-                                    <label class="text-[11px] font-bold text-slate-500 uppercase">Assigned Medical Treatment Program</label>
-                                    <select id="new-p-program" class="w-full bg-white border border-brand-100 p-2 text-sm rounded-lg text-slate-800 font-semibold focus:outline-none">
-                                        <option value="45-Day Custom Rehab & De-addiction Plan">45-Day Custom Rehab &amp; De-addiction Plan</option>
-                                        <option value="Outpatient Stress Management Program">Outpatient Stress Management Program</option>
-                                        <option value="Residential Inpatient Psychiatric Care">Residential Inpatient Psychiatric Care</option>
-                                        <option value="Manas Holistic Mind & Ayurvedic Rejuvenation">Manas Holistic Mind &amp; Ayurvedic Rejuvenation</option>
-                                        <option value="Caregiver Support & Palliative Care">Caregiver Support &amp; Palliative Care</option>
-                                    </select>
-                                </div>
-
-                                <div class="grid sm:grid-cols-2 gap-4">
-                                    <div class="space-y-1">
-                                        <label class="text-[11px] font-bold text-slate-500 uppercase">Assigned Consultant</label>
-                                        <select id="new-p-doctor" class="w-full bg-white border border-brand-100 p-2 text-sm rounded-lg text-slate-800 font-semibold focus:outline-none">
-                                            <option value="Dr. C.D. Premadasan">Dr. C.D. Premadasan</option>
-                                            <option value="Attending Clinical Psychologist">Attending Clinical Psychologist</option>
-                                        </select>
-                                    </div>
-                                    <div class="space-y-1">
-                                        <label class="text-[11px] font-bold text-slate-500 uppercase">Current Treatment Status Badge</label>
-                                        <input type="text" id="new-p-status" placeholder="e.g. Detox Active" value="Detox Active" class="w-full bg-white border border-slate-200 px-3 py-2 text-sm rounded-lg text-slate-800 font-semibold focus:outline-none focus:border-brand-500">
-                                    </div>
-                                </div>
-
-                                <div class="grid grid-cols-3 gap-2">
-                                    <div class="space-y-1">
-                                        <label class="text-[11px] font-bold text-slate-500 uppercase">Course Phase (1-4)</label>
-                                        <input type="number" id="new-p-phase" min="1" max="4" value="1" class="w-full bg-white border border-slate-200 px-3 py-2 text-sm rounded-lg text-slate-800 font-semibold focus:outline-none focus:border-brand-500">
-                                    </div>
-                                    <div class="space-y-1">
-                                        <label class="text-[11px] font-bold text-slate-500 uppercase">Total Days Course</label>
-                                        <input type="number" id="new-p-duration" value="30" class="w-full bg-white border border-slate-200 px-3 py-2 text-sm rounded-lg text-slate-800 font-semibold focus:outline-none focus:border-brand-500">
-                                    </div>
-                                    <div class="space-y-1">
-                                        <label class="text-[11px] font-bold text-slate-500 uppercase">Current Day</label>
-                                        <input type="number" id="new-p-day" value="1" class="w-full bg-white border border-slate-200 px-3 py-2 text-sm rounded-lg text-slate-800 font-semibold focus:outline-none focus:border-brand-500">
-                                    </div>
-                                </div>
-
-                                <button type="submit" class="w-full bg-brand-500 hover:bg-brand-600 text-white font-bold py-3.5 rounded-xl text-xs transition shadow-md flex items-center justify-center gap-1.5 font-display">
-                                    <i data-lucide="check" class="w-4.5 h-4.5"></i> Register File to Central Ledger
-                                </button>
-                            </form>
+                    <!-- TAB 1: CONSULTATION REGISTRY -->
+                    <div id="admin-panel-appointments" class="admin-panel-content space-y-6">
+                        <div class="flex items-center justify-between border-b border-brand-50 pb-3">
+                            <h4 class="font-bold text-lg text-slate-900 flex items-center gap-1.5 font-display"><i data-lucide="list" class="w-5 h-5 text-brand-500"></i> Active Consultation Calendar</h4>
+                            <button onclick="loadAdminAppointments()" class="text-xs bg-slate-100 hover:bg-slate-200 text-slate-700 px-3 py-1.5 rounded-lg font-bold border border-slate-200 transition flex items-center gap-1 font-display">
+                                <i data-lucide="refresh-cw" class="w-3.5 h-3.5"></i> Reload Registry Files
+                            </button>
                         </div>
 
-                        <!-- EDIT EXISTING PATIENT NOTES -->
-                        <div class="bg-brand-50/20 border border-brand-100 p-6 rounded-2xl space-y-4">
-                            <h4 class="font-bold text-base text-slate-900 flex items-center gap-1.5 border-b border-brand-100 pb-3 font-display"><i data-lucide="edit-3" class="w-5 h-5 text-brand-500"></i> Update Patient File &amp; Progress Notes</h4>
+                        <!-- Table -->
+                        <div class="overflow-x-auto border border-brand-100 rounded-2xl shadow-sm bg-white font-sans">
+                            <table class="w-full text-left text-xs sm:text-sm border-collapse">
+                                <thead class="bg-brand-50/50 text-slate-500 font-bold border-b border-brand-100">
+                                    <tr>
+                                        <th class="p-4">Registration ID</th>
+                                        <th class="p-4">Patient Details</th>
+                                        <th class="p-4">Consultation Slot</th>
+                                        <th class="p-4">Assigned Department</th>
+                                        <th class="p-4">Verification Status</th>
+                                        <th class="p-4 text-right">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="admin-appointments-tbody" class="divide-y divide-slate-100 font-medium text-slate-700">
+                                    <tr>
+                                        <td colspan="6" class="p-8 text-center text-slate-400 animate-pulse">Loading live clinical records...</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- TAB 2: CLINICAL FILE REGISTRAR -->
+                    <div id="admin-panel-patients" class="admin-panel-content hidden space-y-8 animate-fade-in font-sans">
+                        <div class="grid lg:grid-cols-2 gap-8 items-start">
                             
-                            <div class="space-y-4">
-                                <div class="space-y-1">
-                                    <label class="text-[11px] font-bold text-slate-500 uppercase">Select Active Patient Registration</label>
-                                    <select id="edit-patient-selector" onchange="loadPatientForEditing(this.value)" class="w-full bg-white border border-brand-100 p-2.5 rounded-lg text-sm text-slate-800 font-mono font-bold focus:outline-none">
-                                        <option value="">-- Choose Patient File --</option>
-                                    </select>
+                            <!-- Create New Patient -->
+                            <div class="bg-brand-50/50 border border-brand-100 p-6 rounded-2xl space-y-4">
+                                <h4 class="font-bold text-base text-slate-900 flex items-center gap-1.5 border-b border-brand-100 pb-3 font-display"><i data-lucide="user-plus" class="w-5 h-5 text-brand-500"></i> Open New Clinical Patient Profile</h4>
+                                
+                                <form id="create-patient-form" onsubmit="createNewPatientInDb(event)" class="space-y-4">
+                                    <div class="grid sm:grid-cols-2 gap-4">
+                                        <div class="space-y-1">
+                                            <label class="text-[11px] font-bold text-slate-500 uppercase">Patient Full Name</label>
+                                            <input type="text" id="new-p-name" placeholder="E.g. Rahul Sharma" required class="w-full bg-white border border-slate-200 px-3 py-2 text-sm rounded-lg text-slate-800 font-semibold focus:outline-none focus:border-brand-500">
+                                        </div>
+                                        <div class="space-y-1">
+                                            <label class="text-[11px] font-bold text-slate-500 uppercase">Phone Number</label>
+                                            <input type="tel" id="new-p-phone" placeholder="+91 94958 12345" required class="w-full bg-white border border-slate-200 px-3 py-2 text-sm rounded-lg text-slate-800 font-semibold focus:outline-none focus:border-brand-500">
+                                        </div>
+                                    </div>
+
+                                    <div class="space-y-1">
+                                        <label class="text-[11px] font-bold text-slate-500 uppercase">Assigned Medical Treatment Program</label>
+                                        <select id="new-p-program" class="w-full bg-white border border-brand-100 p-2 text-sm rounded-lg text-slate-800 font-semibold focus:outline-none">
+                                            <option value="45-Day Custom Rehab & De-addiction Plan">45-Day Custom Rehab &amp; De-addiction Plan</option>
+                                            <option value="Outpatient Stress Management Program">Outpatient Stress Management Program</option>
+                                            <option value="Residential Inpatient Psychiatric Care">Residential Inpatient Psychiatric Care</option>
+                                            <option value="Manas Holistic Mind & Ayurvedic Rejuvenation">Manas Holistic Mind &amp; Ayurvedic Rejuvenation</option>
+                                            <option value="Caregiver Support & Palliative Care">Caregiver Support &amp; Palliative Care</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="grid sm:grid-cols-2 gap-4">
+                                        <div class="space-y-1">
+                                            <label class="text-[11px] font-bold text-slate-500 uppercase">Assigned Consultant</label>
+                                            <select id="new-p-doctor" class="w-full bg-white border border-brand-100 p-2 text-sm rounded-lg text-slate-800 font-semibold focus:outline-none">
+                                                <option value="Dr. C.D. Premadasan">Dr. C.D. Premadasan</option>
+                                                <option value="Attending Clinical Psychologist">Attending Clinical Psychologist</option>
+                                            </select>
+                                        </div>
+                                        <div class="space-y-1">
+                                            <label class="text-[11px] font-bold text-slate-500 uppercase">Current Treatment Status Badge</label>
+                                            <input type="text" id="new-p-status" placeholder="e.g. Detox Active" value="Detox Active" class="w-full bg-white border border-slate-200 px-3 py-2 text-sm rounded-lg text-slate-800 font-semibold focus:outline-none focus:border-brand-500">
+                                        </div>
+                                    </div>
+
+                                    <div class="grid grid-cols-3 gap-2">
+                                        <div class="space-y-1">
+                                            <label class="text-[11px] font-bold text-slate-500 uppercase">Course Phase (1-4)</label>
+                                            <input type="number" id="new-p-phase" min="1" max="4" value="1" class="w-full bg-white border border-slate-200 px-3 py-2 text-sm rounded-lg text-slate-800 font-semibold focus:outline-none focus:border-brand-500">
+                                        </div>
+                                        <div class="space-y-1">
+                                            <label class="text-[11px] font-bold text-slate-500 uppercase">Total Days Course</label>
+                                            <input type="number" id="new-p-duration" value="30" class="w-full bg-white border border-slate-200 px-3 py-2 text-sm rounded-lg text-slate-800 font-semibold focus:outline-none focus:border-brand-500">
+                                        </div>
+                                        <div class="space-y-1">
+                                            <label class="text-[11px] font-bold text-slate-500 uppercase">Current Day</label>
+                                            <input type="number" id="new-p-day" value="1" class="w-full bg-white border border-slate-200 px-3 py-2 text-sm rounded-lg text-slate-800 font-semibold focus:outline-none focus:border-brand-500">
+                                        </div>
+                                    </div>
+
+                                    <button type="submit" class="w-full bg-brand-500 hover:bg-brand-600 text-white font-bold py-3.5 rounded-xl text-xs transition shadow-md flex items-center justify-center gap-1.5 font-display">
+                                        <i data-lucide="check" class="w-4.5 h-4.5"></i> Register File to Central Ledger
+                                    </button>
+                                </form>
+                            </div>
+
+                            <!-- Edit Patient File and Notes -->
+                            <div class="bg-brand-50/20 border border-brand-100 p-6 rounded-2xl space-y-4">
+                                <h4 class="font-bold text-base text-slate-900 flex items-center gap-1.5 border-b border-brand-100 pb-3 font-display"><i data-lucide="edit-3" class="w-5 h-5 text-brand-500"></i> Update Patient File &amp; Progress Notes</h4>
+                                
+                                <div class="space-y-4">
+                                    <div class="space-y-1">
+                                        <label class="text-[11px] font-bold text-slate-500 uppercase">Select Active Patient Registration</label>
+                                        <select id="edit-patient-selector" onchange="loadPatientForEditing(this.value)" class="w-full bg-white border border-brand-100 p-2.5 rounded-lg text-sm text-slate-800 font-mono font-bold focus:outline-none">
+                                            <option value="">-- Choose Patient File --</option>
+                                        </select>
+                                    </div>
+
+                                    <div id="edit-fields-container" class="hidden space-y-4 animate-fade-in">
+                                        <div class="grid sm:grid-cols-2 gap-4">
+                                            <div class="space-y-1">
+                                                <label class="text-[11px] font-bold text-slate-500 uppercase">Treatment Phase (1-4)</label>
+                                                <input type="number" id="edit-p-phase" min="1" max="4" class="w-full bg-white border border-slate-200 px-3 py-2 text-sm rounded-lg text-slate-800 font-semibold focus:outline-none">
+                                            </div>
+                                            <div class="space-y-1">
+                                                <label class="text-[11px] font-bold text-slate-500 uppercase">Course Status Badge</label>
+                                                <input type="text" id="edit-p-status" class="w-full bg-white border border-slate-200 px-3 py-2 text-sm rounded-lg text-slate-800 font-semibold focus:outline-none">
+                                            </div>
+                                        </div>
+
+                                        <div class="grid sm:grid-cols-2 gap-4">
+                                            <div class="space-y-1">
+                                                <label class="text-[11px] font-bold text-slate-500 uppercase">Active Course Day</label>
+                                                <input type="number" id="edit-p-day" class="w-full bg-white border border-slate-200 px-3 py-2 text-sm rounded-lg text-slate-800 font-semibold focus:outline-none">
+                                            </div>
+                                            <div class="space-y-1">
+                                                <label class="text-[11px] font-bold text-slate-500 uppercase">Total Course Duration</label>
+                                                <input type="number" id="edit-p-duration" class="w-full bg-white border border-slate-200 px-3 py-2 text-sm rounded-lg text-slate-800 font-semibold focus:outline-none">
+                                            </div>
+                                        </div>
+
+                                        <!-- CHECKLIST EDIT -->
+                                        <div class="space-y-1">
+                                            <label class="text-[11px] font-bold text-slate-500 uppercase block mb-1">Therapy Objectives (Edit Text &amp; Check State)</label>
+                                            <div id="edit-checklist-div" class="space-y-2 text-xs bg-white p-3 rounded-lg border border-brand-100">
+                                                <!-- checklists will be populated -->
+                                            </div>
+                                        </div>
+
+                                        <div class="space-y-1">
+                                            <label class="text-[11px] font-bold text-slate-500 uppercase">Clinical Practitioner Progress Notes</label>
+                                            <textarea id="edit-p-notes" rows="4" class="w-full bg-white border border-slate-200 p-3 rounded-lg text-xs text-slate-800 leading-relaxed font-semibold focus:outline-none focus:border-brand-500"></textarea>
+                                        </div>
+
+                                        <!-- PRACTITIONER DIGITAL SIGNATURE -->
+                                        <div class="bg-white border border-brand-100 rounded-xl p-4 space-y-3">
+                                            <div class="flex items-center justify-between">
+                                                <span class="text-[11px] font-bold text-slate-500 uppercase">Practitioner Security Lock</span>
+                                                <span id="signature-verified-badge" class="hidden bg-emerald-50 border border-emerald-200 text-emerald-700 text-[9px] px-2 py-0.5 rounded font-bold animate-pulse">Authorized Seal Active</span>
+                                            </div>
+                                            <button type="button" onclick="affixPractitionerSignature()" class="w-full bg-slate-100 hover:bg-brand-50 border border-slate-200 text-slate-700 hover:text-brand-500 py-2.5 rounded-lg text-xs font-bold transition flex items-center justify-center gap-1.5 font-display">
+                                                <i data-lucide="pen-tool" class="w-4 h-4"></i> Affix Calligraphy Seal
+                                            </button>
+                                            <div id="signature-display-div" class="hidden flex justify-center py-2 border-t border-slate-100 animate-float">
+                                                <svg viewBox="0 0 150 45" class="w-40 h-12 text-slate-700 font-serif">
+                                                    <path d="M 10 30 Q 30 10, 50 25 T 90 10 T 140 25" fill="none" stroke="#be123c" stroke-width="2" stroke-linecap="round"></path>
+                                                    <path d="M 25 20 L 125 20" fill="none" stroke="#be123c" stroke-dasharray="2 2" stroke-opacity="0.5"></path>
+                                                    <text x="25" y="40" fill="#be123c" font-size="7" font-family="monospace">Clinical Sign Locked</text>
+                                                </svg>
+                                            </div>
+                                        </div>
+
+                                        <button onclick="savePatientEdits()" class="w-full bg-brand-500 hover:bg-brand-600 text-white font-extrabold py-3.5 rounded-xl text-xs transition shadow-md flex items-center justify-center gap-1.5 font-display">
+                                            <i data-lucide="save" class="w-4.5 h-4.5"></i> Secure &amp; Finalize Clinical Record
+                                        </button>
+                                    </div>
+
+                                    <div id="edit-blank-state" class="py-12 text-center text-slate-400 text-xs italic">
+                                        Choose a patient record above to view, authorize, and sync records.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TAB 3: PATIENT PROGRESS DESK (LOCKED INSIDE AUTH PANEL) -->
+                    <div id="admin-panel-charts" class="admin-panel-content hidden space-y-6 animate-fade-in font-sans">
+                        <div class="text-left border-b border-brand-50 pb-3">
+                            <h4 class="font-bold text-lg text-slate-900 flex items-center gap-1.5 font-display"><i data-lucide="trending-up" class="w-5 h-5 text-brand-500"></i> Clinic Central Records Registry</h4>
+                            <p class="text-xs text-slate-500 leading-relaxed font-sans mt-0.5">Enter active Patient IDs (such as MIMS-2025, MIMS-2026, or MIMS-2027) below to securely review interactive medical charts.</p>
+                        </div>
+                        
+                        <div class="relative z-10 grid lg:grid-cols-12 gap-8 items-stretch bg-slate-900 text-white rounded-3xl p-6 sm:p-8 border border-slate-800">
+                            <!-- SEARCH CONTROLLER (LEFT) -->
+                            <div class="lg:col-span-4 flex flex-col justify-between space-y-6 border-r border-slate-800/80 pr-0 lg:pr-6">
+                                <div>
+                                    <div class="flex items-center gap-2 mb-3">
+                                        <div class="w-2.5 h-2.5 rounded-full bg-brand-400 animate-pulse"></div>
+                                        <span class="text-[10px] font-bold text-brand-200 uppercase tracking-widest font-mono">Registry Search Console</span>
+                                    </div>
+                                    <h4 class="font-display text-lg font-bold text-slate-100">Patient Recovery Desk</h4>
+                                    <p class="text-xs text-brand-100 mt-2 leading-relaxed font-sans">
+                                        Retrieve official clinical records from local secure file storage. Presets: **MIMS-2025**, **MIMS-2026**, or **MIMS-2027**.
+                                    </p>
                                 </div>
 
-                                <div id="edit-fields-container" class="hidden space-y-4 animate-fade-in">
-                                    <div class="grid sm:grid-cols-2 gap-4">
-                                        <div class="space-y-1">
-                                            <label class="text-[11px] font-bold text-slate-500 uppercase">Treatment Phase (1-4)</label>
-                                            <input type="number" id="edit-p-phase" min="1" max="4" class="w-full bg-white border border-slate-200 px-3 py-2 text-sm rounded-lg text-slate-800 font-semibold focus:outline-none">
-                                        </div>
-                                        <div class="space-y-1">
-                                            <label class="text-[11px] font-bold text-slate-500 uppercase">Course Status Badge</label>
-                                            <input type="text" id="edit-p-status" class="w-full bg-white border border-slate-200 px-3 py-2 text-sm rounded-lg text-slate-800 font-semibold focus:outline-none">
-                                        </div>
-                                    </div>
-
-                                    <div class="grid sm:grid-cols-2 gap-4">
-                                        <div class="space-y-1">
-                                            <label class="text-[11px] font-bold text-slate-500 uppercase">Active Course Day</label>
-                                            <input type="number" id="edit-p-day" class="w-full bg-white border border-slate-200 px-3 py-2 text-sm rounded-lg text-slate-800 font-semibold focus:outline-none">
-                                        </div>
-                                        <div class="space-y-1">
-                                            <label class="text-[11px] font-bold text-slate-500 uppercase">Total Course Duration</label>
-                                            <input type="number" id="edit-p-duration" class="w-full bg-white border border-slate-200 px-3 py-2 text-sm rounded-lg text-slate-800 font-semibold focus:outline-none">
-                                        </div>
-                                    </div>
-
-                                    <!-- CHECKLIST EDIT -->
-                                    <div class="space-y-1">
-                                        <label class="text-[11px] font-bold text-slate-500 uppercase block mb-1">Therapy Objectives (Edit Text &amp; Check State)</label>
-                                        <div id="edit-checklist-div" class="space-y-2 text-xs bg-white p-3 rounded-lg border border-brand-100">
-                                            <!-- checklists will be populated -->
-                                        </div>
-                                    </div>
-
-                                    <div class="space-y-1">
-                                        <label class="text-[11px] font-bold text-slate-500 uppercase">Clinical Practitioner Progress Notes</label>
-                                        <textarea id="edit-p-notes" rows="4" class="w-full bg-white border border-slate-200 p-3 rounded-lg text-xs text-slate-800 leading-relaxed font-semibold focus:outline-none focus:border-brand-500"></textarea>
-                                    </div>
-
-                                    <!-- PRACTITIONER DIGITAL SIGNATURE -->
-                                    <div class="bg-white border border-brand-100 rounded-xl p-4 space-y-3">
-                                        <div class="flex items-center justify-between">
-                                            <span class="text-[11px] font-bold text-slate-500 uppercase">Practitioner Security Lock</span>
-                                            <span id="signature-verified-badge" class="hidden bg-emerald-50 border border-emerald-200 text-emerald-700 text-[9px] px-2 py-0.5 rounded font-bold animate-pulse">Authorized Seal Active</span>
-                                        </div>
-                                        <button type="button" onclick="affixPractitionerSignature()" class="w-full bg-slate-100 hover:bg-brand-50 border border-slate-200 text-slate-700 hover:text-brand-500 py-2.5 rounded-lg text-xs font-bold transition flex items-center justify-center gap-1.5 font-display">
-                                            <i data-lucide="pen-tool" class="w-4 h-4"></i> Affix Calligraphy Seal
+                                <div class="space-y-3">
+                                    <label class="block text-[11px] font-bold text-brand-200 uppercase tracking-wider font-mono">Search Patient Code</label>
+                                    <div class="flex gap-2">
+                                        <input type="text" id="patient-id-input" value="MIMS-2026" placeholder="e.g. MIMS-2026" class="w-full bg-brand-900/60 border border-brand-800 text-sm font-mono tracking-wider text-slate-100 px-4 py-3 rounded-xl focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 placeholder-brand-700">
+                                        <button onclick="loadPatientDashboard()" class="bg-brand-600 hover:bg-brand-500 text-white font-bold text-xs px-4 py-3 rounded-xl transition shrink-0 font-display">
+                                            Search
                                         </button>
-                                        <div id="signature-display-div" class="hidden flex justify-center py-2 border-t border-slate-100 animate-float">
-                                            <svg viewBox="0 0 150 45" class="w-40 h-12 text-slate-700 font-serif">
-                                                <path d="M 10 30 Q 30 10, 50 25 T 90 10 T 140 25" fill="none" stroke="#be123c" stroke-width="2" stroke-linecap="round"></path>
-                                                <path d="M 25 20 L 125 20" fill="none" stroke="#be123c" stroke-dasharray="2 2" stroke-opacity="0.5"></path>
-                                                <text x="25" y="40" fill="#be123c" font-size="7" font-family="monospace">Clinical Sign Locked</text>
+                                    </div>
+                                    <p class="text-[9px] text-brand-300 font-semibold font-mono">Accessing Clinic Secure Ledger</p>
+                                </div>
+                            </div>
+
+                            <!-- DYNAMIC DASHBOARD CONTAINER (RIGHT) -->
+                            <div class="lg:col-span-8 flex flex-col justify-between min-h-[350px]" id="dashboard-content-area-auth">
+                                <!-- Default Blank Slate -->
+                                <div class="flex flex-col items-center justify-center text-center py-12 space-y-4" id="dashboard-blank-slate">
+                                    <div class="w-16 h-16 rounded-full bg-slate-950 border border-brand-900 flex items-center justify-center text-brand-400">
+                                        <i data-lucide="shield" class="w-8 h-8 text-brand-500 animate-pulse"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-slate-200 font-display">Awaiting Record Query</h4>
+                                        <p class="text-xs text-brand-300 mt-1 max-w-sm">
+                                            Type or select a verified patient registry file code to fetch details.
+                                        </p>
+                                    </div>
+                                    <div class="flex flex-wrap items-center justify-center gap-2">
+                                        <button onclick="loadPresetPatient('MIMS-2025')" class="bg-brand-900 hover:bg-brand-800 border border-brand-800 text-brand-200 font-mono text-xs px-3 py-2 rounded-xl transition">MIMS-2025</button>
+                                        <button onclick="loadPresetPatient('MIMS-2026')" class="bg-brand-900 hover:bg-brand-800 border border-brand-800 text-brand-200 font-mono text-xs px-3 py-2 rounded-xl transition">MIMS-2026</button>
+                                        <button onclick="loadPresetPatient('MIMS-2027')" class="bg-brand-900 hover:bg-brand-800 border border-brand-800 text-brand-200 font-mono text-xs px-3 py-2 rounded-xl transition">MIMS-2027</button>
+                                    </div>
+                                </div>
+
+                                <!-- Graceful Error Fallback -->
+                                <div class="hidden flex flex-col items-center justify-center text-center py-12 space-y-4" id="dashboard-error-slate">
+                                    <div class="w-16 h-16 rounded-full bg-rose-500/10 border border-rose-500/20 flex items-center justify-center text-brand-300">
+                                        <i data-lucide="alert-triangle" class="w-8 h-8"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-slate-200 font-display">Record Retrieval Delayed</h4>
+                                        <p class="text-xs text-brand-300 mt-2 max-w-sm leading-relaxed" id="dashboard-error-text">
+                                            We could not match this registration file. Please verify your code.
+                                        </p>
+                                    </div>
+                                    <button onclick="resetDashboardView()" class="bg-brand-900 hover:bg-brand-800 border border-brand-800 text-slate-300 font-bold text-xs px-5 py-2.5 rounded-xl transition font-display">
+                                        Clear Search
+                                    </button>
+                                </div>
+
+                                <!-- Loaded State Structure -->
+                                <div class="hidden space-y-6 animate-fade-in text-left" id="dashboard-loaded-state">
+                                    <!-- Header Info -->
+                                    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-brand-800/80 pb-4">
+                                        <div class="text-left font-sans">
+                                            <div class="flex items-center gap-2">
+                                                <h4 class="font-bold text-base text-white" id="db-patient-name">-</h4>
+                                                <span class="text-[9px] font-bold px-2 py-0.5 rounded-full border" id="db-patient-status">-</span>
+                                            </div>
+                                            <p class="text-xs text-brand-200 mt-0.5" id="db-patient-program">-</p>
+                                        </div>
+                                        <div class="text-right shrink-0">
+                                            <p class="text-[10px] text-brand-300 uppercase tracking-wider font-bold font-mono">Primary Consultant</p>
+                                            <p class="text-xs font-bold text-brand-300" id="db-patient-doctor">-</p>
+                                        </div>
+                                    </div>
+
+                                    <!-- ADVANCED RECOVERY TRAJECTORY GRAPH -->
+                                    <div class="bg-brand-950/40 p-4 rounded-xl border border-brand-900">
+                                        <h5 class="text-xs font-bold uppercase tracking-wider text-brand-300 mb-2 font-display">Patient Clinical Stability Trajectory</h5>
+                                        <div class="w-full">
+                                            <svg viewBox="0 0 400 110" class="w-full h-28 text-brand-500">
+                                                <line x1="40" y1="10" x2="380" y2="10" stroke="#f43f5e" stroke-dasharray="4 4" stroke-opacity="0.15"></line>
+                                                <line x1="40" y1="50" x2="380" y2="50" stroke="#f43f5e" stroke-dasharray="4 4" stroke-opacity="0.15"></line>
+                                                <line x1="40" y1="90" x2="380" y2="90" stroke="#f43f5e" stroke-dasharray="4 4" stroke-opacity="0.15"></line>
+                                                <path d="M 40 100 Q 120 70, 200 45 T 360 15" fill="none" stroke="#fda4af" stroke-width="2.5" stroke-linecap="round"></path>
+                                                <path d="M 40 15 Q 120 35, 200 65 T 360 95" fill="none" stroke="#f43f5e" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="3 3"></path>
+                                                <circle cx="250" cy="35" r="4.5" fill="#fda4af"></circle>
+                                                <text x="40" y="105" fill="#fecdd3" font-size="8" font-family="monospace">Intake</text>
+                                                <text x="180" y="105" fill="#fecdd3" font-size="8" font-family="monospace">Mid-Course</text>
+                                                <text x="330" y="105" fill="#fecdd3" font-size="8" font-family="monospace">Stabilization</text>
+                                                <text x="5" y="15" fill="#fda4af" font-size="8" font-weight="bold">Wellness</text>
+                                                <text x="5" y="95" fill="#f43f5e" font-size="8" font-weight="bold">Stress</text>
                                             </svg>
                                         </div>
                                     </div>
 
-                                    <button onclick="savePatientEdits()" class="w-full bg-brand-500 hover:bg-brand-600 text-white font-extrabold py-3.5 rounded-xl text-xs transition shadow-md flex items-center justify-center gap-1.5 font-display">
-                                        <i data-lucide="save" class="w-4.5 h-4.5"></i> Secure &amp; Finalize Clinical Record
-                                    </button>
-                                </div>
+                                    <!-- Progress Timeline Visual -->
+                                    <div>
+                                        <h5 class="text-xs font-bold uppercase tracking-wider text-brand-300 mb-3 font-display" id="db-timeline-title">Recovery Progression</h5>
+                                        <div class="grid grid-cols-4 gap-2 text-center text-[10px] sm:text-xs font-sans" id="db-phases-timeline">
+                                            <!-- Dynamic Phases -->
+                                        </div>
+                                    </div>
 
-                                <div id="edit-blank-state" class="py-12 text-center text-slate-400 text-xs italic">
-                                    Choose a patient record above to view, authorize, and sync records.
+                                    <!-- Diagnostic Metrics Checklist -->
+                                    <div class="grid sm:grid-cols-2 gap-4 text-left">
+                                        <div class="bg-brand-950/40 border border-brand-800 rounded-xl p-4">
+                                            <h6 class="text-xs font-bold text-brand-200 mb-2 flex items-center gap-1 font-display"><i data-lucide="check-square" class="w-4 h-4 text-brand-400"></i> Therapy Objectives</h6>
+                                            <div class="space-y-2 text-xs font-sans" id="db-checklist-container">
+                                                <!-- Checkboxes list -->
+                                            </div>
+                                        </div>
+
+                                        <div class="bg-brand-950/40 border border-brand-800 rounded-xl p-4 space-y-2 flex flex-col justify-between">
+                                            <div>
+                                                <h6 class="text-xs font-bold text-brand-200 mb-1 flex items-center gap-1 font-display"><i data-lucide="clipboard" class="w-4 h-4 text-brand-400"></i> Clinical Practitioner Logs</h6>
+                                                <p class="text-xs text-brand-200 leading-relaxed italic font-sans" id="db-therapist-notes">-</p>
+                                            </div>
+                                            <p class="text-[10px] text-brand-300 font-semibold pt-1.5 border-t border-brand-800">
+                                                Clinical ledger source verified.
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <!-- Recovery Milestone Footer -->
+                                    <div class="border-t border-brand-800/80 pt-4 flex items-center justify-between text-xs text-brand-300 font-sans">
+                                        <span id="db-duration-info">Active Treatment Course: <strong>Day -</strong></span>
+                                        <span class="text-brand-300 font-bold flex items-center gap-1">
+                                            <i data-lucide="lock" class="w-3.5 h-3.5 text-brand-400"></i> Secure Health Record Lock
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
     </section>
+
 
     <!-- MENTAL WELLNESS ASSESSMENT QUIZ -->
     <section id="wellness-quiz" class="py-20 sm:py-28 bg-gradient-to-b from-slate-50 to-brand-50/40 border-b border-brand-100">
@@ -1903,6 +1938,7 @@
         function switchAdminTab(panelId) {
             document.getElementById('admin-panel-appointments').classList.add('hidden');
             document.getElementById('admin-panel-patients').classList.add('hidden');
+            document.getElementById('admin-panel-charts').classList.add('hidden');
 
             const buttons = document.querySelectorAll('.admin-tab-btn');
             buttons.forEach(b => {
@@ -1918,8 +1954,11 @@
 
             if (panelId === 'appointments') {
                 loadAdminAppointments();
-            } else {
+            } else if (panelId === 'patients') {
                 loadAdminPatientsSelector();
+            } else if (panelId === 'charts') {
+                // Patient Desk portal lookup loaded
+                resetDashboardView();
             }
         }
 

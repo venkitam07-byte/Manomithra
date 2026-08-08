@@ -16,14 +16,24 @@ app.use(express.static(path.join(__dirname)));
 app.get('/api/patients', (req, res) => {
     db.all("SELECT * FROM patients ORDER BY id ASC", [], (err, rows) => {
         if (err) {
-            return res.status(500).json({ error: err.message });
+            console.error('Database Error:', err.message);
+            return res.status(500).json({ 
+                error: 'The clinical records system is experiencing a temporary delay. Please try again or contact our administrative desk at +91 9495 867 342.' 
+            });
         }
-        // Parse daily checklist back to array of objects
-        const parsedRows = rows.map(row => ({
-            ...row,
-            daily_checklist: JSON.parse(row.daily_checklist)
-        }));
-        res.json(parsedRows);
+        try {
+            // Parse daily checklist back to array of objects
+            const parsedRows = rows.map(row => ({
+                ...row,
+                daily_checklist: JSON.parse(row.daily_checklist)
+            }));
+            res.json(parsedRows);
+        } catch (parseErr) {
+            console.error('JSON Parse Error:', parseErr.message);
+            res.status(500).json({ 
+                error: 'We encountered an issue reading some of the clinical files. Rest assured, patient records are safe. Please refresh the page.' 
+            });
+        }
     });
 });
 
@@ -32,13 +42,25 @@ app.get('/api/patients/:id', (req, res) => {
     const id = req.params.id.trim().toUpperCase();
     db.get("SELECT * FROM patients WHERE id = ?", [id], (err, row) => {
         if (err) {
-            return res.status(500).json({ error: err.message });
+            console.error('Database Lookup Error:', err.message);
+            return res.status(500).json({ 
+                error: 'We could not query the clinical ledger right now. Please try again in a few moments.' 
+            });
         }
         if (!row) {
-            return res.status(404).json({ message: 'Patient not found' });
+            return res.status(404).json({ 
+                error: `The registration code "${id}" was not found. Please verify the code on your clinical admission slip or consult our front desk.` 
+            });
         }
-        row.daily_checklist = JSON.parse(row.daily_checklist);
-        res.json(row);
+        try {
+            row.daily_checklist = JSON.parse(row.daily_checklist);
+            res.json(row);
+        } catch (parseErr) {
+            console.error('JSON Parse Error:', parseErr.message);
+            res.status(500).json({ 
+                error: 'We encountered an error loading this patient’s objectives checklist. Please contact our technical coordinator.' 
+            });
+        }
     });
 });
 
@@ -47,7 +69,9 @@ app.post('/api/patients', (req, res) => {
     const { name, phone, program, doctor, status, phase, daily_checklist, notes, duration_days, current_day } = req.body;
     
     if (!name || !phone || !program) {
-        return res.status(400).json({ error: 'Name, phone, and program are required.' });
+        return res.status(400).json({ 
+            error: 'Please fill in all essential patient details, including the full name, primary phone number, and selected treatment program.' 
+        });
     }
 
     // Generate unique Patient ID
@@ -74,10 +98,13 @@ app.post('/api/patients', (req, res) => {
 
     db.run(sql, params, function(err) {
         if (err) {
-            return res.status(500).json({ error: err.message });
+            console.error('Database Insertion Error:', err.message);
+            return res.status(500).json({ 
+                error: 'We were unable to create the new clinical file due to a registry synchronization error. Please try again.' 
+            });
         }
         res.status(201).json({
-            message: 'Patient registered successfully in database',
+            message: 'Patient registered successfully in secure registry',
             patient: {
                 id, name, phone, program, doctor: defaultDoctor, status: defaultStatus, phase: defaultPhase, daily_checklist: defaultChecklist, notes: defaultNotes, duration_days: defaultDur, current_day: defaultCurDay
             }
@@ -93,10 +120,15 @@ app.put('/api/patients/:id', (req, res) => {
     // Check if patient exists first
     db.get("SELECT * FROM patients WHERE id = ?", [id], (err, row) => {
         if (err) {
-            return res.status(500).json({ error: err.message });
+            console.error('Database Lookup Error:', err.message);
+            return res.status(500).json({ 
+                error: 'We were unable to verify the clinical record for this update. Please try again.' 
+            });
         }
         if (!row) {
-            return res.status(404).json({ error: 'Patient not found' });
+            return res.status(404).json({ 
+                error: 'The requested patient profile could not be located in our active clinical registry.' 
+            });
         }
 
         const updatedName = name || row.name;
@@ -115,10 +147,13 @@ app.put('/api/patients/:id', (req, res) => {
 
         db.run(sql, params, function(err) {
             if (err) {
-                return res.status(500).json({ error: err.message });
+                console.error('Database Update Error:', err.message);
+                return res.status(500).json({ 
+                    error: 'The clinical system failed to write updates to the patient’s record. Please verify details and try again.' 
+                });
             }
             res.json({
-                message: 'Patient file updated inside SQLite',
+                message: 'Patient record successfully updated',
                 patient: {
                     id, name: updatedName, phone: updatedPhone, program: updatedProgram, doctor: updatedDoctor, status: updatedStatus, phase: updatedPhase, daily_checklist: daily_checklist || JSON.parse(row.daily_checklist), notes: updatedNotes, duration_days: updatedDuration, current_day: updatedCurrentDay
                 }
@@ -131,7 +166,10 @@ app.put('/api/patients/:id', (req, res) => {
 app.get('/api/appointments', (req, res) => {
     db.all("SELECT * FROM appointments ORDER BY id DESC", [], (err, rows) => {
         if (err) {
-            return res.status(500).json({ error: err.message });
+            console.error('Database Selection Error:', err.message);
+            return res.status(500).json({ 
+                error: 'The consultation calendar is temporarily unavailable. Please try reloading or call our receptionist.' 
+            });
         }
         res.json(rows);
     });
@@ -142,7 +180,9 @@ app.post('/api/appointments', (req, res) => {
     const { patient_name, patient_phone, service, doctor, date, time, notes } = req.body;
 
     if (!patient_name || !patient_phone || !date || !time) {
-        return res.status(400).json({ error: 'Name, phone, date, and time are required.' });
+        return res.status(400).json({ 
+            error: 'Please complete all required appointment details, including the patient name, phone, preferred date, and session time slot.' 
+        });
     }
 
     // Generate unique Ticket ID
@@ -154,10 +194,13 @@ app.post('/api/appointments', (req, res) => {
 
     db.run(sql, params, function(err) {
         if (err) {
-            return res.status(500).json({ error: err.message });
+            console.error('Database Insertion Error:', err.message);
+            return res.status(500).json({ 
+                error: 'We were unable to lock in your appointment slot due to a synchronization delay. Please call us directly to secure your session.' 
+            });
         }
         res.status(201).json({
-            message: 'Appointment scheduled in SQLite',
+            message: 'Appointment successfully registered in ledger',
             appointment: {
                 id: this.lastID,
                 ticket_id,
@@ -174,23 +217,28 @@ app.post('/api/appointments', (req, res) => {
     });
 });
 
-// API: Update Appointment Status (Approve/Complete/Cancel)
+// API: Update Appointment Status
 app.put('/api/appointments/:id/status', (req, res) => {
     const id = req.params.id;
     const { status } = req.body;
 
     if (!status) {
-        return res.status(400).json({ error: 'Status is required' });
+        return res.status(400).json({ error: 'Verification status update parameter is missing.' });
     }
 
     db.run("UPDATE appointments SET status = ? WHERE id = ?", [status, id], function(err) {
         if (err) {
-            return res.status(500).json({ error: err.message });
+            console.error('Database Update Error:', err.message);
+            return res.status(500).json({ 
+                error: 'We were unable to record the update to this consultation record. Please try again.' 
+            });
         }
         if (this.changes === 0) {
-            return res.status(404).json({ error: 'Appointment record not found' });
+            return res.status(404).json({ 
+                error: 'The requested appointment record could not be found in our schedules ledger.' 
+            });
         }
-        res.json({ message: 'Appointment status successfully updated inside SQLite', id, status });
+        res.json({ message: 'Consultation status updated in central records.', id, status });
     });
 });
 
@@ -199,16 +247,19 @@ app.delete('/api/appointments/:id', (req, res) => {
     const id = req.params.id;
     db.run("DELETE FROM appointments WHERE id = ?", [id], function(err) {
         if (err) {
-            return res.status(500).json({ error: err.message });
+            console.error('Database Deletion Error:', err.message);
+            return res.status(500).json({ 
+                error: 'We could not remove the appointment log due to an archive system delay. Please try again.' 
+                });
         }
         if (this.changes === 0) {
-            return res.status(404).json({ error: 'Appointment not found' });
+            return res.status(404).json({ error: 'Record not found.' });
         }
-        res.json({ message: 'Appointment deleted from database', id });
+        res.json({ message: 'Appointment successfully removed from archives.', id });
     });
 });
 
-// Catch-all route to serve Frontend index.html
+// Fallback: Securely serve index.html
 app.use((req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });

@@ -105,7 +105,7 @@
                 <span><strong>24/7 Psychiatric Emergency Support &amp; Critical Ambulance:</strong> +91 9495 867 342</span>
             </div>
             <div class="flex items-center gap-4 text-xs font-semibold">
-                <a href="#booking" class="bg-white/20 hover:bg-white/30 text-white px-3 py-1 rounded transition">Pre-Register Online</a>
+                <a href="#booking" class="bg-white/20 hover:bg-white/30 text-white px-3 py-1 rounded transition font-display">Pre-Register Online</a>
                 <button onclick="document.getElementById('emergency-banner').remove()" class="text-white hover:text-slate-200" aria-label="Dismiss banner">
                     <i data-lucide="x" class="w-4 h-4"></i>
                 </button>
@@ -249,12 +249,11 @@
                     </div>
                 </div>
 
-                <!-- HERO RIGHT (Advanced Clinical Console) -->
+                <!-- HERO RIGHT -->
                 <div class="lg:col-span-5 relative mt-8 lg:mt-0">
                     <div class="relative mx-auto max-w-[420px] lg:max-w-none">
                         <!-- Main Frame -->
                         <div class="bg-gradient-to-tr from-brand-900 to-brand-950 text-white rounded-3xl p-6 shadow-2xl relative border border-brand-800 overflow-hidden group">
-                            <!-- Background Grid Pattern -->
                             <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px]"></div>
                             
                             <!-- Header status -->
@@ -540,7 +539,7 @@
                         <span class="bg-amber-50 border border-amber-200 text-amber-700 text-xs font-bold px-3 py-1 rounded-md">Breaking the Chains</span>
                         <h4 class="font-display text-2xl sm:text-3xl font-extrabold text-slate-950">Substance Abuse &amp; Alcohol De-Addiction</h4>
                         <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
-                            Our premier rehabilitation program is specifically customized for patients battling alcohol, narcotic, and electronic screen addiction. Grounded in both pharmacological detoxification and cognitive behavioral therapy (CBT), we ensure a safe environment for physical and chemical recovery.
+                            Our rehabilitation program is specifically customized for patients battling alcohol, narcotic, and electronic screen addiction. Grounded in both pharmacological detoxification and cognitive behavioral therapy (CBT), we ensure a safe environment for physical and chemical recovery.
                         </p>
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
                             <div class="flex items-start gap-2 text-sm text-slate-700 font-semibold">
@@ -620,7 +619,7 @@
         </div>
     </section>
 
-    <!-- REAL-TIME PATIENT DESK (PORTAL) -->
+    <!-- REAL-TIME PATIENT DESK -->
     <section id="patient-portal" class="py-20 sm:py-28 bg-white border-b border-slate-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
@@ -656,7 +655,7 @@
                             <label class="block text-[11px] font-bold text-slate-400 uppercase tracking-wider">Patient File Code</label>
                             <div class="flex gap-2">
                                 <input type="text" id="patient-id-input" value="MIMS-2026" placeholder="e.g. MIMS-2026" class="w-full bg-slate-950/80 border border-slate-800 text-sm font-mono tracking-wider text-slate-100 px-4 py-3 rounded-xl focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 placeholder-slate-700">
-                                <button onclick="loadPatientDashboard()" class="bg-brand-600 hover:bg-brand-500 text-white font-bold text-xs px-4 py-3 rounded-xl transition shrink-0">
+                                <button onclick="loadPatientDashboard()" class="bg-brand-600 hover:bg-brand-500 text-white font-bold text-xs px-4 py-3 rounded-xl transition shrink-0 font-display">
                                     Search File
                                 </button>
                             </div>
@@ -664,7 +663,7 @@
                         </div>
 
                         <div class="bg-slate-950/40 p-4 border border-slate-800/80 rounded-2xl">
-                            <h5 class="text-xs font-bold text-slate-300">✓ Inpatient &amp; Family Synergy</h5>
+                            <h5 class="text-xs font-bold text-slate-300">✓ Inpatient &amp; Caregiver Synergy</h5>
                             <p class="text-[10px] text-slate-500 mt-1 font-semibold">Updates are finalized in our secure clinic ledger instantly.</p>
                         </div>
                     </div>
@@ -674,7 +673,7 @@
                         <!-- Default Blank Slate State / Loader -->
                         <div class="flex flex-col items-center justify-center text-center py-12 space-y-4" id="dashboard-blank-slate">
                             <div class="w-16 h-16 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-600">
-                                <i data-lucide="shield" class="w-8 h-8 text-brand-500"></i>
+                                <i data-lucide="shield" class="w-8 h-8 text-brand-500 animate-pulse"></i>
                             </div>
                             <div>
                                 <h4 class="font-bold text-slate-200">Awaiting Registration Code</h4>
@@ -687,6 +686,22 @@
                                 <button onclick="loadPresetPatient('MIMS-2026')" class="bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-300 font-mono text-xs px-3 py-2 rounded-xl transition">MIMS-2026</button>
                                 <button onclick="loadPresetPatient('MIMS-2027')" class="bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-300 font-mono text-xs px-3 py-2 rounded-xl transition">MIMS-2027</button>
                             </div>
+                        </div>
+
+                        <!-- Graceful Error Fallback State (Initially Hidden) -->
+                        <div class="hidden flex flex-col items-center justify-center text-center py-12 space-y-4" id="dashboard-error-slate">
+                            <div class="w-16 h-16 rounded-full bg-red-500/10 border border-red-500/20 flex items-center justify-center text-red-400">
+                                <i data-lucide="alert-triangle" class="w-8 h-8"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-200">Record Retrieval Delayed</h4>
+                                <p class="text-xs text-slate-400 mt-2 max-w-sm leading-relaxed" id="dashboard-error-text">
+                                    We could not match this registration file. Please verify your code or contact our front office.
+                                </p>
+                            </div>
+                            <button onclick="resetDashboardView()" class="bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-300 font-bold text-xs px-5 py-2.5 rounded-xl transition">
+                                Clear Search &amp; Try Again
+                            </button>
                         </div>
 
                         <!-- Loaded State Structure -->
@@ -768,7 +783,7 @@
         </div>
     </section>
 
-    <!-- PRACTITIONER CLINICAL DESK (ADMIN OPERATIONS CONSOLE) -->
+    <!-- PRACTITIONER CLINICAL DESK -->
     <section id="practitioner-console" class="py-20 sm:py-28 bg-slate-50 border-b border-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-12 space-y-4">
@@ -794,8 +809,8 @@
                 <div id="admin-panel-appointments" class="admin-panel-content space-y-6">
                     <div class="flex items-center justify-between">
                         <h4 class="font-bold text-lg text-slate-900 flex items-center gap-1.5"><i data-lucide="list" class="w-5 h-5 text-brand-500"></i> Active Consultation Calendar</h4>
-                        <button onclick="loadAdminAppointments()" class="text-xs bg-slate-100 hover:bg-slate-200 text-slate-700 px-3 py-1.5 rounded-lg font-bold border border-slate-200 transition flex items-center gap-1">
-                            <i data-lucide="refresh-cw" class="w-3.5 h-3.5"></i> Reload Registry Files
+                        <button onclick="loadAdminAppointments()" class="text-xs bg-slate-100 hover:bg-slate-200 text-slate-700 px-3 py-1.5 rounded-lg font-bold border border-slate-200 transition flex items-center gap-1 font-display">
+                            <i data-lucide="refresh-cw" class="w-3.5 h-3.5 animate-spin-slow"></i> Reload Registry Files
                         </button>
                     </div>
 
@@ -814,7 +829,7 @@
                             </thead>
                             <tbody id="admin-appointments-tbody" class="divide-y divide-slate-100 font-medium text-slate-700">
                                 <tr>
-                                    <td colspan="6" class="p-8 text-center text-slate-400">Loading live clinical records...</td>
+                                    <td colspan="6" class="p-8 text-center text-slate-400 animate-pulse">Loading live clinical records...</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -880,7 +895,7 @@
                                     </div>
                                 </div>
 
-                                <button type="submit" class="w-full bg-brand-600 hover:bg-brand-500 text-white font-bold py-3.5 rounded-xl text-xs transition shadow-md flex items-center justify-center gap-1.5">
+                                <button type="submit" class="w-full bg-brand-600 hover:bg-brand-500 text-white font-bold py-3.5 rounded-xl text-xs transition shadow-md flex items-center justify-center gap-1.5 font-display">
                                     <i data-lucide="check" class="w-4.5 h-4.5"></i> Register File to Central Ledger
                                 </button>
                             </form>
@@ -898,7 +913,7 @@
                                     </select>
                                 </div>
 
-                                <div id="edit-fields-container" class="hidden space-y-4">
+                                <div id="edit-fields-container" class="hidden space-y-4 animate-fade-in">
                                     <div class="grid sm:grid-cols-2 gap-4">
                                         <div class="space-y-1">
                                             <label class="text-[11px] font-bold text-slate-500 uppercase">Treatment Phase (1-4)</label>
@@ -938,13 +953,12 @@
                                     <div class="bg-white border border-slate-200 rounded-xl p-4 space-y-3">
                                         <div class="flex items-center justify-between">
                                             <span class="text-[11px] font-bold text-slate-500 uppercase">Practitioner Security Lock</span>
-                                            <span id="signature-verified-badge" class="hidden bg-emerald-50 border border-emerald-200 text-emerald-700 text-[9px] px-2 py-0.5 rounded font-bold">Authorized Seal Active</span>
+                                            <span id="signature-verified-badge" class="hidden bg-emerald-50 border border-emerald-200 text-emerald-700 text-[9px] px-2 py-0.5 rounded font-bold animate-pulse">Authorized Seal Active</span>
                                         </div>
                                         <button type="button" onclick="affixPractitionerSignature()" class="w-full bg-slate-100 hover:bg-brand-50 border border-slate-200 text-slate-700 hover:text-brand-600 py-2.5 rounded-lg text-xs font-bold transition flex items-center justify-center gap-1.5">
                                             <i data-lucide="pen-tool" class="w-4 h-4"></i> Affix Dr. Premadasan's Calligraphy Seal
                                         </button>
                                         <div id="signature-display-div" class="hidden flex justify-center py-2 border-t border-slate-100 animate-float">
-                                            <!-- SVG calligraphy signature of Dr. C.D. Premadasan -->
                                             <svg viewBox="0 0 150 45" class="w-40 h-12 text-slate-700 font-serif">
                                                 <path d="M 10 30 Q 30 10, 50 25 T 90 10 T 140 25" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round"></path>
                                                 <path d="M 25 20 L 125 20" fill="none" stroke="#2563eb" stroke-dasharray="2 2" stroke-opacity="0.5"></path>
@@ -953,7 +967,7 @@
                                         </div>
                                     </div>
 
-                                    <button onclick="savePatientEdits()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold py-3.5 rounded-xl text-xs transition shadow-md flex items-center justify-center gap-1.5">
+                                    <button onclick="savePatientEdits()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold py-3.5 rounded-xl text-xs transition shadow-md flex items-center justify-center gap-1.5 font-display">
                                         <i data-lucide="save" class="w-4.5 h-4.5"></i> Secure &amp; Finalize Clinical Record
                                     </button>
                                 </div>
@@ -1017,7 +1031,7 @@
                 </div>
 
                 <!-- QUIZ RESULTS SCREEN -->
-                <div id="quiz-result-container" class="hidden space-y-6 text-center py-8">
+                <div id="quiz-result-container" class="hidden space-y-6 text-center py-8 animate-fade-in">
                     <!-- Dynamic SVG Circular Wellness Gauge -->
                     <div class="relative w-28 h-28 mx-auto flex items-center justify-center mb-2">
                         <svg viewBox="0 0 36 36" class="w-full h-full text-brand-100">
@@ -1025,7 +1039,7 @@
                             <path class="text-brand-500 transition-all duration-1000" stroke-width="3.2" stroke-linecap="round" stroke-dasharray="75, 100" id="gauge-circle-color" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"></path>
                         </svg>
                         <div class="absolute text-center">
-                            <span class="text-2xl font-black text-slate-900" id="gauge-score-value">75%</span>
+                            <span class="text-2xl font-black text-slate-900 font-display" id="gauge-score-value">75%</span>
                             <p class="text-[8px] text-slate-400 uppercase font-black tracking-wider">Score</p>
                         </div>
                     </div>
@@ -1033,7 +1047,7 @@
                     <div class="space-y-2">
                         <h4 class="font-display text-2xl font-bold text-slate-950">Assessment Complete</h4>
                         <p class="text-xs text-slate-500 uppercase tracking-widest font-bold">Your Course Suggestion:</p>
-                        <p class="text-xl font-extrabold text-brand-600" id="quiz-result-classification">Mild Anxiety &amp; Stress Load</p>
+                        <p class="text-xl font-extrabold text-brand-600 font-display" id="quiz-result-classification">Mild Anxiety &amp; Stress Load</p>
                     </div>
 
                     <div class="bg-slate-50 border border-slate-100 p-6 rounded-2xl text-slate-600 text-sm max-w-xl mx-auto leading-relaxed" id="quiz-result-guideline">
@@ -1044,7 +1058,7 @@
                         <button onclick="restartQuiz()" class="w-full sm:w-auto bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold px-6 py-3 rounded-xl transition">
                             Retake Assessment
                         </button>
-                        <a href="#booking" class="w-full sm:w-auto bg-gradient-to-r from-brand-600 to-emerald-600 text-white font-bold px-6 py-3 rounded-xl transition shadow-md">
+                        <a href="#booking" class="w-full sm:w-auto bg-gradient-to-r from-brand-600 to-emerald-600 text-white font-bold px-6 py-3 rounded-xl transition shadow-md font-display">
                             Speak to a Consultant
                         </a>
                     </div>
@@ -1099,7 +1113,7 @@
                     </div>
 
                     <div class="flex justify-end pt-4">
-                        <button onclick="goToBookingStep(2)" class="bg-brand-600 hover:bg-brand-500 text-white font-bold px-6 py-3.5 rounded-xl transition flex items-center gap-2">
+                        <button onclick="goToBookingStep(2)" class="bg-brand-600 hover:bg-brand-500 text-white font-bold px-6 py-3.5 rounded-xl transition flex items-center gap-2 font-display">
                             <span>Proceed to Slots</span> <i data-lucide="arrow-right" class="w-4 h-4"></i>
                         </button>
                     </div>
@@ -1125,10 +1139,10 @@
                     </div>
 
                     <div class="flex justify-between pt-4">
-                        <button onclick="goToBookingStep(1)" class="bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold px-6 py-3.5 rounded-xl transition">
+                        <button onclick="goToBookingStep(1)" class="bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold px-6 py-3.5 rounded-xl transition font-display">
                             Back
                         </button>
-                        <button onclick="goToBookingStep(3)" class="bg-brand-600 hover:bg-brand-500 text-white font-bold px-6 py-3.5 rounded-xl transition flex items-center gap-2">
+                        <button onclick="goToBookingStep(3)" class="bg-brand-600 hover:bg-brand-500 text-white font-bold px-6 py-3.5 rounded-xl transition flex items-center gap-2 font-display">
                             <span>Proceed to Contact Details</span> <i data-lucide="arrow-right" class="w-4 h-4"></i>
                         </button>
                     </div>
@@ -1154,10 +1168,10 @@
                     </div>
 
                     <div class="flex justify-between pt-4">
-                        <button onclick="goToBookingStep(2)" class="bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold px-6 py-3.5 rounded-xl transition">
+                        <button onclick="goToBookingStep(2)" class="bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold px-6 py-3.5 rounded-xl transition font-display">
                             Back
                         </button>
-                        <button onclick="submitBooking()" class="bg-gradient-to-r from-brand-600 to-emerald-600 hover:from-brand-700 hover:to-emerald-700 text-white font-extrabold px-8 py-3.5 rounded-xl transition shadow-md flex items-center gap-2">
+                        <button onclick="submitBooking()" class="bg-gradient-to-r from-brand-600 to-emerald-600 hover:from-brand-700 hover:to-emerald-700 text-white font-extrabold px-8 py-3.5 rounded-xl transition shadow-md flex items-center gap-2 font-display">
                             <span>Register &amp; Lock Records</span> <i data-lucide="shield-check" class="w-4.5 h-4.5"></i>
                         </button>
                     </div>
@@ -1166,7 +1180,7 @@
                 <!-- STEP 4: SUCCESS CONFIRMATION SLIP -->
                 <div id="booking-step-4" class="hidden space-y-6">
                     <div class="text-center space-y-2">
-                        <div class="w-16 h-16 bg-emerald-50 rounded-full flex items-center justify-center mx-auto text-emerald-600">
+                        <div class="w-16 h-16 bg-emerald-50 rounded-full flex items-center justify-center mx-auto text-emerald-600 animate-bounce">
                             <i data-lucide="check-circle-2" class="w-10 h-10"></i>
                         </div>
                         <h4 class="font-display text-2xl font-extrabold text-slate-950">Registration Record Locked</h4>
@@ -1208,7 +1222,6 @@
                             </div>
                         </div>
 
-                        <!-- Barcode simulator -->
                         <div class="border-t border-slate-100 pt-4 flex flex-col items-center justify-center space-y-1">
                             <div class="bg-slate-100 h-12 w-full max-w-[200px] flex items-center justify-center border border-slate-200 select-none overflow-hidden rounded">
                                 <div class="flex gap-[2px] items-stretch h-full w-full px-4 py-2">
@@ -1224,16 +1237,13 @@
                                     <div class="bg-slate-800 w-[1px]"></div>
                                     <div class="bg-slate-800 w-[4px]"></div>
                                     <div class="bg-slate-800 w-[2px]"></div>
-                                    <div class="bg-slate-800 w-[1px]"></div>
-                                    <div class="bg-slate-800 w-[3px]"></div>
-                                    <div class="bg-slate-800 w-[2px]"></div>
                                 </div>
                             </div>
                             <span class="text-[9px] font-mono tracking-widest text-slate-400 font-bold">SECURE-CLINIC-LEDGER-LOCK</span>
                         </div>
                     </div>
 
-                    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4 font-display">
                         <button onclick="window.print()" class="w-full sm:w-auto bg-slate-200 hover:bg-slate-300 text-slate-800 font-semibold px-6 py-3 rounded-xl transition flex items-center justify-center gap-2">
                             <i data-lucide="printer" class="w-4 h-4"></i> Print Pass
                         </button>
@@ -1330,7 +1340,7 @@
                 <!-- COL 2 -->
                 <div class="md:col-span-3 space-y-4">
                     <h5 class="text-xs font-bold uppercase tracking-wider text-brand-400">Services Directory</h5>
-                    <ul class="space-y-2 text-xs text-slate-400">
+                    <ul class="space-y-2 text-xs text-slate-400 font-semibold">
                         <li><a href="#services" class="hover:text-white transition">Outpatient Consultations</a></li>
                         <li><a href="#services" class="hover:text-white transition">Inpatient Care Wards</a></li>
                         <li><a href="#services" class="hover:text-white transition">Alcohol De-Addiction</a></li>
@@ -1380,7 +1390,7 @@
         </div>
     </footer>
 
-    <!-- FLOATING AI CHATBOT widget ("Mitra AI") -->
+    <!-- FLOATING AI CHATBOT widget -->
     <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end">
         <!-- Chat Dialogue Bubble -->
         <div class="hidden bg-white text-slate-800 rounded-3xl shadow-2xl border border-slate-100 w-[330px] sm:w-[360px] overflow-hidden flex flex-col mb-4" id="chat-dialog-box">
@@ -1405,7 +1415,6 @@
                 <div class="bg-brand-50 border border-brand-100 text-brand-800 p-3 rounded-2xl text-left leading-relaxed">
                     Hello! I am <strong>Mitra AI</strong>, your attending administrative counselor here at Manomithra (MIMS). How can I assist you or your family today?
                 </div>
-                <!-- Chat quick suggestion pills -->
                 <div class="flex flex-wrap gap-1.5 pt-1" id="chat-quick-options">
                     <button onclick="sendQuickPrompt('doctor')" class="bg-white hover:bg-brand-50 text-[10px] text-slate-600 hover:text-brand-600 px-2.5 py-1 rounded-full border border-slate-200 font-medium transition shrink-0">👨‍⚕️ Meet Dr. Premadasan</button>
                     <button onclick="sendQuickPrompt('inpatient')" class="bg-white hover:bg-brand-50 text-[10px] text-slate-600 hover:text-brand-600 px-2.5 py-1 rounded-full border border-slate-200 font-medium transition shrink-0">🏥 Inpatient Wards</button>
@@ -1436,7 +1445,7 @@
                 </span>
                 <i data-lucide="message-square" class="w-6 h-6" id="chat-icon"></i>
             </div>
-            <span class="text-xs font-bold pr-1 hidden sm:inline">Attending Counselor</span>
+            <span class="text-xs font-bold pr-1 hidden sm:inline font-display">Attending Counselor</span>
         </button>
     </div>
 
@@ -1484,31 +1493,77 @@
             activeBtn.classList.add('bg-brand-600', 'text-white', 'shadow-md');
         }
 
-        // --- SQLITE INTEGRATIONS ---
+        // --- MODERN CLINICAL NOTIFICATIONS & TOASTS SYSTEM ---
+        function showClinicalNotification(message, type = 'success') {
+            const toast = document.createElement('div');
+            toast.className = `fixed top-6 right-6 z-50 p-4 rounded-2xl shadow-2xl text-xs sm:text-sm font-semibold max-w-sm flex items-center gap-3 border transition-all duration-500 transform translate-y-[-100px] opacity-0`;
+            
+            let icon = 'info';
+            if (type === 'success') {
+                toast.className += ' bg-emerald-50 border-emerald-200 text-emerald-800';
+                icon = 'check-circle';
+            } else if (type === 'error') {
+                toast.className += ' bg-red-50 border-red-200 text-red-800';
+                icon = 'alert-triangle';
+            } else {
+                toast.className += ' bg-slate-50 border-slate-200 text-slate-800';
+                icon = 'info';
+            }
+
+            toast.innerHTML = `
+                <i data-lucide="${icon}" class="w-5 h-5 shrink-0"></i>
+                <div class="flex-1">${message}</div>
+            `;
+            document.body.appendChild(toast);
+            lucide.createIcons();
+
+            setTimeout(() => {
+                toast.classList.remove('translate-y-[-100px]', 'opacity-0');
+            }, 100);
+
+            setTimeout(() => {
+                toast.classList.add('translate-y-[-100px]', 'opacity-0');
+                setTimeout(() => {
+                    toast.remove();
+                }, 500);
+            }, 5000);
+        }
+
+        // --- PATIENT RETRIEVAL (SQLITE READS) ---
 
         function loadPresetPatient(id) {
             document.getElementById('patient-id-input').value = id;
             loadPatientDashboard();
         }
 
+        function resetDashboardView() {
+            document.getElementById('patient-id-input').value = '';
+            document.getElementById('dashboard-blank-slate').classList.remove('hidden');
+            document.getElementById('dashboard-loaded-state').classList.add('hidden');
+            document.getElementById('dashboard-error-slate').classList.add('hidden');
+        }
+
         async function loadPatientDashboard() {
             const id = document.getElementById('patient-id-input').value.trim().toUpperCase();
             const blankState = document.getElementById('dashboard-blank-slate');
             const loadedState = document.getElementById('dashboard-loaded-state');
+            const errorState = document.getElementById('dashboard-error-slate');
 
             if (!id) {
-                alert('Please enter a Patient Registration Code.');
+                showClinicalNotification('Please enter a clinical registration code first.', 'error');
                 return;
             }
 
             try {
                 const response = await fetch(`/api/patients/${id}`);
                 if (!response.ok) {
-                    throw new Error('Patient record was not found in our central ledger.');
+                    const data = await response.json();
+                    throw new Error(data.error || 'We could not query the clinical ledger. Record code mismatch.');
                 }
                 const patient = await response.json();
 
                 blankState.classList.add('hidden');
+                errorState.classList.add('hidden');
                 loadedState.classList.remove('hidden');
 
                 // Fill patient card fields
@@ -1575,9 +1630,9 @@
                 let checklistHtml = '';
                 patient.daily_checklist.forEach((item, index) => {
                     const checkedAttr = item.done ? 'checked' : '';
-                    const lineClass = item.done ? 'line-through text-slate-400' : 'text-slate-200';
+                    const lineClass = item.done ? 'line-through text-slate-400 font-medium' : 'text-slate-200 font-semibold';
                     checklistHtml += `
-                        <label class="flex items-center gap-2.5 ${lineClass}">
+                        <label class="flex items-center gap-2.5 ${lineClass} cursor-pointer hover:text-white transition">
                             <input type="checkbox" ${checkedAttr} onchange="togglePatientDbChecklist('${patient.id}', ${index}, this.checked)" class="accent-brand-500 h-3.5 w-3.5 rounded border-slate-700">
                             <span>${item.text}</span>
                         </label>
@@ -1586,9 +1641,12 @@
                 document.getElementById('db-checklist-container').innerHTML = checklistHtml;
 
             } catch (err) {
-                alert(err.message);
-                blankState.classList.remove('hidden');
+                console.error(err);
+                document.getElementById('dashboard-error-text').innerText = err.message || 'We could not query the clinical ledger. Record code mismatch.';
+                blankState.classList.add('hidden');
                 loadedState.classList.add('hidden');
+                errorState.classList.remove('hidden');
+                lucide.createIcons();
             }
         }
 
@@ -1596,6 +1654,7 @@
         async function togglePatientDbChecklist(patientId, itemIndex, isChecked) {
             try {
                 const response = await fetch(`/api/patients/${patientId}`);
+                if (!response.ok) throw new Error('Clinical ledger unreachable.');
                 const patient = await response.json();
 
                 patient.daily_checklist[itemIndex].done = isChecked;
@@ -1609,9 +1668,12 @@
                 if (updateRes.ok) {
                     loadPatientDashboard();
                     loadAdminPatientsSelector();
+                    showClinicalNotification('Therapy objective status synchronized successfully.', 'success');
+                } else {
+                    throw new Error('Database transaction declined.');
                 }
             } catch (err) {
-                console.error('Error updating objective check:', err);
+                showClinicalNotification('Unable to write check update to clinic files: ' + err.message, 'error');
             }
         }
 
@@ -1644,10 +1706,11 @@
         // Fetch & Populate Consultation ledger
         async function loadAdminAppointments() {
             const tbody = document.getElementById('admin-appointments-tbody');
-            tbody.innerHTML = `<tr><td colspan="6" class="p-8 text-center text-slate-400">Loading live clinical ledger...</td></tr>`;
+            tbody.innerHTML = `<tr><td colspan="6" class="p-8 text-center text-slate-400 animate-pulse">Loading live clinical records...</td></tr>`;
 
             try {
                 const res = await fetch('/api/appointments');
+                if (!res.ok) throw new Error('Consultation database unreachable.');
                 const data = await res.json();
 
                 if (data.length === 0) {
@@ -1702,6 +1765,7 @@
 
             } catch (err) {
                 tbody.innerHTML = `<tr><td colspan="6" class="p-8 text-center text-red-500 font-bold">Error reading registry: ${err.message}</td></tr>`;
+                showClinicalNotification(err.message, 'error');
             }
         }
 
@@ -1714,9 +1778,13 @@
                 });
                 if (res.ok) {
                     loadAdminAppointments();
+                    showClinicalNotification(`Schedules entry status updated to "${newStatus}" successfully.`, 'success');
+                } else {
+                    const data = await res.json();
+                    throw new Error(data.error || 'Update failed.');
                 }
             } catch (err) {
-                alert('Verification change failed: ' + err.message);
+                showClinicalNotification(err.message, 'error');
             }
         }
 
@@ -1726,9 +1794,13 @@
                 const res = await fetch(`/api/appointments/${id}`, { method: 'DELETE' });
                 if (res.ok) {
                     loadAdminAppointments();
+                    showClinicalNotification('Consultation entry permanently removed from central register.', 'success');
+                } else {
+                    const data = await res.json();
+                    throw new Error(data.error || 'Deletion rejected.');
                 }
             } catch (err) {
-                alert('Record deletion failed: ' + err.message);
+                showClinicalNotification(err.message, 'error');
             }
         }
 
@@ -1739,6 +1811,7 @@
 
             try {
                 const res = await fetch('/api/patients');
+                if (!res.ok) throw new Error('Patients registry offline.');
                 const patients = await res.json();
 
                 patients.forEach(p => {
@@ -1749,6 +1822,7 @@
                 });
             } catch (err) {
                 console.error('Error loading selector records:', err);
+                showClinicalNotification('Could not synchronize select files dropdown.', 'error');
             }
         }
 
@@ -1757,7 +1831,6 @@
             const fieldsContainer = document.getElementById('edit-fields-container');
             const blankState = document.getElementById('edit-blank-state');
 
-            // Reset signature elements
             document.getElementById('signature-verified-badge').classList.add('hidden');
             document.getElementById('signature-display-div').classList.add('hidden');
 
@@ -1769,6 +1842,7 @@
 
             try {
                 const res = await fetch(`/api/patients/${id}`);
+                if (!res.ok) throw new Error('Patient record could not be requested.');
                 const p = await res.json();
 
                 blankState.classList.add('hidden');
@@ -1794,7 +1868,7 @@
                 document.getElementById('edit-checklist-div').innerHTML = checkHtml;
 
             } catch (err) {
-                alert('Error fetching file: ' + err.message);
+                showClinicalNotification('Error fetching file: ' + err.message, 'error');
             }
         }
 
@@ -1809,6 +1883,7 @@
                     origin: { y: 0.9 }
                 });
             }
+            showClinicalNotification("Encrypted calligraphy practitioner seal affixed.", "success");
         }
 
         // Save Edits
@@ -1818,6 +1893,7 @@
 
             try {
                 const response = await fetch(`/api/patients/${id}`);
+                if (!response.ok) throw new Error('Clinician session validation expired.');
                 const originalPatient = await response.json();
 
                 const updatedChecklist = [];
@@ -1843,17 +1919,18 @@
                 });
 
                 if (saveRes.ok) {
-                    alert(`Patient record ${id} has been securely synchronized and locked inside the clinical registry!`);
+                    showClinicalNotification(`Patient file ${id} has been securely synchronized and locked!`, 'success');
                     loadAdminPatientsSelector();
                     if (document.getElementById('patient-id-input').value.trim().toUpperCase() === id) {
                         loadPatientDashboard();
                     }
                 } else {
-                    throw new Error('Transaction declined by system security protocols.');
+                    const errData = await saveRes.json();
+                    throw new Error(errData.error || 'Transaction declined by registry.');
                 }
 
             } catch (err) {
-                alert('Synchronization failed: ' + err.message);
+                showClinicalNotification(err.message, 'error');
             }
         }
 
@@ -1870,7 +1947,10 @@
             const duration_days = parseInt(document.getElementById('new-p-duration').value) || 30;
             const current_day = parseInt(document.getElementById('new-p-day').value) || 1;
 
-            if (!name || !phone) return;
+            if (!name || !phone) {
+                showClinicalNotification('Essential profile values are missing.', 'error');
+                return;
+            }
 
             try {
                 const res = await fetch('/api/patients', {
@@ -1881,24 +1961,47 @@
 
                 if (res.ok) {
                     const data = await res.json();
-                    alert(`Registry Successful!\nGenerated Patient Code: ${data.patient.id}\nPatient: ${data.patient.name}\n\nYou can now search "${data.patient.id}" in the Patient Desk to see their live charts!`);
+                    showClinicalNotification(`Successfully opened clinical file ${data.patient.id}!`, 'success');
                     
                     document.getElementById('create-patient-form').reset();
                     loadAdminPatientsSelector();
                 } else {
-                    throw new Error('Registry transaction declined.');
+                    const data = await res.json();
+                    throw new Error(data.error || 'Registry transaction declined.');
                 }
             } catch (err) {
-                alert('Registry insert failed: ' + err.message);
+                showClinicalNotification(err.message, 'error');
             }
         }
 
 
-        // --- ORIGINAL APP QUIZ CONTROLS ---
+        // --- CLINICAL WELLNESS ASSESSMENT QUIZ ---
 
         // Wellness Quiz Logic
         let quizStep = 0;
         let quizAnswers = [];
+        const quizQuestions = [
+            {
+                q: "How often have you felt unable to control the important things in your life over the past month?",
+                opt: ["Almost Never / Never", "Sometimes", "Fairly Often", "Very Often"]
+            },
+            {
+                q: "How often have you felt confident about your ability to handle your personal mental challenges?",
+                opt: ["Very Often (Confident)", "Sometimes", "Almost Never / Never", "Extremely Overwhelmed"]
+            },
+            {
+                q: "Have you experienced disruptions in sleep (insomnia, racing thoughts) or physical tension due to stress?",
+                opt: ["No physical symptoms", "Mild / Intermittent sleep delay", "Frequent physical tightness", "Severe daily insomnia"]
+            },
+            {
+                q: "How would you describe your emotional state when dealing with family, work, or peer pressure?",
+                opt: ["Calm & constructive", "Slightly irritable but manage", "Highly anxious / Burned out", "Feeling completely detached"]
+            },
+            {
+                q: "Do you have a reliable family or community support system to share your struggles with?",
+                opt: ["Yes, strong family support", "Moderate social circle", "Very limited / Feel isolated", "No support / Caregivers are also exhausted"]
+            }
+        ];
 
         function selectQuizAnswer(index) {
             quizAnswers.push(index);
@@ -1953,11 +2056,12 @@
             const circlePath = document.getElementById('gauge-circle-color');
             circlePath.setAttribute('stroke-dasharray', `${percent}, 100`);
             
-            // Set dynamic text colors
             circlePath.className.baseVal = `transition-all duration-1000 ${circleColor}`;
 
             document.getElementById('quiz-result-classification').innerText = classification;
             document.getElementById('quiz-result-guideline').innerText = guideline;
+            
+            showClinicalNotification('Wellness evaluation calculated successfully.', 'success');
         }
 
         function restartQuiz() {
@@ -2034,7 +2138,7 @@
             const notes = document.getElementById('booking-notes').value.trim();
 
             if (!patient_name || !patient_phone || !date || !time) {
-                alert('Please complete the patient name, phone, date, and time slot.');
+                showClinicalNotification('Please complete all required fields on the form.', 'error');
                 return;
             }
 
@@ -2046,7 +2150,8 @@
                 });
 
                 if (!response.ok) {
-                    throw new Error('Record transaction failed.');
+                    const errData = await response.json();
+                    throw new Error(errData.error || 'Record transaction rejected.');
                 }
 
                 const payload = await response.json();
@@ -2082,9 +2187,10 @@
                 }
 
                 loadAdminAppointments();
+                showClinicalNotification('Your online consultation pre-registration is confirmed!', 'success');
 
             } catch (err) {
-                alert('Error recording appointment file: ' + err.message);
+                showClinicalNotification('Failed to process online registration: ' + err.message, 'error');
             }
         }
 

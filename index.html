@@ -219,6 +219,25 @@
                         Since 2008, <strong>Manomithra Institute of Medical Sciences (MIMS)</strong> has paved the way as the pioneer of mental healthcare in Palakkad, Kerala. We empower individuals to break free from addiction, restore inner balance, and reclaim their life through specialized clinical therapies and traditional <strong>Manas</strong> holistic mind rejuvenations.
                     </p>
 
+                    <!-- MANAS & Tele-MANAS Wellness Spotlight Card -->
+                    <div class="bg-gradient-to-tr from-brand-50 via-white to-wellness-50 border border-brand-200 rounded-2xl p-4 shadow-sm text-left flex flex-col sm:flex-row items-start sm:items-center gap-4 relative overflow-hidden group animate-float font-sans">
+                        <div class="absolute -right-4 -bottom-4 opacity-5 scale-150 rotate-12 transition group-hover:scale-175 duration-300">
+                            <i data-lucide="flower" class="w-16 h-16 text-brand-500"></i>
+                        </div>
+                        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-500 to-wellness-400 flex items-center justify-center text-white shrink-0 shadow shadow-brand-100">
+                            <i data-lucide="flower" class="w-5 h-5"></i>
+                        </div>
+                        <div class="flex-1 space-y-1">
+                            <div class="flex items-center gap-1.5 flex-wrap">
+                                <span class="bg-brand-500 text-white text-[9px] font-black px-1.5 py-0.5 rounded-md uppercase font-display tracking-wider animate-pulse">Spotlight</span>
+                                <span class="text-[10px] font-bold text-slate-400">Manas Holistic &amp; Tele-MANAS Help</span>
+                            </div>
+                            <p class="text-xs text-slate-700 leading-relaxed font-semibold">
+                                Experience organic mind rejuvenation via our **Manas Clinic**, or dial **14416 / 1-800-891-4416** for India's 24/7 National Tele-Mental Health support.
+                            </p>
+                        </div>
+                    </div>
+
                     <!-- Interactive Quick Stats Widget -->
                     <div class="grid grid-cols-3 gap-3 max-w-md mx-auto lg:mx-0 py-2">
                         <div class="bg-white border border-slate-100 p-3 rounded-2xl shadow-sm hover:shadow-md hover:border-brand-200 transition-all duration-300 group">
@@ -421,7 +440,7 @@
 
             <!-- Interactive Tab buttons -->
             <div class="flex flex-wrap items-center justify-center gap-2 mb-10 max-w-5xl mx-auto bg-white p-2 rounded-2xl border border-brand-100">
-                <button onclick="switchServiceTab('outpatient')" id="tab-outpatient" class="service-tab-btn flex items-center gap-2 px-4 py-3 rounded-xl text-xs sm:text-sm font-semibold transition bg-brand-600 text-white shadow-md">
+                <button onclick="switchServiceTab('outpatient')" id="tab-outpatient" class="service-tab-btn flex items-center gap-2 px-4 py-3 rounded-xl text-xs sm:text-sm font-semibold transition hover:bg-brand-50 text-slate-700">
                     <i data-lucide="stethoscope" class="w-4 h-4"></i>
                     <span>Outpatient Clinic (OP)</span>
                 </button>
@@ -433,8 +452,8 @@
                     <i data-lucide="shield-off" class="w-4 h-4"></i>
                     <span>De-Addiction Programs</span>
                 </button>
-                <button onclick="switchServiceTab('manas')" id="tab-manas" class="service-tab-btn flex items-center gap-2 px-4 py-3 rounded-xl text-xs sm:text-sm font-semibold transition hover:bg-brand-50 text-slate-700">
-                    <i data-lucide="flower" class="w-4 h-4 text-brand-500"></i>
+                <button onclick="switchServiceTab('manas')" id="tab-manas" class="service-tab-btn flex items-center gap-2 px-4 py-3 rounded-xl text-xs sm:text-sm font-semibold transition bg-brand-600 text-white shadow-md">
+                    <i data-lucide="flower" class="w-4 h-4 text-white"></i>
                     <span class="font-bold">Manas Holistic Mind Clinic</span>
                 </button>
                 <button onclick="switchServiceTab('family')" id="tab-family" class="service-tab-btn flex items-center gap-2 px-4 py-3 rounded-xl text-xs sm:text-sm font-semibold transition hover:bg-brand-50 text-slate-700">
@@ -446,7 +465,7 @@
             <!-- Dynamic Tab Content Panels -->
             <div class="bg-white border border-brand-100 rounded-3xl p-6 sm:p-10 shadow-xl transition-all duration-300">
                 <!-- OUTPATIENT TAB -->
-                <div id="panel-outpatient" class="service-panel grid lg:grid-cols-2 gap-10 items-center">
+                <div id="panel-outpatient" class="service-panel hidden grid lg:grid-cols-2 gap-10 items-center">
                     <div class="space-y-6 animate-fade-in">
                         <span class="bg-brand-50 border border-brand-200 text-brand-700 text-xs font-bold px-3 py-1 rounded-md">Robinson Road, Palakkad</span>
                         <h4 class="font-display text-2xl sm:text-3xl font-extrabold text-slate-950">Psychiatric Outpatient &amp; Case Management</h4>
@@ -598,7 +617,7 @@
                 </div>
 
                 <!-- MANAS CLINIC TAB (NEW HOLISTIC AYURVEDIC SECTION) -->
-                <div id="panel-manas" class="service-panel hidden grid lg:grid-cols-2 gap-10 items-center">
+                <div id="panel-manas" class="service-panel grid lg:grid-cols-2 gap-10 items-center">
                     <div class="space-y-6">
                         <span class="bg-wellness-100 border border-wellness-200 text-wellness-800 text-xs font-bold px-3 py-1 rounded-md flex items-center gap-1 w-max"><i data-lucide="flower" class="w-3.5 h-3.5"></i> Traditional Ayurvedic Healing</span>
                         <h4 class="font-display text-2xl sm:text-3xl font-extrabold text-slate-950">Manas Holistic Mind Rejuvenation</h4>

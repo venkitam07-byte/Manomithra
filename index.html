@@ -1629,6 +1629,65 @@
         // Initialize Lucide Icons
         lucide.createIcons();
 
+        // Check session storage authentication for staff on load
+        function checkStaffSessionAuth() {
+            const isAuth = sessionStorage.getItem('MIMS_staff_auth') === 'true';
+            const loginCard = document.getElementById('staff-login-card');
+            const authPanel = document.getElementById('staff-auth-panel');
+            
+            if (isAuth) {
+                if (loginCard) loginCard.classList.add('hidden');
+                if (authPanel) authPanel.classList.remove('hidden');
+                loadAdminAppointments();
+                loadAdminPatientsSelector();
+            } else {
+                if (loginCard) loginCard.classList.remove('hidden');
+                if (authPanel) authPanel.classList.add('hidden');
+            }
+        }
+
+        // Handle Clinician Login Transaction
+        function handleStaffLogin(event) {
+            event.preventDefault();
+            const user = document.getElementById('login-username').value.trim();
+            const pass = document.getElementById('login-password').value.trim();
+
+            if (user === 'admin' && pass === 'mims2026') {
+                sessionStorage.setItem('MIMS_staff_auth', 'true');
+                showClinicalNotification('Secure session verified. Access granted.', 'success');
+                
+                // Transition views
+                document.getElementById('staff-login-card').classList.add('hidden');
+                document.getElementById('staff-auth-panel').classList.remove('hidden');
+                
+                // Load active elements
+                loadAdminAppointments();
+                loadAdminPatientsSelector();
+                
+                // Clear fields
+                document.getElementById('login-username').value = '';
+                document.getElementById('login-password').value = '';
+            } else {
+                showClinicalNotification('Invalid secure clinician credentials. Access denied.', 'error');
+            }
+        }
+
+        // Handle Session Logout
+        function handleStaffLogout() {
+            sessionStorage.removeItem('MIMS_staff_auth');
+            showClinicalNotification('Staff session securely locked.', 'success');
+            
+            // Revert panel
+            document.getElementById('staff-login-card').classList.remove('hidden');
+            document.getElementById('staff-auth-panel').classList.add('hidden');
+        }
+
+        // Run check on load
+        window.addEventListener('load', () => {
+            initVirtualLedger();
+            checkStaffSessionAuth();
+        });
+
         // Mobile Menu Drawer Controls
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu');

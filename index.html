@@ -618,7 +618,7 @@
                         <ul class="space-y-3.5 text-xs sm:text-sm text-slate-600">
                             <li class="flex justify-between items-center py-2 border-b border-wellness-100">
                                 <span class="font-medium text-slate-500">Holistic Consultant:</span>
-                                <span class="font-bold text-slate-800">Dr. Manas Dev, BAMS, MD</span>
+                                <span class="font-bold text-slate-800">Dr. C.D. Premadasan &amp; Team</span>
                             </li>
                             <li class="flex justify-between items-center py-2 border-b border-wellness-100">
                                 <span class="font-medium text-slate-500">Primary Core Goal:</span>
@@ -923,7 +923,6 @@
                                         <label class="text-[11px] font-bold text-slate-500 uppercase">Assigned Consultant</label>
                                         <select id="new-p-doctor" class="w-full bg-white border border-brand-100 p-2 text-sm rounded-lg text-slate-800 font-semibold focus:outline-none">
                                             <option value="Dr. C.D. Premadasan">Dr. C.D. Premadasan</option>
-                                            <option value="Dr. Manas Dev, BAMS, MD (Ayurveda)">Dr. Manas Dev, BAMS, MD (Ayurveda)</option>
                                             <option value="Attending Clinical Psychologist">Attending Clinical Psychologist</option>
                                         </select>
                                     </div>
@@ -2152,8 +2151,8 @@
                 `;
             } else if (serv === 'manas') {
                 docSelect.innerHTML = `
-                    <option value="Dr. Manas Dev, BAMS, MD (Ayurveda)">Dr. Manas Dev, BAMS, MD (Ayurveda)</option>
-                    <option value="Dr. C.D. Premadasan">Dr. C.D. Premadasan (Ayurvedic Reviewer)</option>
+                    <option value="Dr. C.D. Premadasan">Dr. C.D. Premadasan, Psychiatrist</option>
+                    <option value="Attending Clinical Psychologist">Attending Clinical Psychologist (MIMS Team)</option>
                 `;
             } else if (serv === 'deaddiction' || serv === 'inpatient') {
                 docSelect.innerHTML = `
@@ -2335,7 +2334,7 @@
                 if (key === 'doctor' || q.includes('doctor') || q.includes('premadasan')) {
                     reply = "<strong>Dr. C.D. Premadasan</strong> is our Chief Medical Director with over 30 years of clinical and psychiatric experience. He leads the medical team across both Palakkad campuses, designing customized outpatient therapies and de-addiction programs.";
                 } else if (key === 'manas' || q.includes('manas') || q.includes('ayurveda') || q.includes('shirodhara') || q.includes('bams')) {
-                    reply = "The <strong>Manas Holistic Mind Clinic</strong> is our specialized division blending traditional Kerala Ayurveda with modern psychology. Led by **Dr. Manas Dev, BAMS, MD (Ayurveda)**, it features Shirodhara and traditional organic mental rejuvenation protocols such as *Manasamitra Vatakam* therapies.";
+                    reply = "The <strong>Manas Holistic Mind Clinic</strong> is our specialized division blending traditional Kerala Ayurveda with modern psychology. Under the guidance of **Dr. C.D. Premadasan &amp; specialized BAMS therapists**, it features Shirodhara and traditional organic mental rejuvenation protocols such as *Manasamitra Vatakam* therapies.";
                 } else if (key === 'inpatient' || q.includes('inpatient') || q.includes('admission') || q.includes('ward')) {
                     reply = "Our residential <strong>Inpatient psychiatric care</strong> is at Kanjikode Road, Pannimada. It features 24/7 medical supervision, counseling, private and general ward formats, and therapeutic gardens. Admissions can be requested at +91 9446 431 342.";
                 } else if (key === 'deaddiction' || q.includes('addiction') || q.includes('alcohol') || q.includes('drug') || q.includes('rehab')) {

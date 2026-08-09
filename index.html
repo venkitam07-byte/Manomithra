@@ -760,16 +760,36 @@
                     </button>
                 </form>
 
-                <div class="bg-brand-50/50 p-4 border border-brand-100 rounded-2xl text-left text-[10px] text-brand-800 font-medium font-sans">
-                    <strong>🔐 Clinician Reference Notice:</strong><br>
-                    This console is locked under HIPAA security guidelines. For review testing, use default staff credentials:<br>
-                    <span class="font-mono mt-1 block">Username: <strong class="text-brand-600">admin</strong></span>
-                    <span class="font-mono block">Password: <strong class="text-brand-600">mims2026</strong></span>
-                </div>
+
             </div>
 
             <!-- AUTHENTICATED PRACTITIONER DESK (Hidden by default until logged in) -->
             <div id="staff-auth-panel" class="hidden space-y-8 animate-fade-in">
+                
+                <!-- COLLAPSIBLE PASSWORD CHANGE PANEL -->
+                <div id="password-change-panel" class="hidden bg-white border border-brand-100 rounded-3xl p-6 shadow-lg max-w-md mx-auto space-y-4 animate-fade-in font-sans">
+                    <div class="flex items-center justify-between border-b border-brand-100 pb-2.5">
+                        <h4 class="font-display font-bold text-sm text-slate-900 flex items-center gap-1.5"><i data-lucide="lock" class="w-4.5 h-4.5 text-brand-500"></i> Update Access Credentials</h4>
+                        <button onclick="togglePasswordChangeForm()" class="text-slate-400 hover:text-slate-600"><i data-lucide="x" class="w-4 h-4"></i></button>
+                    </div>
+                    <form onsubmit="submitPasswordChange(event)" class="space-y-3.5 text-left text-xs font-semibold">
+                        <div class="space-y-1">
+                            <label class="text-[10px] font-black text-slate-500 uppercase tracking-wider">Current Password</label>
+                            <input type="password" id="pchange-current" required class="w-full bg-slate-50 border border-slate-200 px-3 py-2 rounded-xl text-xs text-slate-800 focus:outline-none">
+                        </div>
+                        <div class="space-y-1">
+                            <label class="text-[10px] font-black text-slate-500 uppercase tracking-wider">New Password</label>
+                            <input type="password" id="pchange-new" required class="w-full bg-slate-50 border border-slate-200 px-3 py-2 rounded-xl text-xs text-slate-800 focus:outline-none">
+                        </div>
+                        <div class="space-y-1">
+                            <label class="text-[10px] font-black text-slate-500 uppercase tracking-wider">Confirm New Password</label>
+                            <input type="password" id="pchange-confirm" required class="w-full bg-slate-50 border border-slate-200 px-3 py-2 rounded-xl text-xs text-slate-800 focus:outline-none">
+                        </div>
+                        <button type="submit" class="w-full bg-brand-500 hover:bg-brand-600 text-white font-bold py-2.5 rounded-xl text-xs transition shadow flex items-center justify-center gap-1.5 font-display">
+                            <i data-lucide="shield-check" class="w-4 h-4"></i> Update Security Credentials
+                        </button>
+                    </form>
+                </div>
                 
                 <!-- Desk Header with Profile Status and Logout -->
                 <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-brand-100 pb-6">
@@ -782,9 +802,14 @@
                         <p class="text-slate-500 text-xs sm:text-sm font-sans font-semibold">Logged in as: <span class="text-brand-600">Clinical Administrator Desk (Dr. Premadasan's Office)</span></p>
                     </div>
                     
-                    <button onclick="handleStaffLogout()" class="bg-red-50 hover:bg-red-100 text-red-600 border border-red-200 font-extrabold px-4 py-2.5 rounded-xl text-xs flex items-center gap-1.5 transition shrink-0 font-display shadow-sm">
-                        <i data-lucide="log-out" class="w-4 h-4"></i> Lock Console Session
-                    </button>
+                    <div class="flex flex-wrap gap-2 shrink-0 font-display">
+                        <button onclick="togglePasswordChangeForm()" class="bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-300 font-extrabold px-4 py-2.5 rounded-xl text-xs flex items-center gap-1.5 transition shadow-sm">
+                            <i data-lucide="key-round" class="w-4 h-4"></i> Change Password
+                        </button>
+                        <button onclick="handleStaffLogout()" class="bg-red-50 hover:bg-red-100 text-red-600 border border-red-200 font-extrabold px-4 py-2.5 rounded-xl text-xs flex items-center gap-1.5 transition shadow-sm">
+                            <i data-lucide="log-out" class="w-4 h-4"></i> Lock Session
+                        </button>
+                    </div>
                 </div>
 
                 <!-- ADMIN TABS (Three secure operations categories) -->
@@ -1679,7 +1704,13 @@
             const user = document.getElementById('login-username').value.trim();
             const pass = document.getElementById('login-password').value.trim();
 
-            if (user === 'admin' && pass === 'mims2026') {
+            // Initialize secure password in localStorage if not set
+            if (!localStorage.getItem('MIMS_staff_password')) {
+                localStorage.setItem('MIMS_staff_password', 'mims2026');
+            }
+            const storedPass = localStorage.getItem('MIMS_staff_password');
+
+            if (user === 'admin' && pass === storedPass) {
                 sessionStorage.setItem('MIMS_staff_auth', 'true');
                 showClinicalNotification('Secure session verified. Access granted.', 'success');
                 
@@ -1707,6 +1738,55 @@
             // Revert panel
             document.getElementById('staff-login-card').classList.remove('hidden');
             document.getElementById('staff-auth-panel').classList.add('hidden');
+        }
+
+        // Toggle Password Change Form
+        function togglePasswordChangeForm() {
+            const panel = document.getElementById('password-change-panel');
+            if (panel.classList.contains('hidden')) {
+                panel.classList.remove('hidden');
+                lucide.createIcons();
+            } else {
+                panel.classList.add('hidden');
+            }
+        }
+
+        // Submit Password Change back to LocalStorage
+        function submitPasswordChange(event) {
+            event.preventDefault();
+            const currentPass = document.getElementById('pchange-current').value.trim();
+            const newPass = document.getElementById('pchange-new').value.trim();
+            const confirmPass = document.getElementById('pchange-confirm').value.trim();
+
+            const storedPass = localStorage.getItem('MIMS_staff_password') || 'mims2026';
+
+            if (currentPass !== storedPass) {
+                showClinicalNotification('Current password verification failed.', 'error');
+                return;
+            }
+
+            if (newPass.length < 4) {
+                showClinicalNotification('New password must be at least 4 characters.', 'error');
+                return;
+            }
+
+            if (newPass !== confirmPass) {
+                showClinicalNotification('New password confirmation does not match.', 'error');
+                return;
+            }
+
+            // Save new password in persistent localStorage
+            localStorage.setItem('MIMS_staff_password', newPass);
+            showClinicalNotification('Credentials updated! Please authorize again with your new password.', 'success');
+
+            // Clear inputs
+            document.getElementById('pchange-current').value = '';
+            document.getElementById('pchange-new').value = '';
+            document.getElementById('pchange-confirm').value = '';
+
+            // Hide password change form and log out safely
+            document.getElementById('password-change-panel').classList.add('hidden');
+            handleStaffLogout();
         }
 
         // Run check on load

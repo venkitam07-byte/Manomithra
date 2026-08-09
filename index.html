@@ -1768,7 +1768,7 @@
             }
         }
 
-        // Handle Clinician Login Transaction (With Automated Page Reload)
+        // Handle Clinician Login Transaction (With Instant Visual Transitions & Immediate Reload)
         function handleStaffLogin(event) {
             event.preventDefault();
             const user = document.getElementById('login-username').value.trim();
@@ -1784,24 +1784,32 @@
                 sessionStorage.setItem('MIMS_staff_auth', 'true');
                 showClinicalNotification('Secure session verified. Access granted.', 'success');
                 
-                // Reload the page instantly after 800ms to freshly render all datasets and tables without glitches!
-                setTimeout(() => {
-                    window.location.reload();
-                }, 800);
+                // 1. Instantly swap visual elements on screen so there is 0% visual lag!
+                document.getElementById('staff-login-card').classList.add('hidden');
+                document.getElementById('staff-auth-panel').classList.remove('hidden');
+                
+                // 2. Instantly load and populate all table datasets in the background
+                loadAdminAppointments();
+                loadAdminPatientsSelector();
+                
+                // 3. Immediately trigger a page reload as a clean background backup
+                window.location.reload();
             } else {
                 showClinicalNotification('Invalid secure clinician credentials. Access denied.', 'error');
             }
         }
 
-        // Handle Session Logout (With Automated Page Reload)
+        // Handle Session Logout (With Instant Visual Transitions & Immediate Revert)
         function handleStaffLogout() {
             sessionStorage.removeItem('MIMS_staff_auth');
             showClinicalNotification('Staff session securely locked.', 'success');
             
-            // Reload the page instantly after 800ms to securely lock down clinical operations panels!
-            setTimeout(() => {
-                window.location.reload();
-            }, 800);
+            // 1. Instantly swap cards back to lock screen
+            document.getElementById('staff-login-card').classList.remove('hidden');
+            document.getElementById('staff-auth-panel').classList.add('hidden');
+            
+            // 2. Immediately trigger a page reload to fully lock down state variables
+            window.location.reload();
         }
 
         // Toggle Password Change Form

@@ -1768,7 +1768,7 @@
             }
         }
 
-        // Handle Clinician Login Transaction
+        // Handle Clinician Login Transaction (With Automated Page Reload)
         function handleStaffLogin(event) {
             event.preventDefault();
             const user = document.getElementById('login-username').value.trim();
@@ -1784,30 +1784,24 @@
                 sessionStorage.setItem('MIMS_staff_auth', 'true');
                 showClinicalNotification('Secure session verified. Access granted.', 'success');
                 
-                // Transition views
-                document.getElementById('staff-login-card').classList.add('hidden');
-                document.getElementById('staff-auth-panel').classList.remove('hidden');
-                
-                // Load active elements
-                loadAdminAppointments();
-                loadAdminPatientsSelector();
-                
-                // Clear fields
-                document.getElementById('login-username').value = '';
-                document.getElementById('login-password').value = '';
+                // Reload the page instantly after 800ms to freshly render all datasets and tables without glitches!
+                setTimeout(() => {
+                    window.location.reload();
+                }, 800);
             } else {
                 showClinicalNotification('Invalid secure clinician credentials. Access denied.', 'error');
             }
         }
 
-        // Handle Session Logout
+        // Handle Session Logout (With Automated Page Reload)
         function handleStaffLogout() {
             sessionStorage.removeItem('MIMS_staff_auth');
             showClinicalNotification('Staff session securely locked.', 'success');
             
-            // Revert panel
-            document.getElementById('staff-login-card').classList.remove('hidden');
-            document.getElementById('staff-auth-panel').classList.add('hidden');
+            // Reload the page instantly after 800ms to securely lock down clinical operations panels!
+            setTimeout(() => {
+                window.location.reload();
+            }, 800);
         }
 
         // Toggle Password Change Form
@@ -2471,35 +2465,6 @@
             }
             document.getElementById('slip-location').innerText = locationText;
             document.getElementById('slip-id').innerText = ticket_id;
-
-            // Dynamically update simulated SMS log fields
-            document.getElementById('msg-sms-name').innerText = patient_name;
-            document.getElementById('msg-sms-id').innerText = ticket_id;
-            document.getElementById('msg-sms-date').innerText = formattedDate;
-
-            // Formulate secure rich-text WhatsApp message template
-            let deptName = service.toUpperCase();
-            if (service === 'op') deptName = "Outpatient (OP) Clinic";
-            if (service === 'inpatient') deptName = "Inpatient Care Ward";
-            if (service === 'deaddiction') deptName = "De-Addiction Rehabilitation";
-            if (service === 'manas') deptName = "Manas Holistic Mind Clinic";
-            if (service === 'palliative') deptName = "At-Home Caregiver Visit";
-
-            const waMessage = `Welcome to Manomithra Institute of Medical Sciences (MIMS), *${patient_name}*! Your mind wellness session has been successfully logged. \n\n*Ticket Code:* ${ticket_id}\n*Date:* ${formattedDate}\n*Time:* ${time}\n*Consultant:* ${doctor}\n*Location:* ${locationText}\n\nPlease show this secure pass at our clinical desk.`;
-            const encodedMsg = encodeURIComponent(waMessage);
-
-            // Clean patient phone format
-            let cleanPhone = patient_phone.replace(/[^0-9]/g, '');
-            if (cleanPhone.length === 10) cleanPhone = '91' + cleanPhone; // append India prefix
-
-            // Bind click-to-chat and dispatch links!
-            // 1. Send directly to patient's own mobile WhatsApp number!
-            document.getElementById('msg-wa-patient-btn').href = `https://wa.me/${cleanPhone}?text=${encodedMsg}`;
-            // 2. Share directly to clinic reception WhatsApp number!
-            document.getElementById('msg-wa-clinic-btn').href = `https://wa.me/919495867342?text=${encodedMsg}`;
-            // 3. Dispatch native SMS ticket directly through patient's phone carrier!
-            const smsText = `Welcome to Manomithra (MIMS)! Your consultation is recorded. Ticket: ${ticket_id}, Date: ${formattedDate} at ${time}. Location: ${locationText}. Show this pass at the desk.`;
-            document.getElementById('msg-sms-native-btn').href = `sms:${cleanPhone}?body=${encodeURIComponent(smsText)}`;
 
             goToBookingStep(4);
 

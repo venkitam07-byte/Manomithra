@@ -137,6 +137,7 @@
                 <!-- DESKTOP NAVIGATION -->
                 <nav class="hidden md:flex items-center gap-6 font-medium text-xs lg:text-sm text-slate-600">
                     <a href="#about" class="hover:text-brand-600 transition relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-brand-500 after:transition-all hover:after:w-full">About</a>
+                    <a href="#doctors" class="hover:text-brand-600 transition relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-brand-500 after:transition-all hover:after:w-full font-bold">Doctors</a>
                     <a href="#services" class="hover:text-brand-600 transition relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-brand-500 after:transition-all hover:after:w-full">Services</a>
                     <a href="#wellness-quiz" class="hover:text-brand-600 transition relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-brand-500 after:transition-all hover:after:w-full">Wellness Quiz</a>
                     
@@ -172,6 +173,9 @@
             <div class="bg-white/95 backdrop-blur-md border border-brand-100 rounded-2xl p-4 shadow-xl flex flex-col gap-3">
                 <a href="#about" onclick="toggleMobileMenu()" class="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 text-slate-700 font-semibold transition">
                     <i data-lucide="heart" class="w-5 h-5 text-brand-500"></i> About Us
+                </a>
+                <a href="#doctors" onclick="toggleMobileMenu()" class="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 text-slate-700 font-semibold transition">
+                    <i data-lucide="users-2" class="w-5 h-5 text-brand-500"></i> Our Specialists
                 </a>
                 <a href="#services" onclick="toggleMobileMenu()" class="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 text-slate-700 font-semibold transition">
                     <i data-lucide="activity" class="w-5 h-5 text-brand-500"></i> Medical Services
@@ -428,6 +432,72 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MEET OUR SPECIALISTS -->
+    <section id="doctors" class="py-20 sm:py-28 bg-transparent">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <span class="bg-brand-500 text-white text-[10px] font-black uppercase px-3 py-1.5 rounded-full font-mono tracking-wider shadow">Clinical Leadership</span>
+                <h3 class="font-display text-3xl sm:text-4xl font-extrabold text-slate-950">Meet Our Mind Specialists</h3>
+                <p class="text-slate-600 text-sm sm:text-base leading-relaxed font-sans">
+                    Our team consists of highly compassionate, board-certified clinical psychiatrists, holistic practitioners, and specialized psychologists working in complete synergy.
+                </p>
+            </div>
+
+            <!-- Doctors Grid -->
+            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                
+                <!-- Doctor 1: Dr. C.D. Premadasan -->
+                <div class="bg-white border border-brand-100 rounded-3xl p-6 shadow-lg hover:shadow-xl hover:border-brand-200 transition-all duration-300 text-center space-y-4 group">
+                    <div class="relative w-36 h-36 mx-auto group">
+                        <div class="absolute inset-0 rounded-full bg-gradient-to-tr from-brand-500 to-wellness-400 blur opacity-40 group-hover:opacity-70 transition-all duration-300"></div>
+                        <img src="./dr-premadasan.webp" alt="Dr. C.D. Premadasan" class="w-full h-full object-cover rounded-full border-4 border-white shadow-md relative z-10 group-hover:scale-[1.02] transition-all duration-300">
+                    </div>
+                    <div class="space-y-1">
+                        <h4 class="font-display text-xl font-bold text-slate-900">Dr. C.D. Premadasan</h4>
+                        <p class="text-xs text-brand-600 font-bold uppercase tracking-wider font-mono">Chief Psychiatric Director &amp; Founder</p>
+                        <p class="text-xs text-slate-500 font-medium">30+ Years Experience | MD, DPM</p>
+                    </div>
+                    <p class="text-slate-600 text-xs sm:text-sm leading-relaxed font-sans">
+                        Pioneer of mental health in Palakkad. Leading specialist in complex psychopathology, clinical psychiatry, and neuro-psychiatry.
+                    </p>
+                </div>
+
+                <!-- Doctor 2: Dr. Devika Menon -->
+                <div class="bg-white border border-brand-100 rounded-3xl p-6 shadow-lg hover:shadow-xl hover:border-brand-200 transition-all duration-300 text-center space-y-4 group">
+                    <div class="relative w-36 h-36 mx-auto group">
+                        <div class="absolute inset-0 rounded-full bg-gradient-to-tr from-brand-500 to-wellness-400 blur opacity-40 group-hover:opacity-70 transition-all duration-300"></div>
+                        <img src="https://images.unsplash.com/photo-1594824813573-246434de83fb?auto=format&fit=crop&w=400&q=80" alt="Dr. Devika Menon" class="w-full h-full object-cover rounded-full border-4 border-white shadow-md relative z-10 group-hover:scale-[1.02] transition-all duration-300">
+                    </div>
+                    <div class="space-y-1">
+                        <h4 class="font-display text-xl font-bold text-slate-900">Dr. Devika Menon</h4>
+                        <p class="text-xs text-brand-600 font-bold uppercase tracking-wider font-mono">Consultant - Holistic &amp; Mind Wellness</p>
+                        <p class="text-xs text-slate-500 font-medium">12+ Years Experience | BAMS, MD (Ayur)</p>
+                    </div>
+                    <p class="text-slate-600 text-xs sm:text-sm leading-relaxed font-sans">
+                        Expert in traditional mind therapies, Shirodhara sensory calmness, mindfulness counseling, and natural stress-reduction.
+                    </p>
+                </div>
+
+                <!-- Doctor 3: Dr. Ketan Pillai -->
+                <div class="bg-white border border-brand-100 rounded-3xl p-6 shadow-lg hover:shadow-xl hover:border-brand-200 transition-all duration-300 text-center space-y-4 group">
+                    <div class="relative w-36 h-36 mx-auto group">
+                        <div class="absolute inset-0 rounded-full bg-gradient-to-tr from-brand-500 to-wellness-400 blur opacity-40 group-hover:opacity-70 transition-all duration-300"></div>
+                        <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=400&q=80" alt="Dr. Ketan Pillai" class="w-full h-full object-cover rounded-full border-4 border-white shadow-md relative z-10 group-hover:scale-[1.02] transition-all duration-300">
+                    </div>
+                    <div class="space-y-1">
+                        <h4 class="font-display text-xl font-bold text-slate-900">Dr. Ketan Pillai</h4>
+                        <p class="text-xs text-brand-600 font-bold uppercase tracking-wider font-mono">Chief Clinical Psychologist</p>
+                        <p class="text-xs text-slate-500 font-medium">15+ Years Experience | PhD (Clin. Psych)</p>
+                    </div>
+                    <p class="text-slate-600 text-xs sm:text-sm leading-relaxed font-sans">
+                        Specialist in cognitive behavioral therapy (CBT), substance rehabilitation, adolescent mental health, and family dynamics.
+                    </p>
+                </div>
+
             </div>
         </div>
     </section>

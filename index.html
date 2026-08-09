@@ -1864,10 +1864,23 @@
             handleStaffLogout();
         }
 
-        // Run check on load
+        // Run check on load (Completely Non-Blocking & Asynchronous!)
         window.addEventListener('load', () => {
+            // 1. Initialize local virtual ledger immediately (Loads in 1 millisecond!)
             initVirtualLedger();
             checkStaffSessionAuth();
+            
+            // 2. Load active elements from local cache instantly to prevent ANY booking blocks
+            loadAdminAppointments();
+            loadAdminPatientsSelector();
+            
+            // 3. Silently pull and merge latest private cloud database files in the background!
+            pullFromCloudDatabase().then(() => {
+                // Refresh views quietly once the secure cloud download completes
+                loadAdminAppointments();
+                loadAdminPatientsSelector();
+                loadAdminStaffTable();
+            }).catch(() => {});
         });
 
         // Mobile Menu Drawer Controls
@@ -2170,6 +2183,7 @@
                 loadPatientDashboard();
                 loadAdminPatientsSelector();
                 showClinicalNotification('Therapy objective status synchronized successfully.', 'success');
+                pushToCloudDatabase();
             }
         }
 
@@ -2270,6 +2284,7 @@
                 saveVirtualAppointments(appointments);
                 loadAdminAppointments();
                 showClinicalNotification(`Schedules entry status updated to "${newStatus}" successfully.`, 'success');
+                pushToCloudDatabase();
             }
         }
 
@@ -2281,6 +2296,7 @@
             saveVirtualAppointments(filtered);
             loadAdminAppointments();
             showClinicalNotification('Consultation entry permanently removed from central register.', 'success');
+            pushToCloudDatabase();
         }
 
         function loadAdminPatientsSelector() {
@@ -2419,6 +2435,7 @@
 
             document.getElementById('create-patient-form').reset();
             loadAdminPatientsSelector();
+            pushToCloudDatabase();
         }
 
 
@@ -2490,6 +2507,7 @@
 
             loadAdminAppointments();
             showClinicalNotification('Your online consultation pre-registration is confirmed!', 'success');
+            pushToCloudDatabase();
         }
 
         function goToBookingStep(step) {
